@@ -1,0 +1,2983 @@
+{
+  "userAccount.json": {
+    "entity": {
+      "name": "UserAccount",
+      "table": "USER_ACCOUNT",
+      "attributes": [
+        {
+          "type": "String",
+          "name": "id",
+          "uiDisplayName": "Title",
+          "required": "true",
+          "column": "title",
+          "uiComponent": "text",
+          "id": "userId123"
+        },
+        {
+          "type": "String",
+          "name": "login",
+          "id": "userLogin123"
+        }
+      ]
+    }
+  },
+  "katappultTag.json": {
+    "package": "com.katappult.cloud.platform.generated",
+    "restUri": "/katappult/cloud/app/v1/secured/api/katappult_tag",
+    "backendMenu": "false",
+    "eventSuffix": "_KATAPPULT_TAG",
+    "attributes": [],
+    "entity": {
+      "name": "KatappultTag",
+      "table": "GEN_KATAPPULT_TAG",
+      "importable": "true",
+      "exportable": "true",
+      "attributes": [
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "title",
+          "uiDisplayName": "Title",
+          "required": "true",
+          "column": "title",
+          "uiComponent": "text",
+          "id": "eFbyrgzpWSWN"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "internalKey",
+          "uiDisplayName": "Internal_Key",
+          "required": "true",
+          "column": "internalkey",
+          "uiComponent": "text",
+          "id": "UJtNzIslXDfm"
+        },
+        {
+          "type": "Integer",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "displayOrder",
+          "uiDisplayName": "Display order",
+          "required": "true",
+          "column": "displayorder",
+          "uiComponent": "number",
+          "id": "eFHGxAeiBvVr"
+        },
+        {
+          "type": "Boolean",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "actif",
+          "uiDisplayName": "Actif",
+          "required": "true",
+          "column": "actif",
+          "uiComponent": "yesno",
+          "id": "fkaTdBZcXhpB"
+        }
+      ],
+      "knoers": ["Thumbed"]
+    },
+    "types": [],
+    "multiIdentifiedTypes": []
+  },
+  "katappultShopStats.json": {
+    "eventSuffix": "_KATAPPULT_SHOP_STATS",
+    "fileName": "katappultShopStats.json",
+    "restUri": "/katappult/cloud/app/v1/secured/api/katappult_shop_stats",
+    "package": "com.katappult.cloud.platform.generated",
+    "backendMenu": "false",
+    "oneToOne": [],
+    "attributes": [],
+    "oneToMany": [],
+    "entity": {
+      "name": "KatappultShopStats",
+      "table": "GEN_KATAPPULT_SHOP_STATS",
+      "importable": "true",
+      "exportable": "true",
+      "attributes": [
+        {
+          "type": "Integer",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "totalHoursLives",
+          "uiDisplayName": "Total hours live",
+          "required": "true",
+          "uiComponent": "number",
+          "id": "SXaAUhIhPtvk"
+        },
+        {
+          "type": "Integer",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "likes",
+          "uiDisplayName": "Likes",
+          "required": "true",
+          "uiComponent": "number",
+          "id": "uhyXsdEaaehA"
+        },
+        {
+          "type": "Integer",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "orders",
+          "uiDisplayName": "Orders",
+          "required": "true",
+          "uiComponent": "number",
+          "id": "wZxzVvbYiJQt"
+        },
+        {
+          "type": "Integer",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "caTotal",
+          "uiDisplayName": "CA Total",
+          "required": "false",
+          "uiComponent": "number",
+          "id": "vsaBQUHeqRoA"
+        },
+        {
+          "type": "Integer",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "followers",
+          "uiDisplayName": "Followers",
+          "required": "false",
+          "uiComponent": "number",
+          "id": "rmkHTBUUyrMa"
+        },
+        {
+          "type": "Integer",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "averageOfViewers",
+          "uiDisplayName": "Average of viewers",
+          "required": "false",
+          "uiComponent": "number",
+          "id": "FWiszlMnKrfe"
+        },
+        {
+          "type": "Integer",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "maxViewers",
+          "uiDisplayName": "Max viewers",
+          "required": "false",
+          "uiComponent": "number",
+          "id": "lcqhxHpjdenD"
+        },
+        {
+          "type": "Integer",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "newFollowers",
+          "uiDisplayName": "New followers",
+          "required": "false",
+          "uiComponent": "number",
+          "id": "MtWvnWzaYVla"
+        },
+        {
+          "type": "Integer",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "singleViewers",
+          "uiDisplayName": "Single viewers",
+          "required": "false",
+          "uiComponent": "number",
+          "id": "wXHkoFnTyqbK"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "false",
+          "uiMasterDatatableAttribute": "false",
+          "name": "canceledByAdminOrders",
+          "uiDisplayName": "Orders canceled by admin",
+          "required": "false",
+          "uiComponent": "text",
+          "id": "ZOOjuyqdiRKe"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "false",
+          "uiMasterDatatableAttribute": "false",
+          "name": "canceledByUsersOrders",
+          "uiDisplayName": "Orders canceled by users",
+          "required": "false",
+          "uiComponent": "text",
+          "id": "DCgBZHFUXaKp"
+        }
+      ]
+    }
+  },
+  "katappultExpeditionService.json": {
+    "eventSuffix": "_KATAPPULT_EXPEDITION_SERVICE",
+    "fileName": "katappultExpeditionService.json",
+    "restUri": "/katappult/cloud/app/v1/secured/api/katappult_expedition_service",
+    "package": "com.katappult.cloud.platform.generated",
+    "backendMenu": "false",
+    "attributes": [],
+    "oneToMany": [
+      {
+        "tabTitle": "Expéditions",
+        "inverseTabTitle": "Service",
+        "roleBClass": "KatappultOrderExpedition",
+        "roleAClass": "KatappultExpeditionService",
+        "roleBPackage": "com.katappult.cloud.platform.generated.model",
+        "roleAPackage": "com.katappult.cloud.platform.generated.model",
+        "joinColumn": "one_to_many_expeditionservice_oid",
+        "roleAIsOnMasterEntity": "false",
+        "roleBIsOnMasterEntity": "false",
+        "roleBAttributeName": "expeditions",
+        "attributeName": "expeditionService",
+        "id": "GlkxUfqBtded"
+      }
+    ],
+    "entity": {
+      "name": "KatappultExpeditionService",
+      "table": "GEN_KATAPPULT_EXPEDITION_SERVICE",
+      "importable": "true",
+      "exportable": "true",
+      "attributes": [
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "true",
+          "name": "serviceName",
+          "uiDisplayName": "Service name",
+          "required": "true",
+          "uiComponent": "text",
+          "id": "OUHfjgXjCjws"
+        },
+        {
+          "type": "Boolean",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "actif",
+          "uiDisplayName": "Actif",
+          "required": "false",
+          "uiComponent": "yesno",
+          "id": "YubhpjHxviUl"
+        }
+      ],
+      "knoers": ["Thumbed"]
+    },
+    "types": [],
+    "multiIdentifiedTypes": []
+  },
+  "katappultShop.json": {
+    "eventSuffix": "_KATAPPULT_SHOP",
+    "fileName": "katappultShop.json",
+    "restUri": "/katappult/cloud/app/v1/secured/api/katappult_shop",
+    "types": [
+      {
+        "logicalName": "KatappultShopType",
+        "logicalPath": "com.katappult.online.types.KatappultShopType",
+        "lifecycle": "KatappultShop lifecycle"
+      }
+    ],
+    "package": "com.katappult.cloud.platform.generated",
+    "backendMenu": "false",
+    "oneToOne": [
+      {
+        "tabTitle": "Demande source",
+        "inverseTabTitle": "Boutique",
+        "roleBClass": "KatappultBecomeDealerQuery",
+        "roleAClass": "KatappultShop",
+        "roleBPackage": "com.katappult.cloud.platform.generated.model",
+        "roleAPackage": "com.katappult.cloud.platform.generated.model",
+        "attributeName": "sourceQuery",
+        "joinColumn": "one_to_one_sourcequery_oid",
+        "roleAIsOnMasterEntity": "false",
+        "roleBIsOnMasterEntity": "false",
+        "roleBAttributeName": "validateShop",
+        "id": "bWGqwunmIyir"
+      }
+    ],
+    "vetoableRules": [
+      {
+        "className": "KatappultShopSetLifecycle",
+        "componentName": "LifecycleManagedSystemRules",
+        "order": "2",
+        "event": "PRE_CREATE_KATAPPULT_SHOP",
+        "internal": "true"
+      },
+      {
+        "className": "KatappultShopSetType",
+        "componentName": "TypeManagedSetBusinessTypeRule",
+        "order": "1",
+        "event": "PRE_CREATE_KATAPPULT_SHOP",
+        "internal": "true"
+      },
+      {
+        "className": "KatappultShopSetReferenceNumber",
+        "componentName": "NumberableSetDefaultReferenceRule",
+        "order": "1",
+        "event": "PRE_CREATE_KATAPPULT_SHOP",
+        "internal": "true"
+      }
+    ],
+    "multiIdentifiedTypes": [],
+    "attributes": [],
+    "oneToMany": [
+      {
+        "tabTitle": "Lives",
+        "inverseTabTitle": "Boutique",
+        "roleBClass": "KatappultLive",
+        "roleAClass": "KatappultShop",
+        "roleBPackage": "com.katappult.cloud.platform.generated.model",
+        "roleAPackage": "com.katappult.cloud.platform.generated.model",
+        "joinColumn": "one_to_many_shop_oid",
+        "roleAIsOnMasterEntity": "false",
+        "roleBIsOnMasterEntity": "false",
+        "roleBAttributeName": "lives",
+        "attributeName": "shop",
+        "id": "jFVeDMkRcMxF"
+      },
+      {
+        "tabTitle": "Produits",
+        "inverseTabTitle": "Boutique",
+        "roleBClass": "KatappultProduct",
+        "roleAClass": "KatappultShop",
+        "roleBPackage": "com.katappult.cloud.platform.generated.model",
+        "roleAPackage": "com.katappult.cloud.platform.generated.model",
+        "joinColumn": "one_to_many_shop_oid",
+        "roleAIsOnMasterEntity": "false",
+        "roleBIsOnMasterEntity": "false",
+        "roleBAttributeName": "products",
+        "attributeName": "shop",
+        "id": "cVzrRypShyUh"
+      },
+      {
+        "tabTitle": "Commandes",
+        "inverseTabTitle": "Boutique",
+        "roleBClass": "KatappultOrder",
+        "roleAClass": "KatappultShop",
+        "roleBPackage": "com.katappult.cloud.platform.generated.model",
+        "roleAPackage": "com.katappult.cloud.platform.generated.model",
+        "joinColumn": "one_to_many_shop_oid",
+        "roleAIsOnMasterEntity": "false",
+        "roleBIsOnMasterEntity": "false",
+        "roleBAttributeName": "orders",
+        "attributeName": "shop",
+        "id": "qfkmXbwNDiMY"
+      },
+      {
+        "tabTitle": "Statistiques",
+        "inverseTabTitle": "Boutique",
+        "roleBClass": "KatappultShopStats",
+        "roleAClass": "KatappultShop",
+        "roleBPackage": "com.katappult.cloud.platform.generated.model",
+        "roleAPackage": "com.katappult.cloud.platform.generated.model",
+        "joinColumn": "one_to_many_shop_oid",
+        "roleAIsOnMasterEntity": "false",
+        "roleBIsOnMasterEntity": "false",
+        "roleBAttributeName": "stats",
+        "attributeName": "shop",
+        "id": "pqVQMScMlZmv"
+      },
+      {
+        "tabTitle": "Le Vendeur",
+        "roleAClass": "KatappultShop",
+        "inverseTabTitle": "N/A",
+        "roleAIsOnMasterEntity": "false",
+        "roleBIsOnMasterEntity": "false",
+        "roleBClass": "UserAccount",
+        "roleBPackage": "com.katappult.core.model.account",
+        "attributeName": "owner",
+        "roleAPackage": "com.katappult.cloud.platform.generated",
+        "manyToOneLegacy": "true",
+        "id": "UpteqQiYRcSZ"
+      },
+      {
+        "tabTitle": "Expéditions",
+        "inverseTabTitle": "Boutique",
+        "roleBClass": "KatappultOrderExpedition",
+        "roleAClass": "KatappultShop",
+        "roleBPackage": "com.katappult.cloud.platform.generated.model",
+        "roleAPackage": "com.katappult.cloud.platform.generated.model",
+        "joinColumn": "one_to_many_shop_oid",
+        "roleAIsOnMasterEntity": "false",
+        "roleBIsOnMasterEntity": "false",
+        "roleBAttributeName": "orderExpeditions",
+        "attributeName": "shop",
+        "id": "pbgubLHBKGdL"
+      },
+      {
+        "tabTitle": "Code promos",
+        "inverseTabTitle": "Boutique",
+        "roleBClass": "KatappultCodeProm",
+        "roleAClass": "KatappultShop",
+        "roleBPackage": "com.katappult.cloud.platform.generated.model",
+        "roleAPackage": "com.katappult.cloud.platform.generated.model",
+        "joinColumn": "one_to_many_boutique_oid",
+        "roleAIsOnMasterEntity": "false",
+        "roleBIsOnMasterEntity": "false",
+        "attributeName": "boutique",
+        "roleBAttributeName": "codePromos",
+        "id": "CnygSTZzumAD"
+      }
+    ],
+    "entity": {
+      "name": "KatappultShop",
+      "table": "GEN_KATAPPULT_SHOP",
+      "importable": "true",
+      "exportable": "true",
+      "attributes": [
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "true",
+          "name": "name",
+          "uiDisplayName": "Name",
+          "required": "true",
+          "uiComponent": "text",
+          "id": "IgghyWKhekEG"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "email",
+          "uiDisplayName": "Email",
+          "required": "true",
+          "uiComponent": "text",
+          "id": "KFzGoYZWbufY"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "siren",
+          "uiDisplayName": "Siren",
+          "required": "false",
+          "uiComponent": "text",
+          "id": "kJTzDQXLsirO"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "siret",
+          "uiDisplayName": "Siret",
+          "required": "false",
+          "uiComponent": "text",
+          "id": "okjBnegJTcge"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "website",
+          "uiDisplayName": "Website",
+          "required": "false",
+          "uiComponent": "text",
+          "id": "xyGieKGHwzip"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "description",
+          "uiDisplayName": "Description",
+          "required": "false",
+          "uiComponent": "textarea",
+          "id": "fXoenEjDZCfN"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "tvaNumber",
+          "uiDisplayName": "TVA Number",
+          "required": "false",
+          "uiComponent": "text",
+          "id": "UqeBYYzEPaAM"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "false",
+          "uiMasterDatatableAttribute": "false",
+          "name": "liveAttribute1",
+          "uiDisplayName": "Live attribute1",
+          "required": "false",
+          "uiComponent": "text",
+          "id": "sNPpSxsaBGrO"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "false",
+          "uiMasterDatatableAttribute": "false",
+          "name": "liveAttribute2",
+          "uiDisplayName": "Live attribute2",
+          "required": "false",
+          "uiComponent": "text",
+          "id": "xOTokICEQkkG"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "false",
+          "uiMasterDatatableAttribute": "false",
+          "name": "liveAttribute3",
+          "uiDisplayName": "Live attribute3",
+          "required": "false",
+          "uiComponent": "text",
+          "id": "QQHTVnsnoIXl"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "false",
+          "uiMasterDatatableAttribute": "false",
+          "name": "liveAttribute4",
+          "uiDisplayName": "Live attribute4",
+          "required": "false",
+          "uiComponent": "text",
+          "id": "uthoJSbrxNZo"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "false",
+          "uiMasterDatatableAttribute": "false",
+          "name": "stripeConnectAccount",
+          "uiDisplayName": "Stripe connect account",
+          "required": "false",
+          "uiComponent": "text",
+          "id": "IgghyWKhekx1G"
+        },
+        {
+          "type": "Integer",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "feesAmount",
+          "uiDisplayName": "Fees",
+          "required": "false",
+          "uiComponent": "text",
+          "id": "IgghyWKhCekx1G"
+        },
+        {
+          "type": "Boolean",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "professional",
+          "uiDisplayName": "Professional",
+          "required": "true",
+          "column": "professional",
+          "uiComponent": "yesno",
+          "id": "JniqcQVCcESC"
+        }
+      ],
+      "knoers": [
+        "LifecycleManaged",
+        "TypeManaged",
+        "Contactable",
+        "Numberable",
+        "Thumbed"
+      ]
+    }
+  },
+  "katappultProduct.json": {
+    "eventSuffix": "_KATAPPULT_PRODUCT",
+    "fileName": "katappultProduct.json",
+    "restUri": "/katappult/cloud/app/v1/secured/api/katappult_product",
+    "types": [
+      {
+        "logicalName": "KatappultProductType",
+        "logicalPath": "com.katappult.online.types.KatappultProductType",
+        "lifecycle": "KatappultProduct lifecycle"
+      }
+    ],
+    "package": "com.katappult.cloud.platform.generated",
+    "backendMenu": "false",
+    "multiIdentifiedTypes": [],
+    "vetoableRules": [
+      {
+        "className": "KatappultProductSetLifecycle",
+        "componentName": "LifecycleManagedSystemRules",
+        "order": "2",
+        "event": "PRE_CREATE_KATAPPULT_PRODUCT",
+        "internal": "true"
+      },
+      {
+        "className": "KatappultProductSetType",
+        "componentName": "TypeManagedSetBusinessTypeRule",
+        "order": "1",
+        "event": "PRE_CREATE_KATAPPULT_PRODUCT",
+        "internal": "true"
+      },
+      {
+        "className": "KatappultProductSetReferenceNumber",
+        "componentName": "NumberableSetDefaultReferenceRule",
+        "order": "1",
+        "event": "PRE_CREATE_KATAPPULT_PRODUCT",
+        "internal": "true"
+      }
+    ],
+    "attributes": [],
+    "oneToMany": [
+      {
+        "tabTitle": "Pre Auctions",
+        "inverseTabTitle": "Product",
+        "roleBClass": "KatappultUserPreAuction",
+        "roleAClass": "KatappultProduct",
+        "roleBPackage": "com.katappult.cloud.platform.generated.model",
+        "roleAPackage": "com.katappult.cloud.platform.generated.model",
+        "joinColumn": "one_to_many_product_oid",
+        "roleAIsOnMasterEntity": "false",
+        "roleBIsOnMasterEntity": "false",
+        "roleBAttributeName": "userPreAuctions",
+        "attributeName": "product",
+        "id": "qBsDSrQaPhPG"
+      }
+    ],
+    "entity": {
+      "name": "KatappultProduct",
+      "table": "GEN_KATAPPULT_PRODUCT",
+      "importable": "true",
+      "exportable": "true",
+      "attributes": [
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "name",
+          "uiDisplayName": "Name",
+          "required": "true",
+          "uiComponent": "text",
+          "id": "yftQvFuPSKSS"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "description",
+          "uiDisplayName": "Description",
+          "required": "true",
+          "uiComponent": "textarea",
+          "id": "QAfEGJQsNOQV"
+        },
+        {
+          "type": "Integer",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "weight",
+          "uiDisplayName": "Weight",
+          "required": "false",
+          "uiComponent": "number",
+          "id": "EYRHNdWcZWoN"
+        },
+        {
+          "type": "Integer",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "width",
+          "uiDisplayName": "Width",
+          "required": "false",
+          "uiComponent": "number",
+          "id": "svsfqFNiqcYm"
+        },
+        {
+          "type": "Integer",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "height",
+          "uiDisplayName": "Height",
+          "required": "false",
+          "uiComponent": "number",
+          "id": "tAcypjAlJSud"
+        },
+        {
+          "type": "Integer",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "price",
+          "uiDisplayName": "Price",
+          "required": "true",
+          "uiComponent": "number",
+          "id": "BtOlqJbTYhWH"
+        },
+        {
+          "type": "Integer",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "availableQuantity",
+          "uiDisplayName": "Quantity",
+          "required": "true",
+          "uiComponent": "number",
+          "id": "rzOfsiCNthRZ"
+        },
+        {
+          "type": "Integer",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "vatRate",
+          "uiDisplayName": "VAT Rate",
+          "required": "true",
+          "uiComponent": "number",
+          "id": "VNZJBihNDCGz"
+        },
+        {
+          "type": "Boolean",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "actif",
+          "uiDisplayName": "Actif",
+          "required": "false",
+          "uiComponent": "yesno",
+          "id": "sFzUIRdviWMs"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "bodyState",
+          "uiDisplayName": "Body state",
+          "required": "false",
+          "uiComponent": "text",
+          "id": "FuKDMsPHhpGt"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "false",
+          "uiMasterDatatableAttribute": "false",
+          "name": "widthUnit",
+          "uiDisplayName": "Width Unit",
+          "required": "false",
+          "uiComponent": "text",
+          "id": "mVNzHDiDzUzN"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "false",
+          "uiMasterDatatableAttribute": "false",
+          "name": "heightUnit",
+          "uiDisplayName": "Height unit",
+          "required": "false",
+          "uiComponent": "text",
+          "id": "cKjrVOtVFSYm"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "false",
+          "uiMasterDatatableAttribute": "false",
+          "name": "weightUnit",
+          "uiDisplayName": "Weight Unit",
+          "required": "false",
+          "uiComponent": "text",
+          "id": "DxWRVnprIFzM"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "internalType",
+          "uiDisplayName": "Internal type",
+          "required": "false",
+          "uiComponent": "text",
+          "id": "EDluWTpUaeHs"
+        },
+        {
+          "type": "Integer",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "false",
+          "uiMasterDatatableAttribute": "false",
+          "name": "discount",
+          "uiDisplayName": "Discount",
+          "required": "false",
+          "column": "discount",
+          "uiComponent": "number",
+          "id": "lOiOyLyZXJaN"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "false",
+          "uiMasterDatatableAttribute": "false",
+          "name": "longDescription",
+          "uiDisplayName": "Logn description",
+          "required": "false",
+          "column": "longdescription",
+          "uiComponent": "textarea",
+          "id": "KEtIFgPEgZxu"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "false",
+          "uiMasterDatatableAttribute": "false",
+          "name": "internalDescription",
+          "uiDisplayName": "Internal description",
+          "required": "false",
+          "column": "internaldescription",
+          "uiComponent": "textarea",
+          "id": "ZAdkUillNrEh"
+        },
+        {
+          "type": "Integer",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "displayOrder",
+          "uiDisplayName": "Display Order",
+          "required": "false",
+          "column": "displayorder",
+          "uiComponent": "number",
+          "id": "cyrrkdJevDNY"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "tags",
+          "uiDisplayName": "Tags",
+          "required": "false",
+          "column": "tags",
+          "uiComponent": "text",
+          "id": "LDfAgKjZQBMq"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "seoPageTitle",
+          "uiDisplayName": "SEO Page title",
+          "required": "false",
+          "column": "seopagetitle",
+          "uiComponent": "text",
+          "id": "rlDZibgqJzBF"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "seoProductMeta",
+          "uiDisplayName": "SEO Product Meta",
+          "required": "false",
+          "column": "seoproductmeta",
+          "uiComponent": "text",
+          "id": "zMQtetqnsaNN"
+        },
+        {
+          "type": "Boolean",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "mysteryBox",
+          "uiDisplayName": "Mystery Box",
+          "required": "false",
+          "column": "mysterybox",
+          "uiComponent": "yesno",
+          "id": "sUnGhJFHxFPh"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "language",
+          "uiDisplayName": "Language",
+          "required": "false",
+          "column": "language",
+          "uiComponent": "text",
+          "id": "OkbvJkCeHBoP"
+        }
+      ],
+      "knoers": ["LifecycleManaged", "TypeManaged", "Numberable", "Thumbed"]
+    }
+  },
+  "katappultBecomeDealerQuery.json": {
+    "eventSuffix": "_KATAPPULT_BECOME_DEALER_QUERY",
+    "fileName": "katappultBecomeDealerQuery.json",
+    "restUri": "/katappult/cloud/app/v1/secured/api/katappult_become_dealer_query",
+    "types": [
+      {
+        "logicalName": "KatappultBecomeDealerQueryType",
+        "logicalPath": "com.katappult.online.types.KatappultBecomeDealerQueryType",
+        "lifecycle": "KatappultBecomeDealerQuery lifecycle"
+      }
+    ],
+    "package": "com.katappult.cloud.platform.generated",
+    "backendMenu": "false",
+    "oneToOne": [
+      {
+        "tabTitle": "Demandeur",
+        "roleAClass": "KatappultBecomeDealerQuery",
+        "inverseTabTitle": "N/A",
+        "roleAIsOnMasterEntity": "false",
+        "roleBIsOnMasterEntity": "false",
+        "roleBClass": "UserAccount",
+        "roleBPackage": "com.katappult.core.model.account",
+        "attributeName": "owner",
+        "roleAPackage": "com.katappult.cloud.platform.generated",
+        "oneToOneLegacy": "true",
+        "id": "JnZgxdKypuaE"
+      }
+    ],
+    "vetoableRules": [
+      {
+        "className": "KatappultBecomeDealerQuerySetLifecycle",
+        "componentName": "LifecycleManagedSystemRules",
+        "order": "2",
+        "event": "PRE_CREATE_KATAPPULT_BECOME_DEALER_QUERY",
+        "internal": "true"
+      },
+      {
+        "className": "KatappultBecomeDealerQuerySetType",
+        "componentName": "TypeManagedSetBusinessTypeRule",
+        "order": "1",
+        "event": "PRE_CREATE_KATAPPULT_BECOME_DEALER_QUERY",
+        "internal": "true"
+      },
+      {
+        "className": "KatappultBecomeDealerQuerySetReferenceNumber",
+        "componentName": "NumberableSetDefaultReferenceRule",
+        "order": "1",
+        "event": "PRE_CREATE_KATAPPULT_BECOME_DEALER_QUERY",
+        "internal": "true"
+      }
+    ],
+    "multiIdentifiedTypes": [],
+    "attributes": [],
+    "entity": {
+      "name": "KatappultBecomeDealerQuery",
+      "table": "GEN_KATAPPULT_BECOME_DEALER_QUERY",
+      "importable": "true",
+      "exportable": "true",
+      "attributes": [
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "true",
+          "name": "description",
+          "uiDisplayName": "Description",
+          "required": "true",
+          "uiComponent": "textarea",
+          "id": "IqOIAcQSaItk"
+        },
+        {
+          "type": "Boolean",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "professional",
+          "uiDisplayName": "Professional",
+          "required": "true",
+          "column": "professional",
+          "uiComponent": "yesno",
+          "id": "CPLShYaCaycl"
+        }
+      ],
+      "knoers": [
+        "LifecycleManaged",
+        "TypeManaged",
+        "ContentHolder",
+        "Numberable"
+      ]
+    }
+  },
+  "katappultLive.json": {
+    "eventSuffix": "_KATAPPULT_LIVE",
+    "fileName": "katappultLive.json",
+    "restUri": "/katappult/cloud/app/v1/secured/api/katappult_live",
+    "types": [
+      {
+        "logicalName": "KatappultLiveType",
+        "logicalPath": "com.katappult.online.types.KatappultLiveType",
+        "lifecycle": "KatappultLive lifecycle"
+      }
+    ],
+    "package": "com.katappult.cloud.platform.generated",
+    "backendMenu": "false",
+    "manyToMany": [
+      {
+        "tabTitle": "Produits Du Live",
+        "inverseTabTitle": "Live",
+        "roleBClass": "KatappultProduct",
+        "roleAClass": "KatappultLive",
+        "roleBPackage": "com.katappult.cloud.platform.generated.model",
+        "roleAPackage": "com.katappult.cloud.platform.generated.model",
+        "linkTableName": {},
+        "link": {
+          "linkTableName": "GEN_MANY_TO_MANY_KATAPPULTLIVE_KATAPPULTPRODUCT_LINK"
+        },
+        "id": "NWUecffovbNg"
+      }
+    ],
+    "vetoableRules": [
+      {
+        "className": "KatappultLiveSetLifecycle",
+        "componentName": "LifecycleManagedSystemRules",
+        "order": "2",
+        "event": "PRE_CREATE_KATAPPULT_LIVE",
+        "internal": "true"
+      },
+      {
+        "className": "KatappultLiveSetType",
+        "componentName": "TypeManagedSetBusinessTypeRule",
+        "order": "1",
+        "event": "PRE_CREATE_KATAPPULT_LIVE",
+        "internal": "true"
+      }
+    ],
+    "multiIdentifiedTypes": [],
+    "attributes": [],
+    "oneToMany": [
+      {
+        "tabTitle": "Commandes Du Live",
+        "inverseTabTitle": "Live",
+        "roleBClass": "KatappultOrder",
+        "roleAClass": "KatappultLive",
+        "roleBPackage": "com.katappult.cloud.platform.generated.model",
+        "roleAPackage": "com.katappult.cloud.platform.generated.model",
+        "joinColumn": "one_to_many_sourcelive_oid",
+        "roleAIsOnMasterEntity": "false",
+        "roleBIsOnMasterEntity": "false",
+        "roleBAttributeName": "linkedOrders",
+        "attributeName": "sourceLive",
+        "id": "vHcdEVCmcSdg"
+      },
+      {
+        "tabTitle": "Enchères Du Live",
+        "inverseTabTitle": "Live",
+        "roleBClass": "KatappultAuctionRoom",
+        "roleAClass": "KatappultLive",
+        "roleBPackage": "com.katappult.cloud.platform.generated.model",
+        "roleAPackage": "com.katappult.cloud.platform.generated.model",
+        "joinColumn": "one_to_many_live_oid",
+        "roleAIsOnMasterEntity": "false",
+        "roleBIsOnMasterEntity": "false",
+        "roleBAttributeName": "auctionRoom",
+        "attributeName": "live",
+        "id": "JQSXHyupnlPo"
+      }
+    ],
+    "entity": {
+      "name": "KatappultLive",
+      "table": "GEN_KATAPPULT_LIVE",
+      "importable": "true",
+      "exportable": "true",
+      "attributes": [
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "true",
+          "name": "title",
+          "uiDisplayName": "Title",
+          "required": "true",
+          "uiComponent": "text",
+          "id": "NQrCzCFVTpeB"
+        },
+        {
+          "type": "Date",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "false",
+          "uiMasterDatatableAttribute": "false",
+          "name": "endDateTime",
+          "uiDisplayName": "End date time",
+          "required": "false",
+          "uiComponent": "datetime",
+          "id": "eZKjCuJlxAJl"
+        },
+        {
+          "type": "Date",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "startDateTime",
+          "uiDisplayName": "Start date time",
+          "required": "true",
+          "uiComponent": "datetime",
+          "id": "fnnmpusqmDFg"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "streamLanguage",
+          "uiDisplayName": "Stream language",
+          "required": "true",
+          "uiComponent": "text",
+          "id": "QJVKalqDAruz"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "enLiveMessage",
+          "uiDisplayName": "En live message",
+          "required": "true",
+          "uiComponent": "textarea",
+          "id": "xJHaZulSkPuX"
+        },
+        {
+          "type": "Boolean",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "certifiedOnly",
+          "uiDisplayName": "Certified only",
+          "required": "false",
+          "uiComponent": "yesno",
+          "id": "MqGBhAlqmKzU"
+        },
+        {
+          "type": "Boolean",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "muteWords",
+          "uiDisplayName": "Mute words",
+          "required": "false",
+          "uiComponent": "yesno",
+          "id": "BbsgNNrXIdZW"
+        },
+        {
+          "type": "Boolean",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "explicitContent",
+          "uiDisplayName": "Explicit content",
+          "required": "false",
+          "uiComponent": "yesno",
+          "id": "CKcRAKiUfWhG"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "false",
+          "uiMasterDatatableAttribute": "false",
+          "name": "externalChatRoomId",
+          "uiDisplayName": "External Chat Room Id",
+          "required": "false",
+          "column": "externalchatroomid",
+          "uiComponent": "text",
+          "id": "lZsUaTpzMMEY"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "false",
+          "uiMasterDatatableAttribute": "false",
+          "name": "internalChatRoomId",
+          "uiDisplayName": "Internal Chat Room Id",
+          "required": "false",
+          "column": "internalchatroomid",
+          "uiComponent": "text",
+          "id": "dPSrUQFMCNeg"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "false",
+          "uiMasterDatatableAttribute": "false",
+          "name": "reservedAttributes1",
+          "uiDisplayName": "Reserved Attribute 1",
+          "required": "false",
+          "column": "reservedattributes1",
+          "uiComponent": "text",
+          "id": "EfoOsyovKtvL"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "false",
+          "uiMasterDatatableAttribute": "false",
+          "name": "reservedAttribute2",
+          "uiDisplayName": "Reserved Attribute 2",
+          "required": "false",
+          "column": "reservedattribute2",
+          "uiComponent": "text",
+          "id": "kfuYPTvUjFkm"
+        },
+        {
+          "type": "Boolean",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "putForward",
+          "uiDisplayName": "Put forward",
+          "required": "true",
+          "column": "putforward",
+          "uiComponent": "yesno",
+          "id": "OdYMqvqoWDut"
+        },
+        {
+          "type": "Integer",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "forwardDisplayOrder",
+          "uiDisplayName": "Forward Display Order",
+          "required": "false",
+          "column": "forwarddisplayorder",
+          "uiComponent": "number",
+          "id": "LHiIDUQLQiQZ"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "seoPageTitle",
+          "uiDisplayName": "SEO Page title",
+          "required": "false",
+          "column": "seopagetitle",
+          "uiComponent": "textarea",
+          "id": "MSmPFWMZCCkv"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "seoLiveMeta",
+          "uiDisplayName": "SEO Live Meta",
+          "required": "true",
+          "column": "seolivemeta",
+          "uiComponent": "text",
+          "id": "yHvTsMMwadOR"
+        }
+      ],
+      "knoers": ["LifecycleManaged", "TypeManaged", "Thumbed"]
+    }
+  },
+  "katappultAuctionRoom.json": {
+    "eventSuffix": "_KATAPPULT_AUCTION_ROOM",
+    "fileName": "katappultAuctionRoom.json",
+    "restUri": "/katappult/cloud/app/v1/secured/api/katappult_auction_room",
+    "types": [
+      {
+        "logicalName": "KatappultAuctionRoomType",
+        "logicalPath": "com.katappult.online.types.KatappultAuctionRoomType",
+        "lifecycle": "KatappultAuctionRoom lifecycle"
+      }
+    ],
+    "package": "com.katappult.cloud.platform.generated",
+    "backendMenu": "false",
+    "vetoableRules": [
+      {
+        "className": "KatappultAuctionRoomSetLifecycle",
+        "componentName": "LifecycleManagedSystemRules",
+        "order": "2",
+        "event": "PRE_CREATE_KATAPPULT_AUCTION_ROOM",
+        "internal": "true"
+      },
+      {
+        "className": "KatappultAuctionRoomSetType",
+        "componentName": "TypeManagedSetBusinessTypeRule",
+        "order": "1",
+        "event": "PRE_CREATE_KATAPPULT_AUCTION_ROOM",
+        "internal": "true"
+      }
+    ],
+    "multiIdentifiedTypes": [],
+    "oneToOne": [
+      {
+        "tabTitle": "Auctioned products",
+        "inverseTabTitle": "Auction room",
+        "roleBClass": "KatappultProduct",
+        "roleAClass": "KatappultAuctionRoom",
+        "roleBPackage": "com.katappult.cloud.platform.generated.model",
+        "roleAPackage": "com.katappult.cloud.platform.generated.model",
+        "attributeName": "product",
+        "joinColumn": "one_to_one_product_oid",
+        "roleAIsOnMasterEntity": "false",
+        "roleBIsOnMasterEntity": "false",
+        "roleBAttributeName": "auctionRoom",
+        "id": "WgfgkSwPXNJZ"
+      }
+    ],
+    "attributes": [],
+    "oneToMany": [
+      {
+        "tabTitle": "Auctions",
+        "inverseTabTitle": "Room",
+        "roleBClass": "KatappultAuction",
+        "roleAClass": "KatappultAuctionRoom",
+        "roleBPackage": "com.katappult.cloud.platform.generated.model",
+        "roleAPackage": "com.katappult.cloud.platform.generated.model",
+        "joinColumn": "one_to_many_room_oid",
+        "roleAIsOnMasterEntity": "false",
+        "roleBIsOnMasterEntity": "false",
+        "roleBAttributeName": "auctions",
+        "attributeName": "room",
+        "id": "cISMTPQhgsOK"
+      }
+    ],
+    "entity": {
+      "name": "KatappultAuctionRoom",
+      "table": "GEN_KATAPPULT_AUCTION_ROOM",
+      "importable": "true",
+      "exportable": "true",
+      "knoers": ["TypeManaged", "LifecycleManaged"],
+      "attributes": [
+        {
+          "type": "Date",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "auctionEndDate",
+          "uiDisplayName": "Auction End Date",
+          "required": "false",
+          "uiComponent": "date",
+          "id": "qqSJxjoxmaHa"
+        },
+        {
+          "type": "Date",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "true",
+          "name": "auctionStartDate",
+          "uiDisplayName": "Auction Start Date",
+          "required": "true",
+          "uiComponent": "date",
+          "id": "ZCQIkMBaEEFx"
+        },
+        {
+          "type": "Integer",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "winnerAuction",
+          "uiDisplayName": "Winner auction",
+          "required": "false",
+          "column": "winnerauction",
+          "uiComponent": "number",
+          "id": "IwuHpqWXOZWI"
+        },
+        {
+          "type": "Integer",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "initialDuration",
+          "uiDisplayName": "Initial duration",
+          "required": "true",
+          "column": "initialduration",
+          "uiComponent": "number",
+          "id": "FOkJAmxyxtYJ"
+        }
+      ]
+    }
+  },
+  "katappultUserReport.json": {
+    "eventSuffix": "_KATAPPULT_USER_REPORT",
+    "fileName": "katappultUserReport.json",
+    "restUri": "/katappult/cloud/app/v1/secured/api/katappult_user_report",
+    "package": "com.katappult.cloud.platform.generated",
+    "backendMenu": "false",
+    "attributes": [],
+    "oneToMany": [
+      {
+        "tabTitle": "Compte Du Rapporteur",
+        "roleAClass": "KatappultUserReport",
+        "inverseTabTitle": "N/A",
+        "roleAIsOnMasterEntity": "false",
+        "roleBIsOnMasterEntity": "false",
+        "roleBClass": "UserAccount",
+        "roleBPackage": "com.katappult.core.model.account",
+        "attributeName": "reporter",
+        "roleAPackage": "com.katappult.cloud.platform.generated",
+        "manyToOneLegacy": "true",
+        "id": "HgQKITifcEPw"
+      },
+      {
+        "tabTitle": "Compte Signalé",
+        "roleAClass": "KatappultUserReport",
+        "inverseTabTitle": "N/A",
+        "roleAIsOnMasterEntity": "false",
+        "roleBIsOnMasterEntity": "false",
+        "roleBClass": "UserAccount",
+        "roleBPackage": "com.katappult.core.model.account",
+        "attributeName": "reported",
+        "roleAPackage": "com.katappult.cloud.platform.generated",
+        "manyToOneLegacy": "true",
+        "id": "PeqUxrHeYFQs"
+      }
+    ],
+    "entity": {
+      "name": "KatappultUserReport",
+      "table": "GEN_KATAPPULT_USER_REPORT",
+      "importable": "true",
+      "exportable": "true",
+      "attributes": [
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "comment",
+          "uiDisplayName": "Comment",
+          "required": "false",
+          "column": "comment",
+          "uiComponent": "textarea",
+          "id": "HvMQNfNUFNaj"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "reportType",
+          "uiDisplayName": "Report type",
+          "required": "true",
+          "column": "reporttype",
+          "uiComponent": "text",
+          "id": "zolyhjYlglAk"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "true",
+          "name": "userComment",
+          "uiDisplayName": "User Comment",
+          "required": "false",
+          "column": "usercomment",
+          "uiComponent": "textarea",
+          "id": "qnxOIuwJRcuX"
+        }
+      ]
+    }
+  },
+  "katappultCodeProm.json": {
+    "package": "com.katappult.cloud.platform.generated",
+    "restUri": "/katappult/cloud/app/v1/secured/api/katappult_code_prom",
+    "backendMenu": "false",
+    "eventSuffix": "_KATAPPULT_CODE_PROM",
+    "attributes": [],
+    "entity": {
+      "name": "KatappultCodeProm",
+      "table": "GEN_KATAPPULT_CODE_PROM",
+      "importable": "true",
+      "exportable": "true",
+      "attributes": [
+        {
+          "type": "Date",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "startDate",
+          "uiDisplayName": "Start date",
+          "required": "true",
+          "column": "startdate",
+          "uiComponent": "date",
+          "id": "YdvMDtJxZHtS"
+        },
+        {
+          "type": "Date",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "endDate",
+          "uiDisplayName": "End date",
+          "required": "true",
+          "column": "enddate",
+          "uiComponent": "date",
+          "id": "AFrCjhsJrIAb"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "promCode",
+          "uiDisplayName": "Code promo",
+          "required": "true",
+          "column": "promcode",
+          "uiComponent": "text",
+          "id": "ebQsONDeDXQr"
+        },
+        {
+          "type": "Integer",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "amount",
+          "uiDisplayName": "Amount",
+          "required": "true",
+          "column": "amount",
+          "uiComponent": "number",
+          "id": "WnohpCTMvThb"
+        },
+        {
+          "type": "Boolean",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "actif",
+          "uiDisplayName": "Actif",
+          "required": "true",
+          "column": "actif",
+          "uiComponent": "yesno",
+          "id": "uvBxGXWoMAmQ"
+        }
+      ]
+    }
+  },
+  "katappultOrder.json": {
+    "eventSuffix": "_KATAPPULT_ORDER",
+    "fileName": "katappultOrder.json",
+    "restUri": "/katappult/cloud/app/v1/secured/api/katappult_order",
+    "types": [
+      {
+        "logicalName": "KatappultOrderType",
+        "logicalPath": "com.katappult.online.types.KatappultOrderType",
+        "lifecycle": "KatappultOrder lifecycle"
+      }
+    ],
+    "package": "com.katappult.cloud.platform.generated",
+    "backendMenu": "false",
+    "manyToMany": [
+      {
+        "tabTitle": "Produits commandés",
+        "inverseTabTitle": "Commande",
+        "roleBClass": "KatappultProduct",
+        "roleAClass": "KatappultOrder",
+        "roleBPackage": "com.katappult.cloud.platform.generated.model",
+        "roleAPackage": "com.katappult.cloud.platform.generated.model",
+        "linkTableName": {},
+        "link": {
+          "linkTableName": "GEN_MANY_TO_MANY_KATAPPULTORDER_KATAPPULTPRODUCT_LINK"
+        },
+        "id": "lBpPDPWcnTHo"
+      }
+    ],
+    "vetoableRules": [
+      {
+        "className": "KatappultOrderSetLifecycle",
+        "componentName": "LifecycleManagedSystemRules",
+        "order": "2",
+        "event": "PRE_CREATE_KATAPPULT_ORDER",
+        "internal": "true"
+      },
+      {
+        "className": "KatappultOrderSetType",
+        "componentName": "TypeManagedSetBusinessTypeRule",
+        "order": "1",
+        "event": "PRE_CREATE_KATAPPULT_ORDER",
+        "internal": "true"
+      },
+      {
+        "className": "KatappultOrderSetReferenceNumber",
+        "componentName": "NumberableSetDefaultReferenceRule",
+        "order": "1",
+        "event": "PRE_CREATE_KATAPPULT_ORDER",
+        "internal": "true"
+      }
+    ],
+    "multiIdentifiedTypes": [],
+    "attributes": [],
+    "oneToMany": [
+      {
+        "tabTitle": "Commandé par",
+        "roleAClass": "KatappultOrder",
+        "inverseTabTitle": "N/A",
+        "roleAIsOnMasterEntity": "false",
+        "roleBIsOnMasterEntity": "false",
+        "roleBClass": "UserAccount",
+        "roleBPackage": "com.katappult.core.model.account",
+        "attributeName": "owner",
+        "roleAPackage": "com.katappult.cloud.platform.generated",
+        "manyToOneLegacy": "true",
+        "id": "TqFfGuLUFFCO"
+      },
+      {
+        "tabTitle": "Paiements",
+        "inverseTabTitle": "Commande",
+        "roleBClass": "KatappultOrderPayment",
+        "roleAClass": "KatappultOrder",
+        "roleBPackage": "com.katappult.cloud.platform.generated.model",
+        "roleAPackage": "com.katappult.cloud.platform.generated.model",
+        "joinColumn": "one_to_many_order_oid",
+        "roleAIsOnMasterEntity": "false",
+        "roleBIsOnMasterEntity": "false",
+        "roleBAttributeName": "payments",
+        "attributeName": "order",
+        "id": "oTjojgJXvdHi"
+      }
+    ],
+    "entity": {
+      "name": "KatappultOrder",
+      "table": "GEN_KATAPPULT_ORDER",
+      "importable": "true",
+      "exportable": "true",
+      "attributes": [
+        {
+          "type": "Date",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "planedDeliveryDate",
+          "uiDisplayName": "Planed delivery date",
+          "required": "false",
+          "uiComponent": "datetime",
+          "id": "tafqplaZTnLA"
+        },
+        {
+          "type": "Date",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "realDeliveryDate",
+          "uiDisplayName": "Real delivery date",
+          "required": "false",
+          "uiComponent": "datetime",
+          "id": "WpRwgHcnTnCZ"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "false",
+          "uiMasterDatatableAttribute": "false",
+          "name": "externalId",
+          "uiDisplayName": "External identifier",
+          "required": "false",
+          "uiComponent": "text",
+          "id": "IgghyWKhekxX1G"
+        },
+        {
+          "type": "Integer",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "initialPrice",
+          "uiDisplayName": "Initial price",
+          "required": "true",
+          "column": "initialprice",
+          "uiComponent": "number",
+          "id": "ZzLmsGjbNClu"
+        },
+        {
+          "type": "Integer",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "priceAfterReduction",
+          "uiDisplayName": "Price after reduction",
+          "required": "true",
+          "column": "priceafterreduction",
+          "uiComponent": "number",
+          "id": "TKavCLKHMuRm"
+        },
+        {
+          "type": "Integer",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "priceAfterGlobalPromotion",
+          "uiDisplayName": "Price after global promotion",
+          "required": "true",
+          "column": "priceafterglobalpromotion",
+          "uiComponent": "number",
+          "id": "mqbWFABsQSWi"
+        },
+        {
+          "type": "Integer",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "vatAmount",
+          "uiDisplayName": "VAT amount",
+          "required": "true",
+          "column": "vatamount",
+          "uiComponent": "number",
+          "id": "OkTPsMEtgxkK"
+        },
+        {
+          "type": "Integer",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "totalWithTaxes",
+          "uiDisplayName": "TotalTTC",
+          "required": "true",
+          "column": "totalwithtaxes",
+          "uiComponent": "number",
+          "id": "pnzWoDsKuXeB"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "orderNote",
+          "uiDisplayName": "Order note",
+          "required": "false",
+          "column": "ordernote",
+          "uiComponent": "text",
+          "id": "RHlTIekjYJJH"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "deliveryService",
+          "uiDisplayName": "Delivery Service",
+          "required": "false",
+          "column": "deliveryservice",
+          "uiComponent": "text",
+          "id": "ordQkXBbmczA"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "deliveryTrackingNumber",
+          "uiDisplayName": "Delivery Tracking Number",
+          "required": "false",
+          "column": "deliverytrackingnumber",
+          "uiComponent": "text",
+          "id": "KWSRapkZgTRl"
+        },
+        {
+          "type": "Integer",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "deliveryCost",
+          "uiDisplayName": "Delivery Cost",
+          "required": "false",
+          "column": "deliverycost",
+          "uiComponent": "number",
+          "id": "zwhRqpmrnKEv"
+        }
+      ],
+      "knoers": ["LifecycleManaged", "TypeManaged", "Numberable", "Contactable"]
+    }
+  },
+  "katappultOrderExpedition.json": {
+    "eventSuffix": "_KATAPPULT_ORDER_EXPEDITION",
+    "fileName": "katappultOrderExpedition.json",
+    "restUri": "/katappult/cloud/app/v1/secured/api/katappult_order_expedition",
+    "types": [
+      {
+        "logicalName": "KatappultOrderExpeditionType",
+        "logicalPath": "com.katappult.online.types.KatappultOrderExpeditionType",
+        "lifecycle": "KatappultOrderExpedition lifecycle"
+      }
+    ],
+    "package": "com.katappult.cloud.platform.generated",
+    "backendMenu": "false",
+    "vetoableRules": [
+      {
+        "className": "KatappultOrderExpeditionSetLifecycle",
+        "componentName": "LifecycleManagedSystemRules",
+        "order": "2",
+        "event": "PRE_CREATE_KATAPPULT_ORDER_EXPEDITION",
+        "internal": "true"
+      },
+      {
+        "className": "KatappultOrderExpeditionSetType",
+        "componentName": "TypeManagedSetBusinessTypeRule",
+        "order": "1",
+        "event": "PRE_CREATE_KATAPPULT_ORDER_EXPEDITION",
+        "internal": "true"
+      },
+      {
+        "className": "KatappultOrderExpeditionSetReferenceNumber",
+        "componentName": "NumberableSetDefaultReferenceRule",
+        "order": "1",
+        "event": "PRE_CREATE_KATAPPULT_ORDER_EXPEDITION",
+        "internal": "true"
+      }
+    ],
+    "multiIdentifiedTypes": [],
+    "attributes": [],
+    "oneToMany": [
+      {
+        "tabTitle": "Commandes expediées",
+        "inverseTabTitle": "Expédié dans",
+        "roleBClass": "KatappultOrder",
+        "roleAClass": "KatappultOrderExpedition",
+        "roleBPackage": "com.katappult.cloud.platform.generated.model",
+        "roleAPackage": "com.katappult.cloud.platform.generated.model",
+        "joinColumn": "one_to_many_expedition_oid",
+        "roleAIsOnMasterEntity": "false",
+        "roleBIsOnMasterEntity": "false",
+        "roleBAttributeName": "orders",
+        "attributeName": "expedition",
+        "id": "WeHkLuwmXUjV"
+      }
+    ],
+    "entity": {
+      "name": "KatappultOrderExpedition",
+      "table": "GEN_KATAPPULT_ORDER_EXPEDITION",
+      "importable": "true",
+      "exportable": "true",
+      "attributes": [
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "dimension",
+          "uiDisplayName": "Dimension",
+          "required": "true",
+          "uiComponent": "text",
+          "id": "azqPAiMPlVPW"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "externalStatus",
+          "uiDisplayName": "Exterrnal status",
+          "required": "false",
+          "uiComponent": "text",
+          "id": "FAHVBklhWnoC"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "externalService",
+          "uiDisplayName": "External service",
+          "required": "false",
+          "uiComponent": "text",
+          "id": "gVKIewUNlgSK"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "externalTrackingNumber",
+          "uiDisplayName": "External tracking number",
+          "required": "false",
+          "uiComponent": "text",
+          "id": "YWpKVgHOgToH"
+        },
+        {
+          "type": "Integer",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "totalWeight",
+          "uiDisplayName": "Total weight",
+          "required": "true",
+          "uiComponent": "number",
+          "id": "pVtFVYqvGcWb"
+        },
+        {
+          "type": "Date",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "deliveryDate",
+          "uiDisplayName": "Delivery date",
+          "required": "false",
+          "uiComponent": "datetime",
+          "id": "ysAaRWJbkjoQ"
+        }
+      ],
+      "knoers": ["LifecycleManaged", "TypeManaged", "Numberable"]
+    }
+  },
+  "katappultFavoris.json": {
+    "eventSuffix": "_KATAPPULT_FAVORIS",
+    "fileName": "katappultFavoris.json",
+    "restUri": "/katappult/cloud/app/v1/secured/api/katappult_favoris",
+    "package": "com.katappult.cloud.platform.generated",
+    "backendMenu": "false",
+    "manyToMany": [
+      {
+        "tabTitle": "Produits Dans le Favoris",
+        "inverseTabTitle": "Est Dans Les Favoris",
+        "roleBClass": "KatappultProduct",
+        "roleAClass": "KatappultFavoris",
+        "roleBPackage": "com.katappult.cloud.platform.generated.model",
+        "roleAPackage": "com.katappult.cloud.platform.generated.model",
+        "linkTableName": {},
+        "link": {
+          "linkTableName": "GEN_MANY_TO_MANY_KATAPPULTFAVORIS_KATAPPULTPRODUCT_LINK"
+        },
+        "id": "qIlgXZnoBGPl"
+      }
+    ],
+    "oneToOne": [
+      {
+        "tabTitle": "Compte Associé",
+        "roleAClass": "KatappultFavoris",
+        "inverseTabTitle": "N/A",
+        "roleAIsOnMasterEntity": "false",
+        "roleBIsOnMasterEntity": "false",
+        "roleBClass": "UserAccount",
+        "roleBPackage": "com.katappult.core.model.account",
+        "attributeName": "owner",
+        "roleAPackage": "com.katappult.cloud.platform.generated",
+        "oneToOneLegacy": "true",
+        "id": "XmmRRyYEqJZs"
+      }
+    ],
+    "attributes": [],
+    "entity": {
+      "name": "KatappultFavoris",
+      "table": "GEN_KATAPPULT_FAVORIS",
+      "importable": "true",
+      "exportable": "true",
+      "attributes": [
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "true",
+          "name": "comment",
+          "uiDisplayName": "Comment",
+          "required": "true",
+          "uiComponent": "textarea",
+          "id": "GgVwRRUulgOi"
+        }
+      ]
+    }
+  },
+  "katappultSearchHistory.json": {
+    "eventSuffix": "_KATAPPULT_SEARCH_HISTORY",
+    "fileName": "katappultSearchHistory.json",
+    "restUri": "/katappult/cloud/app/v1/secured/api/katappult_search_history",
+    "package": "com.katappult.cloud.platform.generated",
+    "backendMenu": "false",
+    "oneToOne": [],
+    "attributes": [],
+    "oneToMany": [
+      {
+        "tabTitle": "Compte associé",
+        "roleAClass": "KatappultSearchHistory",
+        "inverseTabTitle": "N/A",
+        "roleAIsOnMasterEntity": "false",
+        "roleBIsOnMasterEntity": "false",
+        "roleBClass": "UserAccount",
+        "roleBPackage": "com.katappult.core.model.account",
+        "attributeName": "owner",
+        "roleAPackage": "com.katappult.cloud.platform.generated",
+        "manyToOneLegacy": "true",
+        "id": "tWrXnpTZJgDN"
+      }
+    ],
+    "entity": {
+      "name": "KatappultSearchHistory",
+      "table": "GEN_KATAPPULT_SEARCH_HISTORY",
+      "importable": "true",
+      "exportable": "true",
+      "attributes": [
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "searchTerm",
+          "uiDisplayName": "Search term",
+          "required": "true",
+          "uiComponent": "text",
+          "id": "xXFwOZwSsUFN"
+        },
+        {
+          "type": "Date",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "false",
+          "uiMasterDatatableAttribute": "false",
+          "name": "lastSearchDate",
+          "uiDisplayName": "Last search date",
+          "required": "false",
+          "column": "lastsearchdate",
+          "uiComponent": "date",
+          "id": "FxzFjSZqxiwz"
+        }
+      ]
+    }
+  },
+  "katappultUserProfile.json": {
+    "eventSuffix": "_KATAPPULT_USER_PROFILE",
+    "fileName": "katappultUserProfile.json",
+    "restUri": "/katappult/cloud/app/v1/secured/api/katappult_user_profile",
+    "types": [],
+    "package": "com.katappult.cloud.platform.generated",
+    "backendMenu": "false",
+    "multiIdentifiedTypes": [],
+    "attributes": [],
+    "oneToMany": [
+      {
+        "tabTitle": "Compe Associé",
+        "roleAClass": "KatappultUserProfile",
+        "inverseTabTitle": "N/A",
+        "roleAIsOnMasterEntity": "false",
+        "roleBIsOnMasterEntity": "false",
+        "roleBClass": "UserAccount",
+        "roleBPackage": "com.katappult.core.model.account",
+        "attributeName": "owner",
+        "roleAPackage": "com.katappult.cloud.platform.generated",
+        "manyToOneLegacy": "true",
+        "id": "BWqvNmrjZLtv"
+      }
+    ],
+    "entity": {
+      "name": "KatappultUserProfile",
+      "table": "GEN_KATAPPULT_USER_PROFILE",
+      "importable": "true",
+      "exportable": "true",
+      "attributes": [
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "true",
+          "name": "biographie",
+          "uiDisplayName": "Biographie",
+          "required": "false",
+          "column": "biographie",
+          "uiComponent": "textarea",
+          "id": "ICbBDVAUcldA"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "facebookUrl",
+          "uiDisplayName": "Facebook URL",
+          "required": "false",
+          "column": "facebookurl",
+          "uiComponent": "text",
+          "id": "nvuUpnWvtCfO"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "instagramUrl",
+          "uiDisplayName": "Instagram URL",
+          "required": "false",
+          "column": "instagramurl",
+          "uiComponent": "text",
+          "id": "FQwXGaTdslNd"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "ebayUrl",
+          "uiDisplayName": "EbayUrl",
+          "required": "false",
+          "column": "ebayurl",
+          "uiComponent": "text",
+          "id": "FkucdBsWaWjd"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "discordUrl",
+          "uiDisplayName": "Discord URL",
+          "required": "false",
+          "column": "discordurl",
+          "uiComponent": "text",
+          "id": "FJhOQERjrdQd"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "twitterUrl",
+          "uiDisplayName": "Twitter URL",
+          "required": "false",
+          "column": "twitterurl",
+          "uiComponent": "text",
+          "id": "sanjcRCvLiuT"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "youtubeUrl",
+          "uiDisplayName": "Youtube URL",
+          "required": "false",
+          "column": "youtubeurl",
+          "uiComponent": "text",
+          "id": "FXqjwSoFaXoN"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "tiktokUrl",
+          "uiDisplayName": "Tiktok Url",
+          "required": "false",
+          "column": "tiktokurl",
+          "uiComponent": "text",
+          "id": "xVbgYkSJOZCm"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "website",
+          "uiDisplayName": "Website",
+          "required": "false",
+          "column": "website",
+          "uiComponent": "text",
+          "id": "EfaPxNcbSdeZ"
+        }
+      ],
+      "knoers": ["Thumbed"]
+    }
+  },
+  "katappultPaymentMethod.json": {
+    "eventSuffix": "_KATAPPULT_PAYMENT_METHOD",
+    "fileName": "katappultPaymentMethod.json",
+    "restUri": "/katappult/cloud/app/v1/secured/api/katappult_payment_method",
+    "package": "com.katappult.cloud.platform.generated",
+    "backendMenu": "false",
+    "attributes": [],
+    "oneToMany": [
+      {
+        "tabTitle": "Paiement Associé",
+        "inverseTabTitle": "Mode de paiement",
+        "roleBClass": "KatappultOrderPayment",
+        "roleAClass": "KatappultPaymentMethod",
+        "roleBPackage": "com.katappult.cloud.platform.generated.model",
+        "roleAPackage": "com.katappult.cloud.platform.generated.model",
+        "joinColumn": "one_to_many_paymentmethod_oid",
+        "roleAIsOnMasterEntity": "false",
+        "roleBIsOnMasterEntity": "false",
+        "roleBAttributeName": "payments",
+        "attributeName": "paymentMethod",
+        "id": "NExOTUHAngqC"
+      }
+    ],
+    "entity": {
+      "name": "KatappultPaymentMethod",
+      "table": "GEN_KATAPPULT_PAYMENT_METHOD",
+      "importable": "true",
+      "exportable": "true",
+      "attributes": [
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "true",
+          "name": "displayName",
+          "uiDisplayName": "Display name",
+          "required": "true",
+          "uiComponent": "text",
+          "id": "zpiYBmValsjo"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "internalName",
+          "uiDisplayName": "Internal name",
+          "required": "true",
+          "uiComponent": "text",
+          "id": "nDiDqRrszDJB"
+        }
+      ]
+    }
+  },
+  "katappultOrderPayment.json": {
+    "eventSuffix": "_KATAPPULT_ORDER_PAYMENT",
+    "fileName": "katappultOrderPayment.json",
+    "restUri": "/katappult/cloud/app/v1/secured/api/katappult_order_payment",
+    "types": [
+      {
+        "logicalName": "KatappultOrderPaymentType",
+        "logicalPath": "com.katappult.online.types.KatappultOrderPaymentType",
+        "lifecycle": "KatappultOrderPayment lifecycle"
+      }
+    ],
+    "package": "com.katappult.cloud.platform.generated",
+    "backendMenu": "false",
+    "vetoableRules": [
+      {
+        "className": "KatappultOrderPaymentSetLifecycle",
+        "componentName": "LifecycleManagedSystemRules",
+        "order": "2",
+        "event": "PRE_CREATE_KATAPPULT_ORDER_PAYMENT",
+        "internal": "true"
+      },
+      {
+        "className": "KatappultOrderPaymentSetType",
+        "componentName": "TypeManagedSetBusinessTypeRule",
+        "order": "1",
+        "event": "PRE_CREATE_KATAPPULT_ORDER_PAYMENT",
+        "internal": "true"
+      }
+    ],
+    "multiIdentifiedTypes": [],
+    "attributes": [],
+    "entity": {
+      "name": "KatappultOrderPayment",
+      "table": "GEN_KATAPPULT_ORDER_PAYMENT",
+      "importable": "true",
+      "exportable": "true",
+      "attributes": [
+        {
+          "type": "Integer",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "true",
+          "name": "amount",
+          "uiDisplayName": "Amount",
+          "required": "true",
+          "uiComponent": "number",
+          "id": "pPytnZWCxSmG"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "comment",
+          "uiDisplayName": "Comment",
+          "required": "false",
+          "uiComponent": "textarea",
+          "id": "JTwTeTOhDQAN"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "stripeTransferGroup",
+          "uiDisplayName": "Stripe Transfer Group",
+          "required": "false",
+          "uiComponent": "text",
+          "id": "JTwTeTOhDQXSAN"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "transactionId",
+          "uiDisplayName": "Stripe Transaction identifier",
+          "required": "false",
+          "uiComponent": "text",
+          "id": "JTwTeTOhOPDQAN"
+        },
+        {
+          "type": "Date",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "false",
+          "uiMasterDatatableAttribute": "false",
+          "name": "transferDate",
+          "uiDisplayName": "Transfer date",
+          "required": "false",
+          "column": "transferdate",
+          "uiComponent": "datetime",
+          "id": "AZrWhPkzgwTB"
+        },
+        {
+          "type": "Integer",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "fees",
+          "uiDisplayName": "Fees",
+          "required": "true",
+          "column": "fees",
+          "uiComponent": "number",
+          "id": "YOGpVeZZCmfZ"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "paymentFeesType",
+          "uiDisplayName": "Payment Fees Type",
+          "required": "false",
+          "column": "paymentfeestype",
+          "uiComponent": "text",
+          "id": "AXdzjBzbwZem"
+        },
+        {
+          "type": "Integer",
+          "uiDisplayInDatatable": "false",
+          "uiDisplayInAdd": "false",
+          "uiMasterDatatableAttribute": "false",
+          "name": "paymentFees",
+          "uiDisplayName": "Payment fees",
+          "required": "false",
+          "column": "paymentfees",
+          "uiComponent": "number",
+          "id": "elvnNINAvLAX"
+        }
+      ],
+      "knoers": ["LifecycleManaged", "TypeManaged"]
+    }
+  },
+  "katappultConsent.json": {
+    "eventSuffix": "_KATAPPULT_CONSENT",
+    "fileName": "katappultConsent.json",
+    "restUri": "/katappult/cloud/app/v1/secured/api/katappult_consent",
+    "package": "com.katappult.cloud.platform.generated",
+    "backendMenu": "false",
+    "attributes": [],
+    "oneToMany": [
+      {
+        "tabTitle": "Compte Associé",
+        "roleAClass": "KatappultConsent",
+        "inverseTabTitle": "N/A",
+        "roleAIsOnMasterEntity": "false",
+        "roleBIsOnMasterEntity": "false",
+        "roleBClass": "UserAccount",
+        "roleBPackage": "com.katappult.core.model.account",
+        "attributeName": "owner",
+        "roleAPackage": "com.katappult.cloud.platform.generated",
+        "manyToOneLegacy": "true",
+        "id": "nguxpGrRkGWW"
+      }
+    ],
+    "entity": {
+      "name": "KatappultConsent",
+      "table": "GEN_KATAPPULT_CONSENT",
+      "importable": "true",
+      "exportable": "true",
+      "attributes": [
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "cible",
+          "uiDisplayName": "Cible",
+          "required": "true",
+          "column": "cible",
+          "uiComponent": "text",
+          "id": "yYuRtSkgFXrb"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "ipAddress",
+          "uiDisplayName": "Ip Address",
+          "required": "true",
+          "column": "ipaddress",
+          "uiComponent": "text",
+          "id": "RUyCPhbMxwMZ"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "otherInfos",
+          "uiDisplayName": "Other infos",
+          "required": "true",
+          "column": "otherinfos",
+          "uiComponent": "text",
+          "id": "pfrCVUHxEYfp"
+        }
+      ]
+    }
+  },
+  "katappultPanier.json": {
+    "eventSuffix": "_KATAPPULT_PANIER",
+    "fileName": "katappultPanier.json",
+    "restUri": "/katappult/cloud/app/v1/secured/api/katappult_panier",
+    "package": "com.katappult.cloud.platform.generated",
+    "backendMenu": "false",
+    "manyToMany": [
+      {
+        "tabTitle": "Produits Dans Le Panier",
+        "inverseTabTitle": "Est Dans Les Paniers",
+        "roleBClass": "KatappultProduct",
+        "roleAClass": "KatappultPanier",
+        "roleBPackage": "com.katappult.cloud.platform.generated.model",
+        "roleAPackage": "com.katappult.cloud.platform.generated.model",
+        "linkTableName": {},
+        "link": {
+          "linkTableName": "GEN_MANY_TO_MANY_KATAPPULTPANIER_KATAPPULTPRODUCT_LINK"
+        },
+        "id": "slXKElLgJwWK"
+      }
+    ],
+    "oneToOne": [
+      {
+        "tabTitle": "Compte Associé",
+        "roleAClass": "KatappultPanier",
+        "inverseTabTitle": "N/A",
+        "roleAIsOnMasterEntity": "false",
+        "roleBIsOnMasterEntity": "false",
+        "roleBClass": "UserAccount",
+        "roleBPackage": "com.katappult.core.model.account",
+        "attributeName": "owner",
+        "roleAPackage": "com.katappult.cloud.platform.generated",
+        "oneToOneLegacy": "true",
+        "id": "upMuPZOvVbxG"
+      }
+    ],
+    "attributes": [],
+    "entity": {
+      "name": "KatappultPanier",
+      "table": "GEN_KATAPPULT_PANIER",
+      "importable": "true",
+      "exportable": "true",
+      "attributes": [
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "true",
+          "name": "comment",
+          "uiDisplayName": "Comment",
+          "required": "true",
+          "uiComponent": "textarea",
+          "id": "qUicfAajFjra"
+        }
+      ]
+    }
+  },
+  "generator-config.json": {
+    "entities": [
+      {
+        "path": "katappultShop.json",
+        "order": 1
+      },
+      {
+        "path": "katappultLive.json",
+        "order": 2
+      },
+      {
+        "path": "katappultProduct.json",
+        "order": 3
+      },
+      {
+        "path": "katappultBecomeDealerQuery.json",
+        "order": 4
+      },
+      {
+        "path": "katappultOrder.json",
+        "order": 5
+      },
+      {
+        "path": "katappultCategory.json",
+        "order": 6
+      },
+      {
+        "path": "katappultOrderPayment.json",
+        "order": 7
+      },
+      {
+        "path": "katappultSearchHistory.json",
+        "order": 8
+      },
+      {
+        "path": "katappultOrderExpedition.json",
+        "order": 9
+      },
+      {
+        "path": "katappultShopStats.json",
+        "order": 10
+      },
+      {
+        "path": "katappultPaymentMethod.json",
+        "order": 11
+      },
+      {
+        "path": "katappultExpeditionService.json",
+        "order": 12
+      },
+      {
+        "path": "katappultFavoris.json",
+        "order": 13
+      },
+      {
+        "path": "katappultPanier.json",
+        "order": 14
+      },
+      {
+        "path": "katappultAuctionRoom.json",
+        "order": 17
+      },
+      {
+        "path": "katappultAuction.json",
+        "order": 17
+      },
+      {
+        "path": "katappultUserReport.json",
+        "order": 18
+      },
+      {
+        "path": "katappultUserProfile.json",
+        "order": 20
+      },
+      {
+        "path": "katappultConsent.json",
+        "order": 22
+      },
+      {
+        "path": "katappultCodeProm.json",
+        "order": 23
+      },
+      {
+        "path": "katappultTag.json",
+        "order": 21
+      },
+      {
+        "path": "katappultProductHistory.json",
+        "order": 22
+      },
+      {
+        "path": "katappultUserPreAuction.json",
+        "order": 23
+      }
+    ],
+    "restUriPrefix": "/katappult/cloud/app/v1/secured/api/",
+    "pages": [],
+    "tablePrefix": "GEN_",
+    "entityPackage": "com.katappult.cloud.platform.generated",
+    "adminPageLayout": {
+      "managedEntities": [
+        {
+          "entityName": "katappultBecomeDealerQuery",
+          "menuTitle": "Candidatures"
+        },
+        {
+          "entityName": "katappultShop",
+          "menuTitle": "Boutiques"
+        },
+        {
+          "entityName": "KatappultLive",
+          "menuTitle": "Lives"
+        },
+        {
+          "entityName": "KatappultProduct",
+          "menuTitle": "Articles"
+        },
+        {
+          "entityName": "KatappultOrder",
+          "menuTitle": "Commandes"
+        },
+        {
+          "entityName": "KatappultCategory",
+          "menuTitle": "Catégories"
+        },
+        {
+          "entityName": "KatappultOrderPayment",
+          "menuTitle": "Paiements"
+        },
+        {
+          "entityName": "KatappultSearchHistory",
+          "menuTitle": "Historique de recherche"
+        },
+        {
+          "entityName": "KatappultShopStats",
+          "menuTitle": "Statistiques"
+        },
+        {
+          "entityName": "KatappultOrderExpedition",
+          "menuTitle": "Expéditions"
+        },
+        {
+          "entityName": "KatappultPaymentMethod",
+          "menuTitle": "Modes de paiement"
+        },
+        {
+          "entityName": "KatappultExpeditionService",
+          "menuTitle": "Services d\u0027expédition"
+        },
+        {
+          "entityName": "KatappultFavoris",
+          "menuTitle": "Favoris"
+        },
+        {
+          "entityName": "KatappultPanier",
+          "menuTitle": "Paniers"
+        },
+        {
+          "entityName": "KatappultAuctionRoom",
+          "menuTitle": "Chambre d\u0027enchère"
+        },
+        {
+          "entityName": "KatappultAuction",
+          "menuTitle": "Enchères"
+        },
+        {
+          "entityName": "KatappultUserReport",
+          "menuTitle": "Signalements"
+        },
+        {
+          "entityName": "KatappultUserProfile",
+          "menuTitle": "Biographies"
+        },
+        {
+          "entityName": "KatappultConsent",
+          "menuTitle": "Consentements"
+        },
+        {
+          "entityName": "KatappultCodeProm",
+          "menuTitle": "Code promo"
+        },
+        {
+          "entityName": "KatappultTag",
+          "menuTitle": "Tags de produits"
+        },
+        {
+          "entityName": "KatappultProductHistory",
+          "menuTitle": "Historique de navigation"
+        },
+        {
+          "entityName": "KatappultUserPreAuction",
+          "menuTitle": "Pre Enchères"
+        }
+      ]
+    },
+    "homePageLayout": {}
+  },
+  "katappultCategory.json": {
+    "eventSuffix": "_KATAPPULT_CATEGORY",
+    "fileName": "katappultCategory.json",
+    "restUri": "/katappult/cloud/app/v1/secured/api/katappult_category",
+    "types": [],
+    "package": "com.katappult.cloud.platform.generated",
+    "backendMenu": "false",
+    "multiIdentifiedTypes": [],
+    "oneToMany": [
+      {
+        "tabTitle": "Produits Dans La Catégorie",
+        "inverseTabTitle": "Catégorie",
+        "roleBClass": "KatappultProduct",
+        "roleAClass": "KatappultCategory",
+        "roleBPackage": "com.katappult.cloud.platform.generated.model",
+        "roleAPackage": "com.katappult.cloud.platform.generated.model",
+        "joinColumn": "one_to_many_category_oid",
+        "roleAIsOnMasterEntity": "false",
+        "roleBIsOnMasterEntity": "false",
+        "roleBAttributeName": "products",
+        "attributeName": "category",
+        "id": "STUGDmbZiLlk"
+      },
+      {
+        "tabTitle": "Lives Dans La Catégorie",
+        "inverseTabTitle": "Catégorie",
+        "roleBClass": "KatappultLive",
+        "roleAClass": "KatappultCategory",
+        "roleBPackage": "com.katappult.cloud.platform.generated.model",
+        "roleAPackage": "com.katappult.cloud.platform.generated.model",
+        "joinColumn": "one_to_many_category_oid",
+        "roleAIsOnMasterEntity": "false",
+        "roleBIsOnMasterEntity": "false",
+        "roleBAttributeName": "lives",
+        "attributeName": "category",
+        "id": "WxjlCchsSyJj"
+      },
+      {
+        "tabTitle": "Boutique",
+        "inverseTabTitle": "Catégorie",
+        "roleBClass": "KatappultShop",
+        "roleAClass": "KatappultCategory",
+        "roleBPackage": "com.katappult.cloud.platform.generated.model",
+        "roleAPackage": "com.katappult.cloud.platform.generated.model",
+        "joinColumn": "one_to_many_category_oid",
+        "roleAIsOnMasterEntity": "false",
+        "roleBIsOnMasterEntity": "false",
+        "roleBAttributeName": "shops",
+        "attributeName": "category",
+        "id": "vtNljOFtWHHj"
+      }
+    ],
+    "entity": {
+      "name": "KatappultCategory",
+      "table": "GEN_KATAPPULT_CATEGORY",
+      "importable": "true",
+      "exportable": "true",
+      "attributes": [
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "true",
+          "name": "name",
+          "uiDisplayName": "Name",
+          "required": "true",
+          "uiComponent": "text",
+          "id": "VBaCfUcOpvLV"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "internalKey",
+          "uiDisplayName": "InternalKey",
+          "required": "true",
+          "uiComponent": "text",
+          "id": "PlLwLPdkBnnu"
+        },
+        {
+          "type": "Integer",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "displayOrder",
+          "uiDisplayName": "Display order",
+          "required": "true",
+          "column": "displayorder",
+          "uiComponent": "number",
+          "id": "WLIeyNWxhWPB"
+        },
+        {
+          "type": "Boolean",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "actif",
+          "uiDisplayName": "Actif",
+          "required": "false",
+          "column": "actif",
+          "uiComponent": "select",
+          "id": "zpHgIQvVrGQz"
+        },
+        {
+          "type": "Boolean",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "highlighted",
+          "uiDisplayName": "Highlighted",
+          "required": "true",
+          "column": "highlighted",
+          "uiComponent": "yesno",
+          "id": "STqEDPQUAQic"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "tagName",
+          "uiDisplayName": "Tag Name",
+          "required": "true",
+          "column": "tagname",
+          "uiComponent": "text",
+          "id": "iDJigwPkXApP"
+        }
+      ],
+      "knoers": ["Thumbed", "ParentChild"]
+    }
+  },
+  "katappultUserPreAuction.json": {
+    "eventSuffix": "_KATAPPULT_USER_PRE_AUCTION",
+    "fileName": "katappultUserPreAuction.json",
+    "restUri": "/katappult/cloud/app/v1/secured/api/katappult_user_pre_auction",
+    "package": "com.katappult.cloud.platform.generated",
+    "backendMenu": "false",
+    "attributes": [],
+    "oneToMany": [
+      {
+        "tabTitle": "Owner",
+        "roleAClass": "KatappultUserPreAuction",
+        "inverseTabTitle": "N/A",
+        "roleAIsOnMasterEntity": "false",
+        "roleBIsOnMasterEntity": "false",
+        "roleBClass": "UserAccount",
+        "roleBPackage": "com.katappult.core.model.account",
+        "attributeName": "owner",
+        "roleAPackage": "com.katappult.cloud.platform.generated",
+        "manyToOneLegacy": "true",
+        "id": "LYRVXuByCFpb"
+      }
+    ],
+    "entity": {
+      "name": "KatappultUserPreAuction",
+      "table": "GEN_KATAPPULT_USER_PRE_AUCTION",
+      "importable": "true",
+      "exportable": "true",
+      "attributes": [
+        {
+          "type": "Integer",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "amount",
+          "uiDisplayName": "Amount",
+          "required": "true",
+          "column": "amount",
+          "uiComponent": "number",
+          "id": "GaOFwbkZtHDX"
+        }
+      ]
+    }
+  },
+  "katappultProductHistory.json": {
+    "eventSuffix": "_KATAPPULT_PRODUCT_HISTORY",
+    "fileName": "katappultProductHistory.json",
+    "restUri": "/katappult/cloud/app/v1/secured/api/katappult_product_history",
+    "package": "com.katappult.cloud.platform.generated",
+    "backendMenu": "false",
+    "manyToMany": [
+      {
+        "tabTitle": "Products in History",
+        "inverseTabTitle": "In histories",
+        "roleBClass": "KatappultProduct",
+        "roleAClass": "KatappultProductHistory",
+        "roleBPackage": "com.katappult.cloud.platform.generated.model",
+        "roleAPackage": "com.katappult.cloud.platform.generated.model",
+        "linkTableName": {},
+        "link": {
+          "linkTableName": "GEN_MANY_TO_MANY_KATAPPULTPRODUCTHISTORY_KATAPPULTPRODUCT_LINK"
+        },
+        "id": "SwWWSwFXrzsY"
+      }
+    ],
+    "attributes": [],
+    "oneToMany": [
+      {
+        "tabTitle": "Owner",
+        "roleAClass": "KatappultProductHistory",
+        "inverseTabTitle": "N/A",
+        "roleAIsOnMasterEntity": "false",
+        "roleBIsOnMasterEntity": "false",
+        "roleBClass": "UserAccount",
+        "roleBPackage": "com.katappult.core.model.account",
+        "attributeName": "owner",
+        "roleAPackage": "com.katappult.cloud.platform.generated",
+        "manyToOneLegacy": "true",
+        "id": "IWPRuaSVSLfM"
+      }
+    ],
+    "entity": {
+      "name": "KatappultProductHistory",
+      "table": "GEN_KATAPPULT_PRODUCT_HISTORY",
+      "importable": "true",
+      "exportable": "true",
+      "attributes": [
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "historyType",
+          "uiDisplayName": "HistoryType",
+          "required": "true",
+          "column": "historytype",
+          "uiComponent": "text",
+          "id": "LeHQKYCXBBDg"
+        }
+      ]
+    }
+  },
+  "katappultAuction.json": {
+    "eventSuffix": "_KATAPPULT_AUCTION",
+    "fileName": "katappultAuction.json",
+    "restUri": "/katappult/cloud/app/v1/secured/api/katappult_auction",
+    "package": "com.katappult.cloud.platform.generated",
+    "backendMenu": "false",
+    "attributes": [],
+    "oneToMany": [
+      {
+        "tabTitle": "Enchérisseur",
+        "roleAClass": "KatappultAuction",
+        "inverseTabTitle": "N/A",
+        "roleAIsOnMasterEntity": "false",
+        "roleBIsOnMasterEntity": "false",
+        "roleBClass": "UserAccount",
+        "roleBPackage": "com.katappult.core.model.account",
+        "attributeName": "owner",
+        "roleAPackage": "com.katappult.cloud.platform.generated",
+        "manyToOneLegacy": "true",
+        "id": "xNQaDbSXxibO"
+      }
+    ],
+    "entity": {
+      "name": "KatappultAuction",
+      "table": "GEN_KATAPPULT_AUCTION",
+      "importable": "true",
+      "exportable": "true",
+      "attributes": [
+        {
+          "type": "Integer",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "true",
+          "name": "amount",
+          "uiDisplayName": "Amount",
+          "required": "true",
+          "uiComponent": "number",
+          "id": "YtZtGJiQGYXG"
+        },
+        {
+          "type": "String",
+          "uiDisplayInDatatable": "true",
+          "uiDisplayInAdd": "true",
+          "uiMasterDatatableAttribute": "false",
+          "name": "pseudo",
+          "uiDisplayName": "User pseudo",
+          "required": "true",
+          "column": "pseudo",
+          "uiComponent": "text",
+          "id": "CaIWitmkdkwf"
+        }
+      ]
+    }
+  }
+}
