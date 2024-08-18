@@ -27,6 +27,7 @@ export const ReactFlowContainer = ({
                 edgeTypes={edgeTypes}
                 connectionMode={ConnectionMode.Loose}
                 minZoom={0.2}
+                fitView
             >
                 <MiniMap />
                 <Controls />

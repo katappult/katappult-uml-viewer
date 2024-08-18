@@ -16,7 +16,7 @@ import {ReactFlowContainer} from './ReactFlowContainer'
 
 export const DiagramComponent = ({title, TableComponent}) => {
     const {data, fetchData} = useStore()
-    const {checkedItems, setCheckedItems} = useCheckedStore()
+    const {checkedItems} = useCheckedStore()
 
     const [nodes, setNodes, onNodesChange] = useNodesState([])
     const [edges, setEdges, onEdgesChange] = useEdgesState([])

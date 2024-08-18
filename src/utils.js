@@ -12,13 +12,6 @@ export const typeMap = {
     Date: 'DATE',
 }
 
-// Fetch JSON configuration
-export const fetchJson = async () => {
-    const response = await fetch('http://localhost:5173/Markeplace-config.json')
-    if (!response.ok) throw new Error('Network response was not ok')
-    return response.json()
-}
-
 // Create nodes table from entities
 export const createNodesTable = entities => {
     return Object.entries(entities)
@@ -39,12 +32,17 @@ export const createNodesTable = entities => {
         .filter(Boolean)
 }
 
-export const createInterfaceNodesTable = entities => {
+export const takeKnoers = entities => {
+    if (!entities || typeof entities !== 'object') {
+        console.error('Entities object is invalid or empty')
+        return
+    }
+
     const knoersArray = []
     const knoersSet = new Set()
 
     Object.entries(entities).forEach(([value]) => {
-        if (value.entity && value.entity.knoers) {
+        if (value && value.entity && value.entity.knoers) {
             value.entity.knoers.forEach(knoer => {
                 if (!knoersSet.has(knoer)) {
                     knoersArray.push(knoer)
@@ -54,7 +52,19 @@ export const createInterfaceNodesTable = entities => {
         }
     })
 
-    // console.log(knoersArray)
+    return knoersArray
+}
+
+export const createInterfaceNodesTable = knoers => {
+    return knoers.map(knoer => ({
+        id: knoer,
+        label: knoer,
+        type: 'knoer',
+        position: {x: 50, y: 100}, // Adjusted position values
+        dragHandle: '.custom-drag-handle',
+        data: knoer, // Changed from value.entity to knoer
+        style: {backgroundColor: 'rgba(127, 173, 139)'},
+    }))
 }
 
 // Create edges based on relation type
