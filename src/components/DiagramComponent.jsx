@@ -10,9 +10,13 @@ import {
     createEdgeOneToMany,
     createEdgeManyToMany,
     createEdgeOneToOne,
+    createInterfaceEdge,
 } from '../utils'
 import {useNodesState, useEdgesState} from '@xyflow/react'
 import {ReactFlowContainer} from './ReactFlowContainer'
+import {InterfaceTable} from './Interface/InterfaceTable'
+import {takeKnoers} from '../utils'
+import {createInterfaceNodesTable} from '../utils'
 
 export const DiagramComponent = ({title, TableComponent}) => {
     const {data, fetchData} = useStore()
@@ -21,7 +25,14 @@ export const DiagramComponent = ({title, TableComponent}) => {
     const [nodes, setNodes, onNodesChange] = useNodesState([])
     const [edges, setEdges, onEdgesChange] = useEdgesState([])
 
-    const nodeTypes = useMemo(() => ({table: TableComponent}), [TableComponent])
+    const nodeTypes = useMemo(
+        () => ({
+            table: TableComponent,
+            interface: InterfaceTable,
+        }),
+        [TableComponent]
+    )
+
     const edgeTypes = useMemo(() => ({floating: SimpleFloatingEdge}), [])
 
     const [isLoading, setIsLoading] = useState(true)
@@ -32,20 +43,30 @@ export const DiagramComponent = ({title, TableComponent}) => {
             if (!data) {
                 fetchData()
             }
+            const knoers = data ? takeKnoers(data) : []
 
             const newNodes = data
-                ? createNodesTable(data).filter(node =>
-                      checkedItems.includes(node.id)
-                  )
+                ? [
+                      ...createNodesTable(data).filter(node =>
+                          checkedItems.includes(node.id)
+                      ),
+                      ...(knoers && title.toLowerCase().includes('object')
+                          ? createInterfaceNodesTable(knoers)
+                          : []),
+                  ]
                 : []
+
             const newEdges = data
                 ? [
                       ...createEdgeOneToMany(data),
                       ...createEdgeManyToMany(data),
                       ...createEdgeOneToOne(data),
+                      ...createInterfaceEdge(data),
                   ]
                 : []
+
             setNodes(newNodes)
+
             setEdges(newEdges)
 
             setIsLoading(false)
@@ -53,11 +74,10 @@ export const DiagramComponent = ({title, TableComponent}) => {
             setError(error.message)
             setIsLoading(false)
         }
-    }, [data, fetchData, setEdges, setNodes, checkedItems])
+    }, [data, fetchData, setEdges, setNodes, checkedItems, title])
 
     if (isLoading) return <div>Loading...</div>
     if (error) return <div>Error: {error}</div>
-
     return (
         <>
             <h1>{title}</h1>

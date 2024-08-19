@@ -1,4 +1,4 @@
-import {Position} from '@xyflow/react'
+import {Position, MarkerType} from '@xyflow/react'
 
 // Convert camelCase to snake_case
 export const camelToSnakeCase = str =>
@@ -41,7 +41,7 @@ export const takeKnoers = entities => {
     const knoersArray = []
     const knoersSet = new Set()
 
-    Object.entries(entities).forEach(([value]) => {
+    Object.entries(entities).forEach(([key, value]) => {
         if (value && value.entity && value.entity.knoers) {
             value.entity.knoers.forEach(knoer => {
                 if (!knoersSet.has(knoer)) {
@@ -51,18 +51,17 @@ export const takeKnoers = entities => {
             })
         }
     })
-
     return knoersArray
 }
 
 export const createInterfaceNodesTable = knoers => {
-    return knoers.map(knoer => ({
+    return knoers.map((knoer, index) => ({
         id: knoer,
         label: knoer,
-        type: 'knoer',
-        position: {x: 50, y: 100}, // Adjusted position values
+        type: 'interface',
+        position: {x: -450, y: 100 + index * 150},
         dragHandle: '.custom-drag-handle',
-        data: knoer, // Changed from value.entity to knoer
+        data: knoer,
         style: {backgroundColor: 'rgba(127, 173, 139)'},
     }))
 }
@@ -98,13 +97,39 @@ const createEdges = (
     return edges
 }
 
+const createKnoersEdges = (entities, strokeColor, startLabel, endLabel) => {
+    const edges = []
+    Object.values(entities).forEach(entity => {
+        if (entity.entity && entity.entity.knoers) {
+            entity.entity.knoers.forEach((knoer, index) => {
+                edges.push({
+                    id: `${entity.entity.name}_${knoer}_${index}`,
+                    source: `${entity.entity.name.charAt(0).toLowerCase() + entity.entity.name.slice(1)}.json`,
+                    target: `${knoer}`,
+                    data: {
+                        startLabel: `${startLabel}`,
+                        endLabel: `${endLabel}`,
+                    },
+                    markerEnd: {
+                        type: MarkerType.ArrowClosed,
+                    },
+                    type: 'floating',
+                    style: {strokeWidth: 5, stroke: strokeColor},
+                })
+            })
+        }
+    })
+    return edges
+}
+
 export const createEdgeOneToMany = entities =>
     createEdges(entities, 'oneToMany', 'red', '1', '*')
 export const createEdgeManyToMany = entities =>
     createEdges(entities, 'manyToMany', 'yellow', '*', '*')
 export const createEdgeOneToOne = entities =>
     createEdges(entities, 'oneToOne', 'blue', '1', '1')
-
+export const createInterfaceEdge = entities =>
+    createKnoersEdges(entities, 'orange')
 // Get parameters for edge positioning, considering only left and right positions
 export const getParams = (nodeA, nodeB) => {
     const centerA = getNodeCenter(nodeA)
