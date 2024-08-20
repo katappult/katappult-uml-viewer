@@ -23,21 +23,31 @@ export const ListComponent = ({
             <button className="dropbtn">{title}</button>
             <div className="dropdown-content">
                 {data &&
-                    Object.keys(data).map(itemName => (
-                        <div className="drop-element" key={itemName}>
-                            <input
-                                type="checkbox"
-                                checked={
-                                    Array.isArray(checkedItems) &&
-                                    checkedItems.includes(itemName)
-                                }
-                                onChange={() => handleCheckboxChange(itemName)}
-                            />
-                            {title.includes('Object')
-                                ? transformItemName(itemName)
-                                : camelToSnakeCase(transformItemName(itemName))}
-                        </div>
-                    ))}
+                    Array.isArray(data) &&
+                    data.map((item, index) => {
+                        const itemName = item.attributes.entity.name
+
+                        console.log(itemName)
+                        return (
+                            <div className="drop-element" key={index}>
+                                <input
+                                    type="checkbox"
+                                    checked={
+                                        Array.isArray(checkedItems) &&
+                                        checkedItems.includes(itemName)
+                                    }
+                                    onChange={() =>
+                                        handleCheckboxChange(itemName)
+                                    }
+                                />
+                                {title.includes('Object')
+                                    ? transformItemName(itemName)
+                                    : camelToSnakeCase(
+                                          transformItemName(itemName)
+                                      )}
+                            </div>
+                        )
+                    })}
             </div>
         </div>
     )
