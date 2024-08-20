@@ -1,0 +1,2793 @@
+[
+  {
+    "attributes": {
+      "eventSuffix": "_REGION",
+      "fileName": "region.json",
+      "restUri": "/katappult/cloud/app/generated/v1/secured/api/region",
+      "types": [],
+      "package": "com.katappult.cloud.platform.generated",
+      "backendMenu": "false",
+      "manyToMany": [],
+      "multiIdentifiedTypes": [],
+      "attributes": [],
+      "oneToMany": [
+        {
+          "tabTitle": "Voyages",
+          "inverseTabTitle": "Région Principale",
+          "roleBClass": "Voyage",
+          "roleAClass": "Region",
+          "roleBPackage": "com.katappult.cloud.platform.generated.model",
+          "roleAPackage": "com.katappult.cloud.platform.generated.model",
+          "joinColumn": "one_to_many_mainregion_oid",
+          "roleAIsOnMasterEntity": "false",
+          "roleBIsOnMasterEntity": "false",
+          "roleBAttributeName": "voyages",
+          "attributeName": "mainRegion",
+          "id": "yIOwQnXetpoE"
+        },
+        {
+          "tabTitle": "Hébergements",
+          "inverseTabTitle": "Région",
+          "roleBClass": "Hebergement",
+          "roleAClass": "Region",
+          "roleBPackage": "com.katappult.cloud.platform.generated.model",
+          "roleAPackage": "com.katappult.cloud.platform.generated.model",
+          "joinColumn": "one_to_many_region_oid",
+          "roleAIsOnMasterEntity": "false",
+          "roleBIsOnMasterEntity": "false",
+          "roleBAttributeName": "hebergements",
+          "attributeName": "region",
+          "id": "pYcXiOqjwkRl"
+        },
+        {
+          "tabTitle": "Activités",
+          "inverseTabTitle": "Région",
+          "roleBClass": "Entertainment",
+          "roleAClass": "Region",
+          "roleBPackage": "com.katappult.cloud.platform.generated.model",
+          "roleAPackage": "com.katappult.cloud.platform.generated.model",
+          "joinColumn": "one_to_many_region_oid",
+          "roleAIsOnMasterEntity": "false",
+          "roleBIsOnMasterEntity": "false",
+          "roleBAttributeName": "entertainments",
+          "attributeName": "region",
+          "id": "hmTkRlPRNPBp"
+        },
+        {
+          "tabTitle": "Restaurants",
+          "inverseTabTitle": "Région",
+          "roleBClass": "Restaurant",
+          "roleAClass": "Region",
+          "roleBPackage": "com.katappult.cloud.platform.generated.model",
+          "roleAPackage": "com.katappult.cloud.platform.generated.model",
+          "joinColumn": "one_to_many_region_oid",
+          "roleAIsOnMasterEntity": "false",
+          "roleBIsOnMasterEntity": "false",
+          "roleBAttributeName": "restaurants",
+          "attributeName": "region",
+          "id": "IpaOXUflEdHM"
+        },
+        {
+          "tabTitle": "Point d'intérêts",
+          "inverseTabTitle": "Région",
+          "roleBClass": "PointOfInterest",
+          "roleAClass": "Region",
+          "roleBPackage": "com.katappult.cloud.platform.generated.model",
+          "roleAPackage": "com.katappult.cloud.platform.generated.model",
+          "joinColumn": "one_to_many_region_oid",
+          "roleAIsOnMasterEntity": "false",
+          "roleBIsOnMasterEntity": "false",
+          "roleBAttributeName": "pointOfInterests",
+          "attributeName": "region",
+          "id": "AwwrYuSgHhaa"
+        },
+        {
+          "tabTitle": "Guides",
+          "inverseTabTitle": "Région",
+          "roleBClass": "Guide",
+          "roleAClass": "Region",
+          "roleBPackage": "com.katappult.cloud.platform.generated.model",
+          "roleAPackage": "com.katappult.cloud.platform.generated.model",
+          "joinColumn": "one_to_many_region_oid",
+          "roleAIsOnMasterEntity": "false",
+          "roleBIsOnMasterEntity": "false",
+          "roleBAttributeName": "guides",
+          "attributeName": "region",
+          "id": "SnnGEVDGGvFf"
+        },
+        {
+          "tabTitle": "Fournisseur d'activités",
+          "inverseTabTitle": "Région",
+          "roleBClass": "EntertainmentProvider",
+          "roleAClass": "Region",
+          "roleBPackage": "com.katappult.cloud.platform.generated.model",
+          "roleAPackage": "com.katappult.cloud.platform.generated.model",
+          "joinColumn": "one_to_many_region_oid",
+          "roleAIsOnMasterEntity": "false",
+          "roleBIsOnMasterEntity": "false",
+          "roleBAttributeName": "entertainmentProvider",
+          "attributeName": "region",
+          "id": "pMLfpEgyEgTx"
+        }
+      ],
+      "entity": {
+        "name": "Region",
+        "table": "GEN_REGION",
+        "importable": "true",
+        "exportable": "true",
+        "attributes": [
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "displayName",
+            "uiDisplayName": "Display Name",
+            "required": "true",
+            "column": "displayname",
+            "uiComponent": "text",
+            "id": "HTpvUfizplAW"
+          },
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "internalName",
+            "uiDisplayName": "Internal name",
+            "required": "true",
+            "column": "internalname",
+            "uiComponent": "text",
+            "id": "NJkjMNfJZHyi"
+          },
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "latitude",
+            "uiDisplayName": "Latitude",
+            "required": "false",
+            "column": "latitude",
+            "uiComponent": "text",
+            "id": "BMDmTrKKUEqw"
+          },
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "longitude",
+            "uiDisplayName": "Longitude",
+            "required": "false",
+            "column": "longitude",
+            "uiComponent": "text",
+            "id": "CGIvdnSEofVY"
+          },
+          {
+            "type": "Integer",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "displayOrder",
+            "uiDisplayName": "Display Order",
+            "required": "true",
+            "column": "displayorder",
+            "uiComponent": "number",
+            "id": "aoCpsaChrYZa"
+          }
+        ],
+        "knoers": [
+          "Thumbed"
+        ]
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "attributes": {
+      "eventSuffix": "_THEME",
+      "fileName": "theme.json",
+      "restUri": "/katappult/cloud/app/generated/v1/secured/api/theme",
+      "types": [],
+      "package": "com.katappult.cloud.platform.generated",
+      "backendMenu": "false",
+      "manyToMany": [
+        {
+          "tabTitle": "Voyages",
+          "inverseTabTitle": "Thèmes",
+          "roleBClass": "Voyage",
+          "roleAClass": "Theme",
+          "roleBPackage": "com.katappult.cloud.platform.generated.model",
+          "roleAPackage": "com.katappult.cloud.platform.generated.model",
+          "linkTableName": {},
+          "link": {
+            "linkTableName": "GEN_MANY_TO_MANY_THEME_VOYAGE_LINK"
+          },
+          "id": "PNhdEHQOanau"
+        }
+      ],
+      "multiIdentifiedTypes": [],
+      "attributes": [],
+      "entity": {
+        "name": "Theme",
+        "table": "GEN_THEME",
+        "importable": "true",
+        "exportable": "true",
+        "attributes": [
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "displayName",
+            "uiDisplayName": "Display name",
+            "required": "true",
+            "column": "displayname",
+            "uiComponent": "text",
+            "id": "LVBFJFJxLMWN"
+          },
+          {
+            "type": "Integer",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "displayOrder",
+            "uiDisplayName": "Display order",
+            "required": "true",
+            "column": "displayorder",
+            "uiComponent": "number",
+            "id": "HfIltAjXSkcj"
+          },
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "internalName",
+            "uiDisplayName": "Internal name",
+            "required": "true",
+            "column": "internalname",
+            "uiComponent": "text",
+            "id": "mYmABvDJXsql"
+          }
+        ],
+        "knoers": [
+          "Thumbed"
+        ]
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "attributes": {
+      "eventSuffix": "_VOYAGE",
+      "fileName": "voyage.json",
+      "restUri": "/katappult/cloud/app/generated/v1/secured/api/voyage",
+      "types": [
+        {
+          "logicalName": "VoyageType",
+          "logicalPath": "com.katappult.online.types.VoyageType",
+          "lifecycle": "Voyage lifecycle"
+        },
+        {
+          "parent": "com.katappult.online.types.VoyageType",
+          "logicalName": "Sejour",
+          "logicalPath": "com.katappult.online.types.VoyageType/Sejour",
+          "id": "OkACpWovlzDQ"
+        },
+        {
+          "parent": "com.katappult.online.types.VoyageType",
+          "logicalName": "Circuit",
+          "logicalPath": "com.katappult.online.types.VoyageType/Circuit",
+          "id": "mqjrjxkaGIvK"
+        }
+      ],
+      "package": "com.katappult.cloud.platform.generated",
+      "backendMenu": "false",
+      "manyToMany": [],
+      "multiIdentifiedTypes": [],
+      "vetoableRules": [
+        {
+          "className": "VoyageSetLifecycle",
+          "componentName": "LifecycleManagedSystemRules",
+          "order": "2",
+          "event": "PRE_CREATE_VOYAGE",
+          "internal": "true"
+        },
+        {
+          "className": "VoyageSetType",
+          "componentName": "TypeManagedSetBusinessTypeRule",
+          "order": "1",
+          "event": "PRE_CREATE_VOYAGE",
+          "internal": "true"
+        },
+        {
+          "className": "VoyageSetReferenceNumber",
+          "componentName": "NumberableSetDefaultReferenceRule",
+          "order": "1",
+          "event": "PRE_CREATE_VOYAGE",
+          "internal": "true"
+        }
+      ],
+      "attributes": [],
+      "oneToMany": [
+        {
+          "tabTitle": "Étapes",
+          "inverseTabTitle": "Voyage",
+          "roleBClass": "VoyageStep",
+          "roleAClass": "Voyage",
+          "roleBPackage": "com.katappult.cloud.platform.generated.model",
+          "roleAPackage": "com.katappult.cloud.platform.generated.model",
+          "joinColumn": "one_to_many_voyage_oid",
+          "roleAIsOnMasterEntity": "false",
+          "roleBIsOnMasterEntity": "false",
+          "roleBAttributeName": "steps",
+          "attributeName": "voyage",
+          "id": "dZapUAQPYoJd"
+        }
+      ],
+      "entity": {
+        "name": "Voyage",
+        "table": "GEN_VOYAGE",
+        "importable": "true",
+        "exportable": "true",
+        "attributes": [
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "title",
+            "uiDisplayName": "Titre",
+            "required": "true",
+            "column": "title",
+            "uiComponent": "text",
+            "id": "kBrlJQApiUUS"
+          },
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "description",
+            "uiDisplayName": "Description",
+            "required": "true",
+            "column": "description",
+            "uiComponent": "textarea",
+            "id": "FYkLldYFtNgp"
+          },
+          {
+            "type": "Integer",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "basePrice",
+            "uiDisplayName": "Base price",
+            "required": "true",
+            "column": "baseprice",
+            "uiComponent": "number",
+            "id": "RnIlMAQiZeco"
+          },
+          {
+            "type": "Date",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "availableFrom",
+            "uiDisplayName": "Available From",
+            "required": "true",
+            "column": "availablefrom",
+            "uiComponent": "datetime",
+            "id": "djzUqHgmJfWq"
+          },
+          {
+            "type": "Date",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "availableUntil",
+            "uiDisplayName": "Available Until",
+            "required": "true",
+            "column": "availableuntil",
+            "uiComponent": "datetime",
+            "id": "EEfUjTvrICif"
+          },
+          {
+            "type": "Integer",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "note",
+            "uiDisplayName": "Note",
+            "required": "false",
+            "column": "note",
+            "uiComponent": "number",
+            "id": "LcDffjXQYtWT"
+          },
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "description2",
+            "uiDisplayName": "Long Description",
+            "required": "false",
+            "column": "description2",
+            "uiComponent": "textarea",
+            "id": "wjYZdPSzLPzs"
+          },
+          {
+            "type": "Boolean",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "putForward",
+            "uiDisplayName": "Mettre en avant",
+            "required": "true",
+            "column": "putforward",
+            "uiComponent": "yesno",
+            "id": "PVWJkgKNbIuQ"
+          }
+        ],
+        "knoers": [
+          "Thumbed",
+          "LifecycleManaged",
+          "TypeManaged",
+          "Numberable"
+        ]
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "attributes": {
+      "eventSuffix": "_DEMANDE_DEVENIR_VENDEUR",
+      "fileName": "demandeDevenirVendeur.json",
+      "restUri": "/katappult/cloud/app/generated/v1/secured/api/demande_devenir_vendeur",
+      "types": [
+        {
+          "logicalName": "DemandeDevenirVendeurType",
+          "logicalPath": "com.katappult.online.types.DemandeDevenirVendeurType",
+          "lifecycle": "DemandeDevenirVendeur lifecycle"
+        }
+      ],
+      "package": "com.katappult.cloud.platform.generated",
+      "backendMenu": "false",
+      "vetoableRules": [
+        {
+          "className": "DemandeDevenirVendeurSetLifecycle",
+          "componentName": "LifecycleManagedSystemRules",
+          "order": "2",
+          "event": "PRE_CREATE_DEMANDE_DEVENIR_VENDEUR",
+          "internal": "true"
+        },
+        {
+          "className": "DemandeDevenirVendeurSetType",
+          "componentName": "TypeManagedSetBusinessTypeRule",
+          "order": "1",
+          "event": "PRE_CREATE_DEMANDE_DEVENIR_VENDEUR",
+          "internal": "true"
+        }
+      ],
+      "multiIdentifiedTypes": [],
+      "attributes": [],
+      "oneToMany": [
+        {
+          "tabTitle": "Demandeur",
+          "roleAClass": "DemandeDevenirVendeur",
+          "inverseTabTitle": "N/A",
+          "roleAIsOnMasterEntity": "false",
+          "roleBIsOnMasterEntity": "false",
+          "roleBClass": "UserAccount",
+          "roleBPackage": "com.katappult.core.model.account",
+          "attributeName": "owner",
+          "roleAPackage": "com.katappult.cloud.platform.generated",
+          "manyToOneLegacy": "true",
+          "id": "eMzVyyljaEsE"
+        }
+      ],
+      "entity": {
+        "name": "DemandeDevenirVendeur",
+        "table": "GEN_DEMANDE_DEVENIR_VENDEUR",
+        "importable": "true",
+        "exportable": "true",
+        "attributes": [
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "description",
+            "uiDisplayName": "Description",
+            "required": "true",
+            "column": "description",
+            "uiComponent": "text",
+            "id": "tewSsocvIqDp"
+          }
+        ],
+        "knoers": [
+          "LifecycleManaged",
+          "TypeManaged"
+        ]
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "attributes": {
+      "eventSuffix": "_TOUR_OPERATEUR",
+      "fileName": "tourOperateur.json",
+      "restUri": "/katappult/cloud/app/generated/v1/secured/api/tour_operateur",
+      "types": [
+        {
+          "logicalName": "TourOperateurType",
+          "logicalPath": "com.katappult.online.types.TourOperateurType",
+          "lifecycle": "TourOperateur lifecycle"
+        }
+      ],
+      "package": "com.katappult.cloud.platform.generated",
+      "backendMenu": "false",
+      "multiIdentifiedTypes": [],
+      "vetoableRules": [
+        {
+          "className": "TourOperateurSetReferenceNumber",
+          "componentName": "NumberableSetDefaultReferenceRule",
+          "order": "1",
+          "event": "PRE_CREATE_TOUR_OPERATEUR",
+          "internal": "true"
+        },
+        {
+          "className": "TourOperateurSetLifecycle",
+          "componentName": "LifecycleManagedSystemRules",
+          "order": "2",
+          "event": "PRE_CREATE_TOUR_OPERATEUR",
+          "internal": "true"
+        },
+        {
+          "className": "TourOperateurSetType",
+          "componentName": "TypeManagedSetBusinessTypeRule",
+          "order": "1",
+          "event": "PRE_CREATE_TOUR_OPERATEUR",
+          "internal": "true"
+        }
+      ],
+      "attributes": [],
+      "entity": {
+        "name": "TourOperateur",
+        "table": "GEN_TOUR_OPERATEUR",
+        "importable": "true",
+        "exportable": "true",
+        "attributes": [
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "nom",
+            "uiDisplayName": "Nom",
+            "required": "true",
+            "column": "nom",
+            "uiComponent": "text",
+            "id": "BQrPvoUbfbZm"
+          },
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "numeroIdentification",
+            "uiDisplayName": "Numéro identification",
+            "required": "true",
+            "column": "numeroidentification",
+            "uiComponent": "text",
+            "id": "eNxRnpqmBfIh"
+          },
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "description",
+            "uiDisplayName": "Description",
+            "required": "true",
+            "column": "description",
+            "uiComponent": "text",
+            "id": "gboRagwwPRbx"
+          },
+          {
+            "type": "Integer",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "note",
+            "uiDisplayName": "Note",
+            "required": "true",
+            "column": "note",
+            "uiComponent": "number",
+            "id": "PkJoFqVkkcvE"
+          }
+        ],
+        "knoers": [
+          "Thumbed",
+          "Numberable",
+          "Contactable",
+          "ContentHolder",
+          "LifecycleManaged",
+          "TypeManaged"
+        ]
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "attributes": {
+      "eventSuffix": "_GUIDE",
+      "fileName": "guide.json",
+      "restUri": "/katappult/cloud/app/generated/v1/secured/api/guide",
+      "types": [],
+      "package": "com.katappult.cloud.platform.generated",
+      "backendMenu": "false",
+      "multiIdentifiedTypes": [],
+      "attributes": [],
+      "entity": {
+        "name": "Guide",
+        "table": "GEN_GUIDE",
+        "importable": "true",
+        "exportable": "true",
+        "attributes": [
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "nom",
+            "uiDisplayName": "Nom",
+            "required": "true",
+            "column": "nom",
+            "uiComponent": "text",
+            "id": "AbKntotxcryI"
+          },
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "prenom",
+            "uiDisplayName": "Prénom",
+            "required": "true",
+            "column": "prenom",
+            "uiComponent": "text",
+            "id": "snfXVNztayIT"
+          },
+          {
+            "type": "Date",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "dateDeNaissance",
+            "uiDisplayName": "Date de naissance",
+            "required": "true",
+            "column": "datedenaissance",
+            "uiComponent": "datetime",
+            "id": "zgqYFFLVRnsi"
+          },
+          {
+            "type": "Integer",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "note",
+            "uiDisplayName": "Note",
+            "required": "true",
+            "column": "note",
+            "uiComponent": "number",
+            "id": "nxtCfRyohAko"
+          },
+          {
+            "type": "Boolean",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "francophone",
+            "uiDisplayName": "Francophone",
+            "required": "true",
+            "column": "francophone",
+            "uiComponent": "yesno",
+            "id": "VlgnAZkaABPl"
+          },
+          {
+            "type": "Boolean",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "anglophone",
+            "uiDisplayName": "Anglophone",
+            "required": "true",
+            "column": "anglophone",
+            "uiComponent": "yesno",
+            "id": "NjiGpTmzytPL"
+          },
+          {
+            "type": "Boolean",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "germanophone",
+            "uiDisplayName": "Germanophone",
+            "required": "true",
+            "column": "germanophone",
+            "uiComponent": "yesno",
+            "id": "liCGumjzAexb"
+          },
+          {
+            "type": "Boolean",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "chinois",
+            "uiDisplayName": "Chinois",
+            "required": "true",
+            "column": "chinois",
+            "uiComponent": "yesno",
+            "id": "CDlvvuVakBXk"
+          },
+          {
+            "type": "Boolean",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "italien",
+            "uiDisplayName": "Italien",
+            "required": "true",
+            "column": "italien",
+            "uiComponent": "yesno",
+            "id": "MnVUETOvYYyS"
+          },
+          {
+            "type": "Boolean",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "espagnol",
+            "uiDisplayName": "Espagnol",
+            "required": "true",
+            "column": "espagnol",
+            "uiComponent": "yesno",
+            "id": "rApBjmoGqpML"
+          }
+        ],
+        "knoers": [
+          "Thumbed",
+          "Contactable",
+          "ContentHolder"
+        ]
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "attributes": {
+      "eventSuffix": "_GUIDE_VOTE",
+      "fileName": "guideVote.json",
+      "restUri": "/katappult/cloud/app/generated/v1/secured/api/guide_vote",
+      "package": "com.katappult.cloud.platform.generated",
+      "backendMenu": "false",
+      "attributes": [],
+      "oneToMany": [
+        {
+          "tabTitle": "Owner Of Vote",
+          "roleAClass": "GuideVote",
+          "inverseTabTitle": "N/A",
+          "roleAIsOnMasterEntity": "false",
+          "roleBIsOnMasterEntity": "false",
+          "roleBClass": "UserAccount",
+          "roleBPackage": "com.katappult.core.model.account",
+          "attributeName": "votedBy",
+          "roleAPackage": "com.katappult.cloud.platform.generated",
+          "manyToOneLegacy": "true",
+          "id": "PkMrocmBjASu"
+        }
+      ],
+      "entity": {
+        "name": "GuideVote",
+        "table": "GEN_GUIDE_VOTE",
+        "importable": "true",
+        "exportable": "true",
+        "attributes": [
+          {
+            "type": "Integer",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "stars",
+            "uiDisplayName": "Stars",
+            "required": "true",
+            "column": "stars",
+            "uiComponent": "number",
+            "id": "WObZBVXrPIOh"
+          }
+        ]
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "attributes": {
+      "eventSuffix": "_GUIDE_COMMENT",
+      "fileName": "guideComment.json",
+      "restUri": "/katappult/cloud/app/generated/v1/secured/api/guide_comment",
+      "package": "com.katappult.cloud.platform.generated",
+      "backendMenu": "false",
+      "attributes": [],
+      "oneToMany": [
+        {
+          "tabTitle": "Owner of comment",
+          "roleAClass": "GuideComment",
+          "inverseTabTitle": "N/A",
+          "roleAIsOnMasterEntity": "false",
+          "roleBIsOnMasterEntity": "false",
+          "roleBClass": "UserAccount",
+          "roleBPackage": "com.katappult.core.model.account",
+          "attributeName": "commentedBy",
+          "roleAPackage": "com.katappult.cloud.platform.generated",
+          "manyToOneLegacy": "true",
+          "id": "zDMgHtnkHizX"
+        }
+      ],
+      "entity": {
+        "name": "GuideComment",
+        "table": "GEN_GUIDE_COMMENT",
+        "importable": "true",
+        "exportable": "true",
+        "attributes": [
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "comment",
+            "uiDisplayName": "Comment",
+            "required": "true",
+            "column": "comment",
+            "uiComponent": "text",
+            "id": "vVvTagJsdLAl"
+          }
+        ]
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "attributes": {
+      "eventSuffix": "_TRANSPORT_SERVICE_PROVIDER",
+      "fileName": "transportServiceProvider.json",
+      "restUri": "/katappult/cloud/app/generated/v1/secured/api/transport_service_provider",
+      "types": [
+        {
+          "logicalName": "TransportServiceProviderType",
+          "logicalPath": "com.katappult.online.types.TransportServiceProviderType",
+          "lifecycle": "TransportServiceProvider lifecycle"
+        },
+        {
+          "parent": "com.katappult.online.types.TransportServiceProviderType",
+          "logicalName": "Vol",
+          "logicalPath": "com.katappult.online.types.TransportServiceProviderType/Vol",
+          "id": "WIdUOImiuJnl"
+        },
+        {
+          "parent": "com.katappult.online.types.TransportServiceProviderType",
+          "logicalName": "Train",
+          "logicalPath": "com.katappult.online.types.TransportServiceProviderType/Train",
+          "id": "aZAKZujyDhpv"
+        },
+        {
+          "parent": "com.katappult.online.types.TransportServiceProviderType",
+          "logicalName": "Bus",
+          "logicalPath": "com.katappult.online.types.TransportServiceProviderType/Bus",
+          "id": "yLpOQekiCbzC"
+        },
+        {
+          "parent": "com.katappult.online.types.TransportServiceProviderType",
+          "logicalName": "VoitureDeLocation",
+          "logicalPath": "com.katappult.online.types.TransportServiceProviderType/VoitureDeLocation",
+          "id": "ZyncmgFheKBq"
+        },
+        {
+          "parent": "com.katappult.online.types.TransportServiceProviderType",
+          "logicalName": "TransferPrivate",
+          "logicalPath": "com.katappult.online.types.TransportServiceProviderType/TransferPrivate",
+          "id": "PEZAyeHyuRsY"
+        }
+      ],
+      "package": "com.katappult.cloud.platform.generated",
+      "backendMenu": "false",
+      "multiIdentifiedTypes": [],
+      "vetoableRules": [
+        {
+          "className": "TransportServiceProviderSetLifecycle",
+          "componentName": "LifecycleManagedSystemRules",
+          "order": "2",
+          "event": "PRE_CREATE_TRANSPORT_SERVICE_PROVIDER",
+          "internal": "true"
+        },
+        {
+          "className": "TransportServiceProviderSetType",
+          "componentName": "TypeManagedSetBusinessTypeRule",
+          "order": "1",
+          "event": "PRE_CREATE_TRANSPORT_SERVICE_PROVIDER",
+          "internal": "true"
+        },
+        {
+          "className": "TransportServiceProviderSetReferenceNumber",
+          "componentName": "NumberableSetDefaultReferenceRule",
+          "order": "1",
+          "event": "PRE_CREATE_TRANSPORT_SERVICE_PROVIDER",
+          "internal": "true"
+        }
+      ],
+      "attributes": [],
+      "oneToMany": [
+        {
+          "tabTitle": "Fourni le transport dans",
+          "inverseTabTitle": "Transporteur",
+          "roleBClass": "TransportStepActivity",
+          "roleAClass": "TransportServiceProvider",
+          "roleBPackage": "com.katappult.cloud.platform.generated.model",
+          "roleAPackage": "com.katappult.cloud.platform.generated.model",
+          "joinColumn": "one_to_many_provider_oid",
+          "roleAIsOnMasterEntity": "false",
+          "roleBIsOnMasterEntity": "false",
+          "roleBAttributeName": "activities",
+          "attributeName": "provider",
+          "id": "tEDPsuVjKTpD"
+        }
+      ],
+      "entity": {
+        "name": "TransportServiceProvider",
+        "table": "GEN_TRANSPORT_SERVICE_PROVIDER",
+        "importable": "true",
+        "exportable": "true",
+        "knoers": [
+          "ContentHolder",
+          "Thumbed",
+          "LifecycleManaged",
+          "TypeManaged",
+          "Numberable"
+        ],
+        "attributes": [
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "nom",
+            "uiDisplayName": "Nom",
+            "required": "true",
+            "column": "nom",
+            "uiComponent": "text",
+            "id": "WusvXKWmSXqx"
+          }
+        ]
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "attributes": {
+      "eventSuffix": "_TRANSPORT_STEP_ACTIVITY",
+      "fileName": "transportStepActivity.json",
+      "restUri": "/katappult/cloud/app/generated/v1/secured/api/transport_step_activity",
+      "types": [
+        {
+          "logicalName": "TransportStepActivityType",
+          "logicalPath": "com.katappult.online.types.TransportStepActivityType",
+          "lifecycle": "TransportStepActivity lifecycle"
+        }
+      ],
+      "package": "com.katappult.cloud.platform.generated",
+      "backendMenu": "false",
+      "vetoableRules": [
+        {
+          "className": "TransportStepActivitySetLifecycle",
+          "componentName": "LifecycleManagedSystemRules",
+          "order": "2",
+          "event": "PRE_CREATE_TRANSPORT_STEP_ACTIVITY",
+          "internal": "true"
+        },
+        {
+          "className": "TransportStepActivitySetType",
+          "componentName": "TypeManagedSetBusinessTypeRule",
+          "order": "1",
+          "event": "PRE_CREATE_TRANSPORT_STEP_ACTIVITY",
+          "internal": "true"
+        }
+      ],
+      "multiIdentifiedTypes": [],
+      "attributes": [],
+      "entity": {
+        "name": "TransportStepActivity",
+        "table": "GEN_TRANSPORT_STEP_ACTIVITY",
+        "importable": "true",
+        "exportable": "true",
+        "attributes": [
+          {
+            "type": "Date",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "heureDepart",
+            "uiDisplayName": "Heure Depart",
+            "required": "true",
+            "column": "heuredepart",
+            "uiComponent": "datetime",
+            "id": "rMZUuljAkTPR"
+          },
+          {
+            "type": "Date",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "heureArrival",
+            "uiDisplayName": "Heure Arrival",
+            "required": "true",
+            "column": "heurearrival",
+            "uiComponent": "datetime",
+            "id": "KTMYhcFyEcWx"
+          },
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "numeroDeBus",
+            "uiDisplayName": "Numero De Bus",
+            "required": "true",
+            "column": "numerodebus",
+            "uiComponent": "text",
+            "id": "mxfbpNIQXFWl"
+          },
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "numeroDeVol",
+            "uiDisplayName": "Numero De Vol",
+            "required": "true",
+            "column": "numerodevol",
+            "uiComponent": "text",
+            "id": "uryRfENQDyUE"
+          },
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "numeroDeTrain",
+            "uiDisplayName": "Numero De Train",
+            "required": "true",
+            "column": "numerodetrain",
+            "uiComponent": "text",
+            "id": "ysBCBcpLkBMp"
+          },
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "aeroportDepart",
+            "uiDisplayName": "Aeroport Depart",
+            "required": "true",
+            "column": "aeroportdepart",
+            "uiComponent": "text",
+            "id": "saEtXiJvCyKJ"
+          },
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "aeroportArrival",
+            "uiDisplayName": "Aeroport Arrival",
+            "required": "true",
+            "column": "aeroportarrival",
+            "uiComponent": "text",
+            "id": "NLgLjYsPfPXd"
+          },
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "gareDepart",
+            "uiDisplayName": "Gare Depart",
+            "required": "true",
+            "column": "garedepart",
+            "uiComponent": "text",
+            "id": "kyNnyLeVwKKT"
+          },
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "gareArrival",
+            "uiDisplayName": "Gare Arrival",
+            "required": "true",
+            "column": "garearrival",
+            "uiComponent": "text",
+            "id": "cxWBcdekmVez"
+          },
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "stationDepart",
+            "uiDisplayName": "Station Depart",
+            "required": "true",
+            "column": "stationdepart",
+            "uiComponent": "text",
+            "id": "NjHIIgGBKybC"
+          },
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "stationArrival",
+            "uiDisplayName": "Station Arrival",
+            "required": "true",
+            "column": "stationarrival",
+            "uiComponent": "text",
+            "id": "qvFJXvZMcRpf"
+          },
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "modeleDeVoitureLocation",
+            "uiDisplayName": "Modele De Voiture Location",
+            "required": "true",
+            "column": "modeledevoiturelocation",
+            "uiComponent": "text",
+            "id": "ssMPtCHIJSsq"
+          },
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "dateDebutLocation",
+            "uiDisplayName": "Date Début Location",
+            "required": "true",
+            "column": "datedebutlocation",
+            "uiComponent": "text",
+            "id": "spyqVpXtBhXx"
+          },
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "dateFinLocation",
+            "uiDisplayName": "Date Fin Location",
+            "required": "true",
+            "column": "datefinlocation",
+            "uiComponent": "text",
+            "id": "WbVwwgjSeyvX"
+          },
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "lieuDePriseEnChargeLocation",
+            "uiDisplayName": "Lieu De Prise En Charge Location",
+            "required": "true",
+            "column": "lieudepriseenchargelocation",
+            "uiComponent": "text",
+            "id": "RPmYxeCdMFRV"
+          },
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "lieuDeRetourLocation",
+            "uiDisplayName": "Lieu De Retour Location",
+            "required": "true",
+            "column": "lieuderetourlocation",
+            "uiComponent": "text",
+            "id": "JrIvdVDVQWwG"
+          },
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "typeDeVehiculeTransportPrivate",
+            "uiDisplayName": "Type De Véhicule Transport Private",
+            "required": "true",
+            "column": "typedevehiculetransportprivate",
+            "uiComponent": "text",
+            "id": "rXPtdaPAAfwZ"
+          },
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "lieuDepartTransportPrivate",
+            "uiDisplayName": "Lieu Depart Transport Private",
+            "required": "true",
+            "column": "lieudeparttransportprivate",
+            "uiComponent": "text",
+            "id": "UNlcglYFrToJ"
+          },
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "lieuArrivalTransportPrivate",
+            "uiDisplayName": "Lieu Arrival Transport Private",
+            "required": "true",
+            "column": "lieuarrivaltransportprivate",
+            "uiComponent": "text",
+            "id": "WgnkHZshLyoz"
+          },
+          {
+            "type": "Boolean",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "calculManuel",
+            "uiDisplayName": "Calcul Manuel",
+            "required": "true",
+            "column": "calculmanuel",
+            "uiComponent": "yesno",
+            "id": "rSeZdsSnclPH"
+          },
+          {
+            "type": "Integer",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "prixTotal",
+            "uiDisplayName": "Prix Total",
+            "required": "true",
+            "column": "prixtotal",
+            "uiComponent": "number",
+            "id": "DNNdhJYdTscK"
+          },
+          {
+            "type": "Boolean",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "serviceOffert",
+            "uiDisplayName": "Service Offert",
+            "required": "true",
+            "column": "serviceoffert",
+            "uiComponent": "yesno",
+            "id": "MNDMSnFXQhWk"
+          }
+        ],
+        "knoers": [
+          "LifecycleManaged",
+          "TypeManaged",
+          "Contactable"
+        ]
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "attributes": {
+      "eventSuffix": "_HEBERGEMENT_STEP_ACTIVITY",
+      "fileName": "hebergementStepActivity.json",
+      "restUri": "/katappult/cloud/app/generated/v1/secured/api/hebergement_step_activity",
+      "types": [
+        {
+          "logicalName": "HebergementStepActivityType",
+          "logicalPath": "com.katappult.online.types.HebergementStepActivityType",
+          "lifecycle": "HebergementStepActivity lifecycle"
+        }
+      ],
+      "package": "com.katappult.cloud.platform.generated",
+      "backendMenu": "false",
+      "multiIdentifiedTypes": [],
+      "vetoableRules": [
+        {
+          "className": "HebergementStepActivitySetLifecycle",
+          "componentName": "LifecycleManagedSystemRules",
+          "order": "2",
+          "event": "PRE_CREATE_HEBERGEMENT_STEP_ACTIVITY",
+          "internal": "true"
+        },
+        {
+          "className": "HebergementStepActivitySetType",
+          "componentName": "TypeManagedSetBusinessTypeRule",
+          "order": "1",
+          "event": "PRE_CREATE_HEBERGEMENT_STEP_ACTIVITY",
+          "internal": "true"
+        }
+      ],
+      "attributes": [],
+      "entity": {
+        "name": "HebergementStepActivity",
+        "table": "GEN_HEBERGEMENT_STEP_ACTIVITY",
+        "importable": "true",
+        "exportable": "true",
+        "knoers": [
+          "LifecycleManaged",
+          "TypeManaged"
+        ],
+        "attributes": [
+          {
+            "type": "Date",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "arrivalDate",
+            "uiDisplayName": "Date Arrivée",
+            "required": "true",
+            "column": "arrivaldate",
+            "uiComponent": "datetime",
+            "id": "GGHDKqryJeBJ"
+          },
+          {
+            "type": "Date",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "dateDeDepart",
+            "uiDisplayName": "Date De depart",
+            "required": "true",
+            "column": "datededepart",
+            "uiComponent": "datetime",
+            "id": "frUNudFNGWFK"
+          },
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "title",
+            "uiDisplayName": "Titre",
+            "required": "true",
+            "column": "title",
+            "uiComponent": "text",
+            "id": "AcMriEgaSANA"
+          },
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "description",
+            "uiDisplayName": "Description",
+            "required": "true",
+            "column": "description",
+            "uiComponent": "text",
+            "id": "LuaLtZilQfZr"
+          },
+          {
+            "type": "Integer",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "displayOrder",
+            "uiDisplayName": "Display Order",
+            "required": "true",
+            "column": "displayorder",
+            "uiComponent": "number",
+            "id": "WCPhRnxArFTB"
+          },
+          {
+            "type": "Boolean",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "calculManuel",
+            "uiDisplayName": "Calcul Manuel",
+            "required": "true",
+            "column": "calculmanuel",
+            "uiComponent": "yesno",
+            "id": "JTajSLYOMWAz"
+          },
+          {
+            "type": "Boolean",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "serviceOffert",
+            "uiDisplayName": "ServiceOffert",
+            "required": "true",
+            "column": "serviceoffert",
+            "uiComponent": "yesno",
+            "id": "vDxyppGgwFyo"
+          },
+          {
+            "type": "Integer",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "totalPrice",
+            "uiDisplayName": "Prix total",
+            "required": "true",
+            "column": "totalprice",
+            "uiComponent": "number",
+            "id": "QMlsBgHKNETI"
+          },
+          {
+            "type": "Integer",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "numberOfNight",
+            "uiDisplayName": "Nuitée",
+            "required": "true",
+            "column": "numberofnight",
+            "uiComponent": "number",
+            "id": "eigEJhNJLxAQ"
+          },
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "roomType",
+            "uiDisplayName": "Room Type",
+            "required": "true",
+            "column": "roomtype",
+            "uiComponent": "text",
+            "id": "yWwZlkHSPbCZ"
+          },
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "pension",
+            "uiDisplayName": "Pension",
+            "required": "true",
+            "column": "pension",
+            "uiComponent": "text",
+            "id": "dIlSKFqDrUeh"
+          }
+        ]
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "attributes": {
+      "eventSuffix": "_HEBERGEMENT",
+      "fileName": "hebergement.json",
+      "restUri": "/katappult/cloud/app/generated/v1/secured/api/hebergement",
+      "types": [
+        {
+          "logicalName": "HebergementType",
+          "logicalPath": "com.katappult.online.types.HebergementType",
+          "lifecycle": "Hebergement lifecycle"
+        },
+        {
+          "parent": "com.katappult.online.types.HebergementType",
+          "logicalName": "Hotel",
+          "logicalPath": "com.katappult.online.types.HebergementType/Hotel",
+          "id": "ITYlXygxAsVl"
+        },
+        {
+          "parent": "com.katappult.online.types.HebergementType",
+          "logicalName": "Auberge",
+          "logicalPath": "com.katappult.online.types.HebergementType/Auberge",
+          "id": "GcZyLMhdnSyg"
+        },
+        {
+          "parent": "com.katappult.online.types.HebergementType",
+          "logicalName": "Gite",
+          "logicalPath": "com.katappult.online.types.HebergementType/Gite",
+          "id": "lujxjmYHyjId"
+        },
+        {
+          "parent": "com.katappult.online.types.HebergementType",
+          "logicalName": "Appartement",
+          "logicalPath": "com.katappult.online.types.HebergementType/Appartement",
+          "id": "SmoLEHOgFnMx"
+        },
+        {
+          "parent": "com.katappult.online.types.HebergementType",
+          "logicalName": "Camping",
+          "logicalPath": "com.katappult.online.types.HebergementType/Camping",
+          "id": "YgUJiSkJxqqx"
+        }
+      ],
+      "package": "com.katappult.cloud.platform.generated",
+      "backendMenu": "false",
+      "multiIdentifiedTypes": [],
+      "vetoableRules": [
+        {
+          "className": "HebergementSetLifecycle",
+          "componentName": "LifecycleManagedSystemRules",
+          "order": "2",
+          "event": "PRE_CREATE_HEBERGEMENT",
+          "internal": "true"
+        },
+        {
+          "className": "HebergementSetType",
+          "componentName": "TypeManagedSetBusinessTypeRule",
+          "order": "1",
+          "event": "PRE_CREATE_HEBERGEMENT",
+          "internal": "true"
+        },
+        {
+          "className": "HebergementSetReferenceNumber",
+          "componentName": "NumberableSetDefaultReferenceRule",
+          "order": "1",
+          "event": "PRE_CREATE_HEBERGEMENT",
+          "internal": "true"
+        }
+      ],
+      "attributes": [],
+      "oneToMany": [
+        {
+          "tabTitle": "Utilisé dans",
+          "inverseTabTitle": "Hébergement",
+          "roleBClass": "HebergementStepActivity",
+          "roleAClass": "Hebergement",
+          "roleBPackage": "com.katappult.cloud.platform.generated.model",
+          "roleAPackage": "com.katappult.cloud.platform.generated.model",
+          "joinColumn": "one_to_many_provider_oid",
+          "roleAIsOnMasterEntity": "false",
+          "roleBIsOnMasterEntity": "false",
+          "roleBAttributeName": "activities",
+          "attributeName": "provider",
+          "id": "NCUOYFsDXeWq"
+        }
+      ],
+      "entity": {
+        "name": "Hebergement",
+        "table": "GEN_HEBERGEMENT",
+        "importable": "true",
+        "exportable": "true",
+        "knoers": [
+          "ContentHolder",
+          "Thumbed",
+          "LifecycleManaged",
+          "TypeManaged",
+          "Numberable",
+          "Contactable"
+        ],
+        "attributes": [
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "nom",
+            "uiDisplayName": "Nom",
+            "required": "true",
+            "column": "nom",
+            "uiComponent": "text",
+            "id": "McLwLUjjCMAd"
+          },
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "description",
+            "uiDisplayName": "Description",
+            "required": "true",
+            "column": "description",
+            "uiComponent": "text",
+            "id": "mfQfLYvFOONv"
+          },
+          {
+            "type": "Integer",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "nombreEtoiles",
+            "uiDisplayName": "NombreÉtoiles",
+            "required": "true",
+            "column": "nombreetoiles",
+            "uiComponent": "number",
+            "id": "kgEKGLtYdTWH"
+          },
+          {
+            "type": "Integer",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "nombreLits",
+            "uiDisplayName": "NombreLits",
+            "required": "true",
+            "column": "nombrelits",
+            "uiComponent": "number",
+            "id": "zTGMyTRrzsTA"
+          },
+          {
+            "type": "Integer",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "nombreChambres",
+            "uiDisplayName": "NombreChambres",
+            "required": "true",
+            "column": "nombrechambres",
+            "uiComponent": "number",
+            "id": "aRllZwdYpJPl"
+          },
+          {
+            "type": "Integer",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "capacity",
+            "uiDisplayName": "Capacité",
+            "required": "true",
+            "column": "capacity",
+            "uiComponent": "number",
+            "id": "BSPcaWkmSMMz"
+          },
+          {
+            "type": "Date",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "checkin",
+            "uiDisplayName": "Checkin",
+            "required": "true",
+            "column": "checkin",
+            "uiComponent": "datetime",
+            "id": "rsGEbXcAMTWP"
+          },
+          {
+            "type": "Date",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "checkout",
+            "uiDisplayName": "Checkout",
+            "required": "true",
+            "column": "checkout",
+            "uiComponent": "datetime",
+            "id": "cdkkppdGtoVM"
+          }
+        ]
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "attributes": {
+      "eventSuffix": "_ENTERTAINMENT_STEP_ACTIVITY",
+      "fileName": "entertainmentStepActivity.json",
+      "restUri": "/katappult/cloud/app/generated/v1/secured/api/entertainment_step_activity",
+      "package": "com.katappult.cloud.platform.generated",
+      "backendMenu": "false",
+      "attributes": [],
+      "entity": {
+        "name": "EntertainmentStepActivity",
+        "table": "GEN_ENTERTAINMENT_STEP_ACTIVITY",
+        "importable": "true",
+        "exportable": "true",
+        "attributes": [
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "title",
+            "uiDisplayName": "Titre",
+            "required": "true",
+            "column": "title",
+            "uiComponent": "text",
+            "id": "KNzMwUjEBePd"
+          },
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "description",
+            "uiDisplayName": "Description",
+            "required": "true",
+            "column": "description",
+            "uiComponent": "text",
+            "id": "PnTUDvvZREPz"
+          },
+          {
+            "type": "Date",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "dateDeDebut",
+            "uiDisplayName": "Date de début",
+            "required": "true",
+            "column": "datededebut",
+            "uiComponent": "datetime",
+            "id": "DgUZCegdxnAt"
+          },
+          {
+            "type": "Date",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "dateDeFin",
+            "uiDisplayName": "DateDeFin",
+            "required": "true",
+            "column": "datedefin",
+            "uiComponent": "datetime",
+            "id": "PgulEXqoPvfl"
+          },
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "instructeur",
+            "uiDisplayName": "Instructeur",
+            "required": "true",
+            "column": "instructeur",
+            "uiComponent": "text",
+            "id": "JDaWbutiqTBz"
+          },
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "lieu",
+            "uiDisplayName": "Lieu",
+            "required": "true",
+            "column": "lieu",
+            "uiComponent": "text",
+            "id": "vhOmLGETtzNa"
+          },
+          {
+            "type": "Boolean",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "calculManuel",
+            "uiDisplayName": "Calcul Manuel",
+            "required": "true",
+            "column": "calculmanuel",
+            "uiComponent": "yesno",
+            "id": "YpDyuMNBmqra"
+          },
+          {
+            "type": "Boolean",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "serviceOffert",
+            "uiDisplayName": "Service Offert",
+            "required": "true",
+            "column": "serviceoffert",
+            "uiComponent": "yesno",
+            "id": "bVDhUvLkwJdU"
+          },
+          {
+            "type": "Integer",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "totalPrice",
+            "uiDisplayName": "Total Price",
+            "required": "true",
+            "column": "totalprice",
+            "uiComponent": "number",
+            "id": "rwqDxFFZevqw"
+          },
+          {
+            "type": "Integer",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "displayOrder",
+            "uiDisplayName": "DisplayOrder",
+            "required": "true",
+            "column": "displayorder",
+            "uiComponent": "number",
+            "id": "SxXnebsyNxzX"
+          }
+        ]
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "attributes": {
+      "eventSuffix": "_ENTERTAINMENT",
+      "fileName": "entertainment.json",
+      "restUri": "/katappult/cloud/app/generated/v1/secured/api/entertainment",
+      "types": [
+        {
+          "logicalName": "EntertainmentType",
+          "logicalPath": "com.katappult.online.types.EntertainmentType",
+          "lifecycle": "Entertainment lifecycle"
+        }
+      ],
+      "package": "com.katappult.cloud.platform.generated",
+      "backendMenu": "false",
+      "multiIdentifiedTypes": [],
+      "vetoableRules": [
+        {
+          "className": "EntertainmentSetLifecycle",
+          "componentName": "LifecycleManagedSystemRules",
+          "order": "2",
+          "event": "PRE_CREATE_ENTERTAINMENT",
+          "internal": "true"
+        },
+        {
+          "className": "EntertainmentSetType",
+          "componentName": "TypeManagedSetBusinessTypeRule",
+          "order": "1",
+          "event": "PRE_CREATE_ENTERTAINMENT",
+          "internal": "true"
+        },
+        {
+          "className": "EntertainmentSetReferenceNumber",
+          "componentName": "NumberableSetDefaultReferenceRule",
+          "order": "1",
+          "event": "PRE_CREATE_ENTERTAINMENT",
+          "internal": "true"
+        }
+      ],
+      "attributes": [],
+      "oneToMany": [
+        {
+          "tabTitle": "Utilisé dans",
+          "inverseTabTitle": "Activité",
+          "roleBClass": "EntertainmentStepActivity",
+          "roleAClass": "Entertainment",
+          "roleBPackage": "com.katappult.cloud.platform.generated.model",
+          "roleAPackage": "com.katappult.cloud.platform.generated.model",
+          "joinColumn": "one_to_many_provider_oid",
+          "roleAIsOnMasterEntity": "false",
+          "roleBIsOnMasterEntity": "false",
+          "roleBAttributeName": "activities",
+          "attributeName": "provider",
+          "id": "xJJbhSoHjNGp"
+        }
+      ],
+      "entity": {
+        "name": "Entertainment",
+        "table": "GEN_ENTERTAINMENT",
+        "importable": "true",
+        "exportable": "true",
+        "knoers": [
+          "Thumbed",
+          "Contactable",
+          "LifecycleManaged",
+          "TypeManaged",
+          "Numberable"
+        ],
+        "attributes": [
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "nom",
+            "uiDisplayName": "Nom",
+            "required": "true",
+            "column": "nom",
+            "uiComponent": "text",
+            "id": "RVVsAQwIheWC"
+          },
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "description",
+            "uiDisplayName": "Description",
+            "required": "true",
+            "column": "description",
+            "uiComponent": "text",
+            "id": "JXQcYpcYnTRT"
+          },
+          {
+            "type": "Integer",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "perAdultPrice",
+            "uiDisplayName": "Prix par adulte",
+            "required": "true",
+            "column": "peradultprice",
+            "uiComponent": "number",
+            "id": "gUtxWaUVhvFl"
+          },
+          {
+            "type": "Integer",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "perChildPrice",
+            "uiDisplayName": "Prix par enfant",
+            "required": "true",
+            "column": "perchildprice",
+            "uiComponent": "number",
+            "id": "mkeJYCvnFdPk"
+          },
+          {
+            "type": "Integer",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "perBabyPrice",
+            "uiDisplayName": "Per Baby Price",
+            "required": "true",
+            "column": "perbabyprice",
+            "uiComponent": "number",
+            "id": "cmboNWQacycO"
+          },
+          {
+            "type": "Integer",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "minAccessibleAge",
+            "uiDisplayName": "Age minimum",
+            "required": "true",
+            "column": "minaccessibleage",
+            "uiComponent": "number",
+            "id": "HvFpBHSmpJLK"
+          }
+        ]
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "attributes": {
+      "eventSuffix": "_RESTAURATION_STEP_ACTIVITY",
+      "fileName": "restaurationStepActivity.json",
+      "restUri": "/katappult/cloud/app/generated/v1/secured/api/restauration_step_activity",
+      "package": "com.katappult.cloud.platform.generated",
+      "backendMenu": "false",
+      "attributes": [],
+      "entity": {
+        "name": "RestaurationStepActivity",
+        "table": "GEN_RESTAURATION_STEP_ACTIVITY",
+        "importable": "true",
+        "exportable": "true",
+        "attributes": [
+          {
+            "type": "Date",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "dateDeFin",
+            "uiDisplayName": "Date de fin",
+            "required": "true",
+            "column": "datedefin",
+            "uiComponent": "datetime",
+            "id": "JIFpNFtPNNRO"
+          },
+          {
+            "type": "Date",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "dateDeDebut",
+            "uiDisplayName": "Date de début",
+            "required": "true",
+            "column": "datededebut",
+            "uiComponent": "datetime",
+            "id": "frHSiqXdDJnr"
+          },
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "title",
+            "uiDisplayName": "Titre",
+            "required": "true",
+            "column": "title",
+            "uiComponent": "text",
+            "id": "wwPqdEfIRtpu"
+          },
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "description",
+            "uiDisplayName": "Description",
+            "required": "true",
+            "column": "description",
+            "uiComponent": "textarea",
+            "id": "DSLgzFeZbPIy"
+          },
+          {
+            "type": "Integer",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "displayOrder",
+            "uiDisplayName": "Display Order",
+            "required": "true",
+            "column": "displayorder",
+            "uiComponent": "number",
+            "id": "ZCWMprMYvlfO"
+          },
+          {
+            "type": "Boolean",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "calculManuel",
+            "uiDisplayName": "Calcul Manuel",
+            "required": "true",
+            "column": "calculmanuel",
+            "uiComponent": "yesno",
+            "id": "AqRxgmlhBINC"
+          },
+          {
+            "type": "Boolean",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "serviceOffert",
+            "uiDisplayName": "ServiceOffert",
+            "required": "true",
+            "column": "serviceoffert",
+            "uiComponent": "yesno",
+            "id": "pxTrwoiDIHvU"
+          },
+          {
+            "type": "Integer",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "totalPrice",
+            "uiDisplayName": "Total Price",
+            "required": "true",
+            "column": "totalprice",
+            "uiComponent": "number",
+            "id": "iajDaEHtkcxZ"
+          }
+        ]
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "attributes": {
+      "eventSuffix": "_RESTAURANT",
+      "fileName": "restaurant.json",
+      "restUri": "/katappult/cloud/app/generated/v1/secured/api/restaurant",
+      "types": [
+        {
+          "logicalName": "RestaurantType",
+          "logicalPath": "com.katappult.online.types.RestaurantType",
+          "lifecycle": "Restaurant lifecycle"
+        },
+        {
+          "parent": "com.katappult.online.types.RestaurantType",
+          "logicalName": "Restaurant",
+          "logicalPath": "com.katappult.online.types.RestaurantType/Restaurant",
+          "id": "getjzcemRInb"
+        },
+        {
+          "parent": "com.katappult.online.types.RestaurantType",
+          "logicalName": "CoffeeShop",
+          "logicalPath": "com.katappult.online.types.RestaurantType/CoffeeShop",
+          "id": "JTJgLqOdbdjP"
+        },
+        {
+          "parent": "com.katappult.online.types.RestaurantType",
+          "logicalName": "DinerSpecial",
+          "logicalPath": "com.katappult.online.types.RestaurantType/DinerSpecial",
+          "id": "hPslxbGnWKCK"
+        }
+      ],
+      "package": "com.katappult.cloud.platform.generated",
+      "backendMenu": "false",
+      "multiIdentifiedTypes": [],
+      "vetoableRules": [
+        {
+          "className": "RestaurantSetLifecycle",
+          "componentName": "LifecycleManagedSystemRules",
+          "order": "2",
+          "event": "PRE_CREATE_RESTAURANT",
+          "internal": "true"
+        },
+        {
+          "className": "RestaurantSetType",
+          "componentName": "TypeManagedSetBusinessTypeRule",
+          "order": "1",
+          "event": "PRE_CREATE_RESTAURANT",
+          "internal": "true"
+        },
+        {
+          "className": "RestaurantSetReferenceNumber",
+          "componentName": "NumberableSetDefaultReferenceRule",
+          "order": "1",
+          "event": "PRE_CREATE_RESTAURANT",
+          "internal": "true"
+        }
+      ],
+      "attributes": [],
+      "oneToMany": [
+        {
+          "tabTitle": "Utilisé dans",
+          "inverseTabTitle": "Restaurant",
+          "roleBClass": "RestaurationStepActivity",
+          "roleAClass": "Restaurant",
+          "roleBPackage": "com.katappult.cloud.platform.generated.model",
+          "roleAPackage": "com.katappult.cloud.platform.generated.model",
+          "joinColumn": "one_to_many_provider_oid",
+          "roleAIsOnMasterEntity": "false",
+          "roleBIsOnMasterEntity": "false",
+          "roleBAttributeName": "activities",
+          "attributeName": "provider",
+          "id": "XYRScxgsECNw"
+        }
+      ],
+      "entity": {
+        "name": "Restaurant",
+        "table": "GEN_RESTAURANT",
+        "importable": "true",
+        "exportable": "true",
+        "knoers": [
+          "Thumbed",
+          "LifecycleManaged",
+          "TypeManaged",
+          "Numberable",
+          "Contactable"
+        ],
+        "attributes": [
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "nom",
+            "uiDisplayName": "Nom",
+            "required": "true",
+            "column": "nom",
+            "uiComponent": "text",
+            "id": "zdIZfNAIhbjA"
+          },
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "description",
+            "uiDisplayName": "Description",
+            "required": "true",
+            "column": "description",
+            "uiComponent": "text",
+            "id": "HNozgIuAcIpn"
+          },
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "speciality",
+            "uiDisplayName": "Spécialité",
+            "required": "true",
+            "uiComponent": "text",
+            "column": "speciality",
+            "id": "vXJVvXtkZbfu"
+          },
+          {
+            "type": "Integer",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "note",
+            "uiDisplayName": "Note",
+            "required": "true",
+            "column": "note",
+            "uiComponent": "number",
+            "id": "AtVTnanbXKss"
+          }
+        ]
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "attributes": {
+      "eventSuffix": "_POINT_OF_INTEREST_STEP_ACTIVITY",
+      "fileName": "pointOfInterestStepActivity.json",
+      "restUri": "/katappult/cloud/app/generated/v1/secured/api/point_of_interest_step_activity",
+      "package": "com.katappult.cloud.platform.generated",
+      "backendMenu": "false",
+      "attributes": [],
+      "entity": {
+        "name": "PointOfInterestStepActivity",
+        "table": "GEN_POINT_OF_INTEREST_STEP_ACTIVITY",
+        "importable": "true",
+        "exportable": "true",
+        "attributes": [
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "title",
+            "uiDisplayName": "Titre",
+            "required": "true",
+            "column": "title",
+            "uiComponent": "text",
+            "id": "nTkNfmLyJCKH"
+          },
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "description",
+            "uiDisplayName": "Description",
+            "required": "true",
+            "column": "description",
+            "uiComponent": "text",
+            "id": "jOcaWEmGBtfY"
+          },
+          {
+            "type": "Integer",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "displayOrder",
+            "uiDisplayName": "Display order",
+            "required": "true",
+            "column": "displayorder",
+            "uiComponent": "number",
+            "id": "tgxEwMKwOcgp"
+          },
+          {
+            "type": "Date",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "dateDeDebut",
+            "uiDisplayName": "Date début",
+            "required": "true",
+            "column": "datededebut",
+            "uiComponent": "datetime",
+            "id": "EiPipFSttrXW"
+          },
+          {
+            "type": "Date",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "dateDeFin",
+            "uiDisplayName": "Date de fin",
+            "required": "true",
+            "column": "datedefin",
+            "uiComponent": "datetime",
+            "id": "lIUGNUBXGFxT"
+          },
+          {
+            "type": "Boolean",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "calculManuel",
+            "uiDisplayName": "Calcul Manuel",
+            "required": "true",
+            "column": "calculmanuel",
+            "uiComponent": "yesno",
+            "id": "azJxXvLYSIkM"
+          },
+          {
+            "type": "Boolean",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "serviceOffert",
+            "uiDisplayName": "Service Offert",
+            "required": "true",
+            "column": "serviceoffert",
+            "uiComponent": "yesno",
+            "id": "YqCLNfggCYFi"
+          },
+          {
+            "type": "Integer",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "totalPrice",
+            "uiDisplayName": "Total Price",
+            "required": "true",
+            "column": "totalprice",
+            "uiComponent": "number",
+            "id": "QWgMQgKcgwWX"
+          }
+        ]
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "attributes": {
+      "eventSuffix": "_POINT_OF_INTEREST",
+      "fileName": "pointOfInterest.json",
+      "restUri": "/katappult/cloud/app/generated/v1/secured/api/point_of_interest",
+      "types": [
+        {
+          "logicalName": "PointOfInterestType",
+          "logicalPath": "com.katappult.online.types.PointOfInterestType",
+          "lifecycle": "PointOfInterest lifecycle"
+        },
+        {
+          "parent": "com.katappult.online.types.PointOfInterestType",
+          "logicalName": "MonumentHistorique",
+          "logicalPath": "com.katappult.online.types.PointOfInterestType/MonumentHistorique",
+          "id": "JXFQBzJgClts"
+        },
+        {
+          "parent": "com.katappult.online.types.PointOfInterestType",
+          "logicalName": "Museum",
+          "logicalPath": "com.katappult.online.types.PointOfInterestType/Museum",
+          "id": "AiheXlgUYdBi"
+        },
+        {
+          "parent": "com.katappult.online.types.PointOfInterestType",
+          "logicalName": "ParcNational",
+          "logicalPath": "com.katappult.online.types.PointOfInterestType/ParcNational",
+          "id": "ulPXKGykFqsb"
+        },
+        {
+          "parent": "com.katappult.online.types.PointOfInterestType",
+          "logicalName": "Plage",
+          "logicalPath": "com.katappult.online.types.PointOfInterestType/Plage",
+          "id": "WoQkkfonlJCB"
+        },
+        {
+          "parent": "com.katappult.online.types.PointOfInterestType",
+          "logicalName": "SiteNaturel",
+          "logicalPath": "com.katappult.online.types.PointOfInterestType/SiteNaturel",
+          "id": "MemEipBXBziS"
+        },
+        {
+          "parent": "com.katappult.online.types.PointOfInterestType",
+          "logicalName": "Shopping",
+          "logicalPath": "com.katappult.online.types.PointOfInterestType/Shopping",
+          "id": "csCygYtKeACk"
+        },
+        {
+          "parent": "com.katappult.online.types.PointOfInterestType",
+          "logicalName": "Souvenir",
+          "logicalPath": "com.katappult.online.types.PointOfInterestType/Souvenir",
+          "id": "xgclxYDySGDG"
+        }
+      ],
+      "package": "com.katappult.cloud.platform.generated",
+      "backendMenu": "false",
+      "multiIdentifiedTypes": [],
+      "vetoableRules": [
+        {
+          "className": "PointOfInterestSetLifecycle",
+          "componentName": "LifecycleManagedSystemRules",
+          "order": "2",
+          "event": "PRE_CREATE_POINT_OF_INTEREST",
+          "internal": "true"
+        },
+        {
+          "className": "PointOfInterestSetType",
+          "componentName": "TypeManagedSetBusinessTypeRule",
+          "order": "1",
+          "event": "PRE_CREATE_POINT_OF_INTEREST",
+          "internal": "true"
+        },
+        {
+          "className": "PointOfInterestSetReferenceNumber",
+          "componentName": "NumberableSetDefaultReferenceRule",
+          "order": "1",
+          "event": "PRE_CREATE_POINT_OF_INTEREST",
+          "internal": "true"
+        }
+      ],
+      "attributes": [],
+      "oneToMany": [
+        {
+          "tabTitle": "Utilisé dans",
+          "inverseTabTitle": "Source",
+          "roleBClass": "PointOfInterestStepActivity",
+          "roleAClass": "PointOfInterest",
+          "roleBPackage": "com.katappult.cloud.platform.generated.model",
+          "roleAPackage": "com.katappult.cloud.platform.generated.model",
+          "joinColumn": "one_to_many_provider_oid",
+          "roleAIsOnMasterEntity": "false",
+          "roleBIsOnMasterEntity": "false",
+          "roleBAttributeName": "activities",
+          "attributeName": "provider",
+          "id": "TOdwSoLlNktL"
+        }
+      ],
+      "entity": {
+        "name": "PointOfInterest",
+        "table": "GEN_POINT_OF_INTEREST",
+        "importable": "true",
+        "exportable": "true",
+        "knoers": [
+          "Thumbed",
+          "ContentHolder",
+          "LifecycleManaged",
+          "TypeManaged",
+          "Numberable",
+          "Contactable"
+        ],
+        "attributes": [
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "name",
+            "uiDisplayName": "Nom",
+            "required": "true",
+            "column": "name",
+            "uiComponent": "text",
+            "id": "KXtZZFBSLRcL"
+          },
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "description",
+            "uiDisplayName": "Description",
+            "required": "true",
+            "column": "description",
+            "uiComponent": "text",
+            "id": "KfhdXnrkxrvS"
+          },
+          {
+            "type": "Integer",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "pricePerAdult",
+            "uiDisplayName": "Prix par adulte",
+            "required": "true",
+            "column": "priceperadult",
+            "uiComponent": "number",
+            "id": "CHeRsjEwVPbQ"
+          },
+          {
+            "type": "Integer",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "pricePerChild",
+            "uiDisplayName": "Prix par enfant",
+            "required": "true",
+            "column": "priceperchild",
+            "uiComponent": "number",
+            "id": "misjZQMMyYzB"
+          },
+          {
+            "type": "Integer",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "pricePerBaby",
+            "uiDisplayName": "Price Per Baby",
+            "required": "true",
+            "column": "priceperbaby",
+            "uiComponent": "number",
+            "id": "ELhEOlRjTwCY"
+          },
+          {
+            "type": "Integer",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "minAccessibleAge",
+            "uiDisplayName": "Age minimum",
+            "required": "true",
+            "column": "minaccessibleage",
+            "uiComponent": "number",
+            "id": "XHVWTgZmlyFX"
+          }
+        ]
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "attributes": {
+      "eventSuffix": "_VOYAGE_STEP",
+      "fileName": "voyageStep.json",
+      "restUri": "/katappult/cloud/app/generated/v1/secured/api/voyage_step",
+      "package": "com.katappult.cloud.platform.generated",
+      "backendMenu": "false",
+      "attributes": [],
+      "oneToMany": [
+        {
+          "tabTitle": "Transport",
+          "inverseTabTitle": "Step",
+          "roleBClass": "TransportStepActivity",
+          "roleAClass": "VoyageStep",
+          "roleBPackage": "com.katappult.cloud.platform.generated.model",
+          "roleAPackage": "com.katappult.cloud.platform.generated.model",
+          "joinColumn": "one_to_many_voyagestep_oid",
+          "roleAIsOnMasterEntity": "false",
+          "roleBIsOnMasterEntity": "false",
+          "roleBAttributeName": "transports",
+          "attributeName": "voyageStep",
+          "id": "MyoCESIkQlzh"
+        },
+        {
+          "tabTitle": "Hebergement",
+          "inverseTabTitle": "Step",
+          "roleBClass": "HebergementStepActivity",
+          "roleAClass": "VoyageStep",
+          "roleBPackage": "com.katappult.cloud.platform.generated.model",
+          "roleAPackage": "com.katappult.cloud.platform.generated.model",
+          "joinColumn": "one_to_many_voyagestep_oid",
+          "roleAIsOnMasterEntity": "false",
+          "roleBIsOnMasterEntity": "false",
+          "roleBAttributeName": "hebergements",
+          "attributeName": "voyageStep",
+          "id": "EFLjBGFJTeEw"
+        },
+        {
+          "tabTitle": "Entertainment",
+          "inverseTabTitle": "Step",
+          "roleBClass": "EntertainmentStepActivity",
+          "roleAClass": "VoyageStep",
+          "roleBPackage": "com.katappult.cloud.platform.generated.model",
+          "roleAPackage": "com.katappult.cloud.platform.generated.model",
+          "joinColumn": "one_to_many_voyagestep_oid",
+          "roleAIsOnMasterEntity": "false",
+          "roleBIsOnMasterEntity": "false",
+          "roleBAttributeName": "entertainments",
+          "attributeName": "voyageStep",
+          "id": "wGXbEbfRyEvV"
+        },
+        {
+          "tabTitle": "Restauration",
+          "inverseTabTitle": "Step",
+          "roleBClass": "RestaurationStepActivity",
+          "roleAClass": "VoyageStep",
+          "roleBPackage": "com.katappult.cloud.platform.generated.model",
+          "roleAPackage": "com.katappult.cloud.platform.generated.model",
+          "joinColumn": "one_to_many_voyagestep_oid",
+          "roleAIsOnMasterEntity": "false",
+          "roleBIsOnMasterEntity": "false",
+          "roleBAttributeName": "restauration",
+          "attributeName": "voyageStep",
+          "id": "VeAmBgztSJgj"
+        },
+        {
+          "tabTitle": "Interest",
+          "inverseTabTitle": "Step",
+          "roleBClass": "PointOfInterestStepActivity",
+          "roleAClass": "VoyageStep",
+          "roleBPackage": "com.katappult.cloud.platform.generated.model",
+          "roleAPackage": "com.katappult.cloud.platform.generated.model",
+          "joinColumn": "one_to_many_voyagestep_oid",
+          "roleAIsOnMasterEntity": "false",
+          "roleBIsOnMasterEntity": "false",
+          "roleBAttributeName": "pointsToVisit",
+          "attributeName": "voyageStep",
+          "id": "GXOYfNqUSKgc"
+        }
+      ],
+      "entity": {
+        "name": "VoyageStep",
+        "table": "GEN_VOYAGE_STEP",
+        "importable": "true",
+        "exportable": "true",
+        "attributes": [
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "titre",
+            "uiDisplayName": "Titre",
+            "required": "false",
+            "column": "titre",
+            "uiComponent": "text",
+            "id": "RhXuCBFPHuUI"
+          },
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "description",
+            "uiDisplayName": "Description",
+            "required": "true",
+            "column": "description",
+            "uiComponent": "text",
+            "id": "SoMoVUEwBwok"
+          },
+          {
+            "type": "Integer",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "displayOrder",
+            "uiDisplayName": "Display order",
+            "required": "true",
+            "column": "displayorder",
+            "uiComponent": "number",
+            "id": "AEGisOgSzFYx"
+          }
+        ]
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "attributes": {
+      "eventSuffix": "_FAVORIS",
+      "fileName": "favoris.json",
+      "restUri": "/katappult/cloud/app/generated/v1/secured/api/favoris",
+      "package": "com.katappult.cloud.platform.generated",
+      "backendMenu": "false",
+      "manyToMany": [
+        {
+          "tabTitle": "_not_provided_",
+          "inverseTabTitle": "_not_provided_",
+          "roleBClass": "Voyage",
+          "roleAClass": "Favoris",
+          "roleBPackage": "com.katappult.cloud.platform.generated.model",
+          "roleAPackage": "com.katappult.cloud.platform.generated.model",
+          "linkTableName": {},
+          "link": {
+            "linkTableName": "GEN_MANY_TO_MANY_FAVORIS_VOYAGE_LINK"
+          },
+          "id": "HIRCewWfsnFc"
+        }
+      ],
+      "attributes": [],
+      "oneToMany": [
+        {
+          "tabTitle": "Owner",
+          "roleAClass": "Favoris",
+          "inverseTabTitle": "N/A",
+          "roleAIsOnMasterEntity": "false",
+          "roleBIsOnMasterEntity": "false",
+          "roleBClass": "UserAccount",
+          "roleBPackage": "com.katappult.core.model.account",
+          "attributeName": "owner",
+          "roleAPackage": "com.katappult.cloud.platform.generated",
+          "manyToOneLegacy": "true",
+          "id": "kiXWqkRGvGdP"
+        }
+      ],
+      "entity": {
+        "name": "Favoris",
+        "table": "GEN_FAVORIS",
+        "importable": "true",
+        "exportable": "true",
+        "attributes": [
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "comment",
+            "uiDisplayName": "Comment",
+            "required": "true",
+            "column": "comment",
+            "uiComponent": "text",
+            "id": "pYTvngFVOQPW"
+          }
+        ]
+      }
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "attributes": {
+      "eventSuffix": "_ENTERTAINMENT_PROVIDER",
+      "fileName": "entertainmentProvider.json",
+      "restUri": "/katappult/cloud/app/generated/v1/secured/api/entertainment_provider",
+      "types": [
+        {
+          "logicalName": "EntertainmentProviderType",
+          "logicalPath": "com.katappult.online.types.EntertainmentProviderType",
+          "lifecycle": "EntertainmentProvider lifecycle"
+        }
+      ],
+      "package": "com.katappult.cloud.platform.generated",
+      "backendMenu": "false",
+      "multiIdentifiedTypes": [],
+      "vetoableRules": [
+        {
+          "className": "EntertainmentProviderSetLifecycle",
+          "componentName": "LifecycleManagedSystemRules",
+          "order": "2",
+          "event": "PRE_CREATE_ENTERTAINMENT_PROVIDER",
+          "internal": "true"
+        },
+        {
+          "className": "EntertainmentProviderSetType",
+          "componentName": "TypeManagedSetBusinessTypeRule",
+          "order": "1",
+          "event": "PRE_CREATE_ENTERTAINMENT_PROVIDER",
+          "internal": "true"
+        },
+        {
+          "className": "EntertainmentProviderSetReferenceNumber",
+          "componentName": "NumberableSetDefaultReferenceRule",
+          "order": "1",
+          "event": "PRE_CREATE_ENTERTAINMENT_PROVIDER",
+          "internal": "true"
+        }
+      ],
+      "attributes": [],
+      "oneToMany": [
+        {
+          "tabTitle": "Entertainments",
+          "inverseTabTitle": "Provider",
+          "roleBClass": "Entertainment",
+          "roleAClass": "EntertainmentProvider",
+          "roleBPackage": "com.katappult.cloud.platform.generated.model",
+          "roleAPackage": "com.katappult.cloud.platform.generated.model",
+          "joinColumn": "one_to_many_provider_oid",
+          "roleAIsOnMasterEntity": "false",
+          "roleBIsOnMasterEntity": "false",
+          "roleBAttributeName": "entertainments",
+          "attributeName": "provider",
+          "id": "DHYmqMxzzcHB"
+        }
+      ],
+      "entity": {
+        "name": "EntertainmentProvider",
+        "table": "GEN_ENTERTAINMENT_PROVIDER",
+        "importable": "true",
+        "exportable": "true",
+        "knoers": [
+          "Thumbed",
+          "LifecycleManaged",
+          "TypeManaged",
+          "Numberable",
+          "Contactable"
+        ],
+        "attributes": [
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "nom",
+            "uiDisplayName": "Nom",
+            "required": "true",
+            "column": "nom",
+            "uiComponent": "text",
+            "id": "tggLNLbSZTct"
+          },
+          {
+            "type": "String",
+            "uiDisplayInDatatable": "true",
+            "uiDisplayInAdd": "true",
+            "uiMasterDatatableAttribute": "false",
+            "name": "indentification",
+            "uiDisplayName": "Indentification",
+            "required": "true",
+            "column": "indentification",
+            "uiComponent": "text",
+            "id": "hZCCqIRqeGSV"
+          }
+        ]
+      }
+    },
+    "status": "SUCCESS"
+  }
+]

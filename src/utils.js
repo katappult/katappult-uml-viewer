@@ -33,17 +33,17 @@ export const createNodesTable = entities => {
 }
 
 export const takeKnoers = entities => {
-    if (!entities || typeof entities !== 'object') {
-        console.error('Entities object is invalid or empty')
+    if (!Array.isArray(entities) || entities.length === 0) {
+        console.error('Entities array is invalid or empty')
         return
     }
 
     const knoersArray = []
     const knoersSet = new Set()
 
-    Object.entries(entities).forEach(([key, value]) => {
-        if (value && value.entity && value.entity.knoers) {
-            value.entity.knoers.forEach(knoer => {
+    entities.forEach(entity => {
+        if (entity.attributes.entity.knoers) {
+            entity.attributes.entity.knoers.forEach(knoer => {
                 if (!knoersSet.has(knoer)) {
                     knoersArray.push(knoer)
                     knoersSet.add(knoer)
@@ -51,6 +51,7 @@ export const takeKnoers = entities => {
             })
         }
     })
+
     return knoersArray
 }
 

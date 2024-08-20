@@ -5,9 +5,7 @@ export const useStore = create(set => ({
     setData: newData => set({data: newData}),
     fetchData: async () => {
         try {
-            const response = await fetch(
-                '/Markeplace-config.json'
-            )
+            const response = await fetch('/entities.txt')
             const result = await response.json()
             set({data: result})
         } catch (error) {
