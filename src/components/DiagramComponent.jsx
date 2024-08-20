@@ -75,6 +75,7 @@ export const DiagramComponent = ({title, TableComponent}) => {
             setIsLoading(false)
         }
     }, [data, fetchData, setEdges, setNodes, checkedItems, title])
+    // console.log(nodes);
 
     if (isLoading) return <div>Loading...</div>
     if (error) return <div>Error: {error}</div>

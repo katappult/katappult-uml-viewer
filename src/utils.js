@@ -14,22 +14,24 @@ export const typeMap = {
 
 // Create nodes table from entities
 export const createNodesTable = entities => {
-    return Object.entries(entities)
-        .map(([key, value], index) => {
-            if (!value.entity) return null
-            const row = Math.floor(index / 5)
-            const col = index % 5
-            return {
-                id: key,
-                label: key,
-                type: 'table',
-                position: {x: 50 + col * 450, y: 100 + row * 250},
-                dragHandle: '.custom-drag-handle',
-                data: value.entity,
-                style: {backgroundColor: 'rgba(127, 173, 139)'},
-            }
-        })
-        .filter(Boolean)
+    if (!Array.isArray(entities) || entities.length === 0) {
+        console.error('Entities array is invalid or empty')
+        return []
+    }
+    return entities.map((entity, index) => {
+        if (!entity.attributes.entity) return null
+        const row = Math.floor(index / 5)
+        const col = index % 5
+        return {
+            id: index,
+            label: index,
+            type: 'table',
+            position: {x: 50 + col * 450, y: 100 + row * 250},
+            dragHandle: '.custom-drag-handle',
+            data: entity,
+            style: {backgroundColor: 'rgba(127, 173, 139)'},
+        }
+    })
 }
 
 export const takeKnoers = entities => {
