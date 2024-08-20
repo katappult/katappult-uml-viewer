@@ -6,7 +6,7 @@ export const useStore = create(set => ({
     fetchData: async () => {
         try {
             const response = await fetch(
-                'http://localhost:5173/Markeplace-config.json'
+                '/Markeplace-config.json'
             )
             const result = await response.json()
             set({data: result})
