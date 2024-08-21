@@ -23,12 +23,12 @@ export const createNodesTable = entities => {
         const row = Math.floor(index / 5)
         const col = index % 5
         return {
-            id: index,
-            label: index,
+            id: entity.attributes.entity.name,
+            label: entity.attributes.entity.name,
             type: 'table',
             position: {x: 50 + col * 450, y: 100 + row * 250},
             dragHandle: '.custom-drag-handle',
-            data: entity,
+            data: entity.attributes.entity,
             style: {backgroundColor: 'rgba(127, 173, 139)'},
         }
     })
@@ -79,13 +79,13 @@ const createEdges = (
 ) => {
     const edges = []
     Object.values(entities).forEach(entity => {
-        if (entity[relationType]) {
-            entity[relationType].forEach(relation => {
+        if (entity.attributes[relationType]) {
+            entity.attributes[relationType].forEach(relation => {
                 if (relation.id) {
                     edges.push({
                         id: `${relation.id}`,
-                        source: `${relation.roleAClass.charAt(0).toLowerCase() + relation.roleAClass.slice(1)}.json`,
-                        target: `${relation.roleBClass.charAt(0).toLowerCase() + relation.roleBClass.slice(1)}.json`,
+                        source: `${relation.roleAClass}`,
+                        target: `${relation.roleBClass}`,
                         data: {
                             startLabel: `${startLabel}`,
                             endLabel: `${endLabel}`,
@@ -103,11 +103,11 @@ const createEdges = (
 const createKnoersEdges = (entities, strokeColor, startLabel, endLabel) => {
     const edges = []
     Object.values(entities).forEach(entity => {
-        if (entity.entity && entity.entity.knoers) {
-            entity.entity.knoers.forEach((knoer, index) => {
+        if (entity.attributes.entity && entity.attributes.entity.knoers) {
+            entity.attributes.entity.knoers.forEach((knoer, index) => {
                 edges.push({
-                    id: `${entity.entity.name}_${knoer}_${index}`,
-                    source: `${entity.entity.name.charAt(0).toLowerCase() + entity.entity.name.slice(1)}.json`,
+                    id: `${entity.attributes.entity.name}_${knoer}_${index}`,
+                    source: `${entity.attributes.entity.name}`,
                     target: `${knoer}`,
                     data: {
                         startLabel: `${startLabel}`,

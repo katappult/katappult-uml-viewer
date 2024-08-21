@@ -26,8 +26,6 @@ export const ListComponent = ({
                     Array.isArray(data) &&
                     data.map((item, index) => {
                         const itemName = item.attributes.entity.name
-
-                        console.log(itemName)
                         return (
                             <div className="drop-element" key={index}>
                                 <input
