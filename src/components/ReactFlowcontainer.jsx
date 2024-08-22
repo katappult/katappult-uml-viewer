@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-
+import {updateNodePosition} from '../utils'
 import {
     ReactFlow,
     MiniMap,
@@ -16,6 +16,10 @@ export const ReactFlowContainer = ({
     nodeTypes,
     edgeTypes,
 }) => {
+    const handleNodeDragStop = (event, node) => {
+        // Update the position in local storage when the node is moved
+        updateNodePosition(node.id, node.position)
+    }
     return (
         <div className="container">
             <ReactFlow
@@ -27,6 +31,7 @@ export const ReactFlowContainer = ({
                 edgeTypes={edgeTypes}
                 connectionMode={ConnectionMode.Loose}
                 minZoom={0.2}
+                onNodeDragStop={handleNodeDragStop}
                 fitView
             >
                 <MiniMap />

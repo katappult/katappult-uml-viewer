@@ -18,20 +18,34 @@ export const createNodesTable = entities => {
         console.error('Entities array is invalid or empty')
         return []
     }
+
     return entities.map((entity, index) => {
         if (!entity.attributes.entity) return null
+
+        const entityName = entity.attributes.entity.name
+        const storedPosition = JSON.parse(
+            localStorage.getItem(`nodePosition_${entityName}`)
+        )
+
         const row = Math.floor(index / 5)
         const col = index % 5
+        const defaultPosition = {x: 50 + col * 450, y: 100 + row * 250}
+
         return {
-            id: entity.attributes.entity.name,
-            label: entity.attributes.entity.name,
+            id: entityName,
+            label: entityName,
             type: 'table',
-            position: {x: 50 + col * 450, y: 100 + row * 250},
+            position: storedPosition || defaultPosition,
             dragHandle: '.custom-drag-handle',
             data: entity.attributes.entity,
             style: {backgroundColor: 'rgba(127, 173, 139)'},
         }
     })
+}
+
+// Function to store the position of a node in local storage when it's moved
+export const updateNodePosition = (nodeId, position) => {
+    localStorage.setItem(`nodePosition_${nodeId}`, JSON.stringify(position))
 }
 
 export const takeKnoers = entities => {
