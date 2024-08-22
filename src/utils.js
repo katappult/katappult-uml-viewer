@@ -72,15 +72,22 @@ export const takeKnoers = entities => {
 }
 
 export const createInterfaceNodesTable = knoers => {
-    return knoers.map((knoer, index) => ({
-        id: knoer,
-        label: knoer,
-        type: 'interface',
-        position: {x: -450, y: 100 + index * 150},
-        dragHandle: '.custom-drag-handle',
-        data: knoer,
-        style: {backgroundColor: 'rgba(127, 173, 139)'},
-    }))
+    return knoers.map((knoer, index) => {
+        const storedPosition = JSON.parse(
+            localStorage.getItem(`nodePosition_${knoer}`)
+        )
+        const defaultPosition = {x: -450, y: 100 + index * 150}
+
+        return {
+            id: knoer,
+            label: knoer,
+            type: 'interface',
+            position: storedPosition || defaultPosition,
+            dragHandle: '.custom-drag-handle',
+            data: knoer,
+            style: {backgroundColor: 'rgba(127, 173, 139)'},
+        }
+    })
 }
 
 // Create edges based on relation type
