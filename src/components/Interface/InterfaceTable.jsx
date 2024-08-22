@@ -9,19 +9,9 @@ export const InterfaceTable = ({data}) => {
             <table className="minimalistBlack item">
                 <thead className="custom-drag-handle">
                     <tr>
-                        <th colSpan={2}>&lt;Interface&gt;</th>
+                        <th colSpan={2}>&lt;&lt;{data}&gt;&gt;</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr
-                        style={{
-                            display: 'flex',
-                            justifyContent: 'space-between',
-                        }}
-                    >
-                        <td style={{textAlign: 'left'}}>{data}</td>
-                    </tr>
-                </tbody>
             </table>
         </div>
     )
