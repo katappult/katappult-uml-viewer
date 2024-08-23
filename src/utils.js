@@ -30,14 +30,14 @@ export const createNodesTable = entities => {
         const row = Math.floor(index / 5)
         const col = index % 5
         const defaultPosition = {x: 50 + col * 450, y: 100 + row * 250}
-
+        console.log(entity.attributes);
         return {
             id: entityName,
             label: entityName,
             type: 'table',
             position: storedPosition || defaultPosition,
             dragHandle: '.custom-drag-handle',
-            data: entity.attributes.entity,
+            data: entity.attributes,
             style: {backgroundColor: 'rgba(127, 173, 139)'},
         }
     })
@@ -48,28 +48,6 @@ export const updateNodePosition = (nodeId, position) => {
     localStorage.setItem(`nodePosition_${nodeId}`, JSON.stringify(position))
 }
 
-export const takeKnoers = entities => {
-    if (!Array.isArray(entities) || entities.length === 0) {
-        console.error('Entities array is invalid or empty')
-        return
-    }
-
-    const knoersArray = []
-    const knoersSet = new Set()
-
-    entities.forEach(entity => {
-        if (entity.attributes.entity.knoers) {
-            entity.attributes.entity.knoers.forEach(knoer => {
-                if (!knoersSet.has(knoer)) {
-                    knoersArray.push(knoer)
-                    knoersSet.add(knoer)
-                }
-            })
-        }
-    })
-
-    return knoersArray
-}
 
 export const createInterfaceNodesTable = knoers => {
     return knoers.map((knoer, index) => {

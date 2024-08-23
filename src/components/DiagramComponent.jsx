@@ -15,7 +15,6 @@ import {
 import {useNodesState, useEdgesState} from '@xyflow/react'
 import {ReactFlowContainer} from './ReactFlowContainer'
 import {InterfaceTable} from './Interface/InterfaceTable'
-import {takeKnoers} from '../utils'
 import {createInterfaceNodesTable} from '../utils'
 
 export const DiagramComponent = ({title, TableComponent}) => {
@@ -52,8 +51,9 @@ export const DiagramComponent = ({title, TableComponent}) => {
 
             if (data && title.toLowerCase().includes('object')) {
                 const knoersNodes = displayedNodes.flatMap(node =>
-                    node.data.knoers && node.data.knoers.length > 0
-                        ? createInterfaceNodesTable(node.data.knoers)
+                    node.data.entity.knoers &&
+                    node.data.entity.knoers.length > 0
+                        ? createInterfaceNodesTable(node.data.entity.knoers)
                         : []
                 )
 

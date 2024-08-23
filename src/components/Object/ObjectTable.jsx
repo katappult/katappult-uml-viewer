@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import {Handle, Position} from '@xyflow/react'
 
 export const ObjectTable = ({data}) => {
-    if (!data?.attributes) {
+    if (!data?.entity.attributes) {
         return <div>No data available</div>
     }
 
@@ -13,11 +13,13 @@ export const ObjectTable = ({data}) => {
             <table className="minimalistBlack item">
                 <thead className="custom-drag-handle">
                     <tr>
-                        <th colSpan={2}>{data.name || 'Unknown Table'}</th>
+                        <th colSpan={2}>
+                            {data.entity.name || 'Unknown Table'}
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
-                    {data.attributes.map(attr => (
+                    {data.entity.attributes.map(attr => (
                         <tr
                             key={attr.id}
                             style={{
