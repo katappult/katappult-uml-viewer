@@ -43,7 +43,7 @@ export const DiagramComponent = ({title, TableComponent}) => {
                 fetchData()
             }
 
-            const displayedNodes = createNodesTable(data).filter(node =>
+            const displayedNodes = createNodesTable(data, title).filter(node =>
                 checkedItems.includes(node.id)
             )
 
@@ -67,9 +67,9 @@ export const DiagramComponent = ({title, TableComponent}) => {
 
             const newEdges = data
                 ? [
-                      ...createEdgeOneToMany(data),
-                      ...createEdgeManyToMany(data),
-                      ...createEdgeOneToOne(data),
+                      ...createEdgeOneToMany(data, title),
+                      ...createEdgeManyToMany(data, title),
+                      ...createEdgeOneToOne(data, title),
                       ...createInterfaceEdge(data),
                   ]
                 : []
