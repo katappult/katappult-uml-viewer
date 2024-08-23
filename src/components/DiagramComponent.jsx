@@ -43,15 +43,24 @@ export const DiagramComponent = ({title, TableComponent}) => {
             if (!data) {
                 fetchData()
             }
-            const knoers = data ? takeKnoers(data) : []
 
+            const displayedNodes = createNodesTable(data).filter(node =>
+                checkedItems.includes(node.id)
+            )
+
+            // Create a new array for nodes including knoers
             const newNodes = data
                 ? [
-                      ...createNodesTable(data).filter(node =>
-                          checkedItems.includes(node.id)
-                      ),
-                      ...(knoers && title.toLowerCase().includes('object')
-                          ? createInterfaceNodesTable(knoers)
+                      ...displayedNodes,
+                      // Conditionally add knoers only if title contains 'object'
+                      ...(title.toLowerCase().includes('object')
+                          ? displayedNodes.flatMap(node =>
+                                node.data.knoers && node.data.knoers.length > 0
+                                    ? createInterfaceNodesTable(
+                                          node.data.knoers
+                                      )
+                                    : []
+                            )
                           : []),
                   ]
                 : []
@@ -66,9 +75,7 @@ export const DiagramComponent = ({title, TableComponent}) => {
                 : []
 
             setNodes(newNodes)
-
             setEdges(newEdges)
-
             setIsLoading(false)
         } catch (error) {
             setError(error.message)
