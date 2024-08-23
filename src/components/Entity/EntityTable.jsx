@@ -24,6 +24,23 @@ export const EntityTable = ({data}) => {
                     </tr>
                 </thead>
                 <tbody>
+                    <tr
+                        style={{
+                            display: 'flex',
+                            justifyContent: 'space-between',
+                        }}
+                    >
+                        <td
+                            style={{
+                                textAlign: 'left',
+                                fontWeight: 'bold',
+                                fontStyle: 'italic',
+                            }}
+                        >
+                            OID
+                        </td>
+                        <td style={{textAlign: 'right'}}>LONG</td>
+                    </tr>
                     {data.attributes.map(attr => (
                         <tr
                             key={attr.id}
