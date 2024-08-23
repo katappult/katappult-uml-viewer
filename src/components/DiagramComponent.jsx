@@ -48,22 +48,22 @@ export const DiagramComponent = ({title, TableComponent}) => {
                 checkedItems.includes(node.id)
             )
 
-            // Create a new array for nodes including knoers
-            const newNodes = data
-                ? [
-                      ...displayedNodes,
-                      // Conditionally add knoers only if title contains 'object'
-                      ...(title.toLowerCase().includes('object')
-                          ? displayedNodes.flatMap(node =>
-                                node.data.knoers && node.data.knoers.length > 0
-                                    ? createInterfaceNodesTable(
-                                          node.data.knoers
-                                      )
-                                    : []
-                            )
-                          : []),
-                  ]
-                : []
+            let newNodes = displayedNodes
+
+            if (data && title.toLowerCase().includes('object')) {
+                const knoersNodes = displayedNodes.flatMap(node =>
+                    node.data.knoers && node.data.knoers.length > 0
+                        ? createInterfaceNodesTable(node.data.knoers)
+                        : []
+                )
+
+                // Filter out knoers nodes that are already included
+                knoersNodes.forEach(knoerNode => {
+                    if (!newNodes.some(node => node.id === knoerNode.id)) {
+                        newNodes.push(knoerNode)
+                    }
+                })
+            }
 
             const newEdges = data
                 ? [
