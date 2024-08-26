@@ -1,11 +1,13 @@
 import PropTypes from 'prop-types'
 import {updateNodePosition} from '../utils'
+import {useState} from 'react'
 import {
     ReactFlow,
     MiniMap,
     Controls,
     Background,
     ConnectionMode,
+    useReactFlow,
 } from '@xyflow/react'
 
 export const ReactFlowContainer = ({
@@ -16,10 +18,27 @@ export const ReactFlowContainer = ({
     nodeTypes,
     edgeTypes,
 }) => {
+    const flowKey = 'example-flow'
+
+    const [rfInstance, setRfInstance] = useState(null)
+
+    const {setViewport} = useReactFlow()
+
     const handleNodeDragStop = (event, node) => {
-        // Update the position in local storage when the node is moved
         updateNodePosition(node.id, node.position)
+        if (rfInstance) {
+            const flow = rfInstance.toObject()
+            localStorage.setItem(flowKey, JSON.stringify(flow))
+        }
     }
+
+    const flow = JSON.parse(localStorage.getItem(flowKey))
+
+    if (flow) {
+        const {x, y, zoom} = flow.viewport
+        setViewport({x, y, zoom})
+    }
+
     return (
         <div className="container">
             <ReactFlow
@@ -31,6 +50,7 @@ export const ReactFlowContainer = ({
                 edgeTypes={edgeTypes}
                 connectionMode={ConnectionMode.Loose}
                 minZoom={0.2}
+                onInit={setRfInstance}
                 onNodeDragStop={handleNodeDragStop}
                 fitView
             >
