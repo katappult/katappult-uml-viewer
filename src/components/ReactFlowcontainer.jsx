@@ -7,7 +7,6 @@ import {
     Controls,
     Background,
     ConnectionMode,
-    useReactFlow,
 } from '@xyflow/react'
 
 export const ReactFlowContainer = ({
@@ -22,21 +21,12 @@ export const ReactFlowContainer = ({
 
     const [rfInstance, setRfInstance] = useState(null)
 
-    const {setViewport} = useReactFlow()
-
     const handleNodeDragStop = (event, node) => {
         updateNodePosition(node.id, node.position)
         if (rfInstance) {
             const flow = rfInstance.toObject()
             localStorage.setItem(flowKey, JSON.stringify(flow))
         }
-    }
-
-    const flow = JSON.parse(localStorage.getItem(flowKey))
-
-    if (flow) {
-        const {x, y, zoom} = flow.viewport
-        setViewport({x, y, zoom})
     }
 
     return (
