@@ -5,6 +5,7 @@ import {SimpleFloatingEdge} from '../components/SimpleFloatingEdge'
 import {useStore} from '../hooks/useStore'
 import {ListComponent} from '../components/ListComponent '
 import {useCheckedStore} from '../hooks/useCheckedStore'
+import {createUserAccountNodeTable} from '../utils'
 import {
     createNodesTable,
     createEdgeOneToMany,
@@ -47,7 +48,11 @@ export const DiagramComponent = ({title, TableComponent}) => {
                 checkedItems.includes(node.id)
             )
 
-            let newNodes = displayedNodes
+            // let newNodes = displayedNodes
+            let newNodes = [
+                createUserAccountNodeTable(title),
+                ...displayedNodes,
+            ]
 
             if (data && title.toLowerCase().includes('object')) {
                 const knoersNodes = displayedNodes.flatMap(node =>
