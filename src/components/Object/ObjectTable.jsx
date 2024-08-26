@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import {Handle, Position} from '@xyflow/react'
-
+import React from 'react'
+import {LifeCycleManagedAttributes} from '../knoers/KnoersAttributes'
 export const ObjectTable = ({data}) => {
     if (!data?.entity.attributes) {
         return <div>No data available</div>
@@ -31,6 +32,24 @@ export const ObjectTable = ({data}) => {
                             <td style={{textAlign: 'right'}}>{attr.type}</td>
                         </tr>
                     ))}
+                    {Array.isArray(data.entity.knoers) &&
+                        data.entity.knoers.map((knoer, index) => (
+                            <React.Fragment key={knoer.id || knoer + index}>
+                                {knoer === 'LifecycleManaged' && (
+                                    <LifeCycleManagedAttributes />
+                                )}
+                                {knoer !== 'LifecycleManaged' && (
+                                    <tr
+                                        style={{
+                                            display: 'flex',
+                                            justifyContent: 'space-between',
+                                        }}
+                                    >
+                                        <td colSpan={2}>{knoer}</td>
+                                    </tr>
+                                )}
+                            </React.Fragment>
+                        ))}
                 </tbody>
             </table>
         </div>
