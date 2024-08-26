@@ -11,11 +11,18 @@ export const ListComponent = ({
     const {checkedItems, setCheckedItems} = useCheckedStore()
 
     const handleCheckboxChange = itemName => {
-        setCheckedItems(prev =>
-            prev.includes(itemName)
-                ? prev.filter(name => name !== itemName)
-                : [...prev, itemName]
-        )
+        setCheckedItems(prev => {
+            const isChecked = prev.includes(itemName)
+            const itemTableName = data.find(
+                item => item.attributes.entity.name === itemName
+            ).attributes.entity.table
+
+            return isChecked
+                ? prev.filter(
+                      name => name !== itemTableName && name !== itemName
+                  )
+                : [...prev, itemTableName, itemName]
+        })
     }
 
     return (
@@ -25,7 +32,10 @@ export const ListComponent = ({
                 {data &&
                     Array.isArray(data) &&
                     data.map((item, index) => {
-                        const itemName = item.attributes.entity.name
+                        const itemName =
+                            title && title.includes('Object')
+                                ? item.attributes.entity.name
+                                : item.attributes.entity.table
                         return (
                             <div className="drop-element" key={index}>
                                 <input

@@ -15,7 +15,6 @@ import {
 import {useNodesState, useEdgesState} from '@xyflow/react'
 import {ReactFlowContainer} from './ReactFlowContainer'
 import {InterfaceTable} from './Interface/InterfaceTable'
-import {takeKnoers} from '../utils'
 import {createInterfaceNodesTable} from '../utils'
 
 export const DiagramComponent = ({title, TableComponent}) => {
@@ -43,32 +42,40 @@ export const DiagramComponent = ({title, TableComponent}) => {
             if (!data) {
                 fetchData()
             }
-            const knoers = data ? takeKnoers(data) : []
 
-            const newNodes = data
-                ? [
-                      ...createNodesTable(data).filter(node =>
-                          checkedItems.includes(node.id)
-                      ),
-                      ...(knoers && title.toLowerCase().includes('object')
-                          ? createInterfaceNodesTable(knoers)
-                          : []),
-                  ]
-                : []
+            const displayedNodes = createNodesTable(data, title).filter(node =>
+                checkedItems.includes(node.id)
+            )
+
+            let newNodes = displayedNodes
+
+            if (data && title.toLowerCase().includes('object')) {
+                const knoersNodes = displayedNodes.flatMap(node =>
+                    node.data.entity.knoers &&
+                    node.data.entity.knoers.length > 0
+                        ? createInterfaceNodesTable(node.data.entity.knoers)
+                        : []
+                )
+
+                // Filter out knoers nodes that are already included
+                knoersNodes.forEach(knoerNode => {
+                    if (!newNodes.some(node => node.id === knoerNode.id)) {
+                        newNodes.push(knoerNode)
+                    }
+                })
+            }
 
             const newEdges = data
                 ? [
-                      ...createEdgeOneToMany(data),
-                      ...createEdgeManyToMany(data),
-                      ...createEdgeOneToOne(data),
+                      ...createEdgeOneToMany(data, title),
+                      ...createEdgeManyToMany(data, title),
+                      ...createEdgeOneToOne(data, title),
                       ...createInterfaceEdge(data),
                   ]
                 : []
 
             setNodes(newNodes)
-
             setEdges(newEdges)
-
             setIsLoading(false)
         } catch (error) {
             setError(error.message)

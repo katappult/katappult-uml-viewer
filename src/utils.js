@@ -13,60 +13,60 @@ export const typeMap = {
 }
 
 // Create nodes table from entities
-export const createNodesTable = entities => {
+export const createNodesTable = (entities, title) => {
     if (!Array.isArray(entities) || entities.length === 0) {
         console.error('Entities array is invalid or empty')
         return []
     }
+
     return entities.map((entity, index) => {
         if (!entity.attributes.entity) return null
+
+        const entityName =
+            title && title.includes('Object')
+                ? entity.attributes.entity.name
+                : entity.attributes.entity.table
+        const storedPosition = JSON.parse(
+            localStorage.getItem(`nodePosition_${entityName}`)
+        )
+
         const row = Math.floor(index / 5)
         const col = index % 5
+        const defaultPosition = {x: 50 + col * 450, y: 100 + row * 250}
         return {
-            id: entity.attributes.entity.name,
-            label: entity.attributes.entity.name,
+            id: entityName,
+            label: entityName,
             type: 'table',
-            position: {x: 50 + col * 450, y: 100 + row * 250},
+            position: storedPosition || defaultPosition,
             dragHandle: '.custom-drag-handle',
-            data: entity.attributes.entity,
+            data: entity.attributes,
             style: {backgroundColor: 'rgba(127, 173, 139)'},
         }
     })
 }
 
-export const takeKnoers = entities => {
-    if (!Array.isArray(entities) || entities.length === 0) {
-        console.error('Entities array is invalid or empty')
-        return
-    }
-
-    const knoersArray = []
-    const knoersSet = new Set()
-
-    entities.forEach(entity => {
-        if (entity.attributes.entity.knoers) {
-            entity.attributes.entity.knoers.forEach(knoer => {
-                if (!knoersSet.has(knoer)) {
-                    knoersArray.push(knoer)
-                    knoersSet.add(knoer)
-                }
-            })
-        }
-    })
-
-    return knoersArray
+// Function to store the position of a node in local storage when it's moved
+export const updateNodePosition = (nodeId, position) => {
+    localStorage.setItem(`nodePosition_${nodeId}`, JSON.stringify(position))
 }
 
 export const createInterfaceNodesTable = knoers => {
-    return knoers.map((knoer, index) => ({
-        id: knoer,
-        label: knoer,
-        type: 'interface',
-        position: {x: -450, y: 100 + index * 150},
-        dragHandle: '.custom-drag-handle',
-        data: knoer,
-        style: {backgroundColor: 'rgba(127, 173, 139)'},
-    }))
+    return knoers.map((knoer, index) => {
+        const storedPosition = JSON.parse(
+            localStorage.getItem(`nodePosition_${knoer}`)
+        )
+        const defaultPosition = {x: -450, y: 100 + index * 150}
+
+        return {
+            id: knoer,
+            label: knoer,
+            type: 'interface',
+            position: storedPosition || defaultPosition,
+            dragHandle: '.custom-drag-handle',
+            data: knoer,
+            style: {backgroundColor: 'rgba(127, 173, 139)'},
+        }
+    })
 }
 
 // Create edges based on relation type
@@ -75,7 +75,8 @@ const createEdges = (
     relationType,
     strokeColor,
     startLabel,
-    endLabel
+    endLabel,
+    title
 ) => {
     const edges = []
     Object.values(entities).forEach(entity => {
@@ -84,8 +85,15 @@ const createEdges = (
                 if (relation.id) {
                     edges.push({
                         id: `${relation.id}`,
-                        source: `${relation.roleAClass}`,
-                        target: `${relation.roleBClass}`,
+                        source:
+                            title && title.includes('Entity')
+                                ? `GEN_${camelToSnakeCase(relation.roleAClass).toUpperCase()}`
+                                : relation.roleAClass,
+
+                        target:
+                            title && title.includes('Entity')
+                                ? `GEN_${camelToSnakeCase(relation.roleBClass).toUpperCase()}`
+                                : relation.roleBClass,
                         data: {
                             startLabel: `${startLabel}`,
                             endLabel: `${endLabel}`,
@@ -125,12 +133,12 @@ const createKnoersEdges = (entities, strokeColor, startLabel, endLabel) => {
     return edges
 }
 
-export const createEdgeOneToMany = entities =>
-    createEdges(entities, 'oneToMany', 'red', '1', '*')
-export const createEdgeManyToMany = entities =>
-    createEdges(entities, 'manyToMany', 'yellow', '*', '*')
-export const createEdgeOneToOne = entities =>
-    createEdges(entities, 'oneToOne', 'blue', '1', '1')
+export const createEdgeOneToMany = (entities, title) =>
+    createEdges(entities, 'oneToMany', 'red', '1', '*', title)
+export const createEdgeManyToMany = (entities, title) =>
+    createEdges(entities, 'manyToMany', 'yellow', '*', '*', title)
+export const createEdgeOneToOne = (entities, title) =>
+    createEdges(entities, 'oneToOne', 'blue', '1', '1', title)
 export const createInterfaceEdge = entities =>
     createKnoersEdges(entities, 'orange')
 // Get parameters for edge positioning, considering only left and right positions
