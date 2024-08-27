@@ -5,6 +5,7 @@ import {SimpleFloatingEdge} from '../components/SimpleFloatingEdge'
 import {useStore} from '../hooks/useStore'
 import {ListComponent} from '../components/ListComponent '
 import {useCheckedStore} from '../hooks/useCheckedStore'
+import {createUserAccountNodeTable} from '../utils'
 import {
     createNodesTable,
     createEdgeOneToMany,
@@ -17,7 +18,7 @@ import {ReactFlowContainer} from './ReactFlowContainer'
 import {InterfaceTable} from './Interface/InterfaceTable'
 import {createInterfaceNodesTable} from '../utils'
 
-export const DiagramComponent = ({title, TableComponent}) => {
+export const DiagramComponent = ({title, TableComponent, flowKey}) => {
     const {data, fetchData} = useStore()
     const {checkedItems} = useCheckedStore()
 
@@ -47,7 +48,11 @@ export const DiagramComponent = ({title, TableComponent}) => {
                 checkedItems.includes(node.id)
             )
 
-            let newNodes = displayedNodes
+            // let newNodes = displayedNodes
+            let newNodes = [
+                createUserAccountNodeTable(title),
+                ...displayedNodes,
+            ]
 
             if (data && title.toLowerCase().includes('object')) {
                 const knoersNodes = displayedNodes.flatMap(node =>
@@ -92,6 +97,7 @@ export const DiagramComponent = ({title, TableComponent}) => {
                 <ListComponent title={title} />
             </div>
             <ReactFlowContainer
+                flowKey={flowKey}
                 nodes={nodes}
                 edges={edges}
                 onNodesChange={onNodesChange}
@@ -106,4 +112,5 @@ export const DiagramComponent = ({title, TableComponent}) => {
 DiagramComponent.propTypes = {
     title: PropTypes.string.isRequired,
     TableComponent: PropTypes.any.isRequired,
+    flowKey: PropTypes.any,
 }

@@ -1,5 +1,18 @@
 import PropTypes from 'prop-types'
 import {Handle, Position} from '@xyflow/react'
+import React from 'react'
+import {
+    LifeCycleManagedAttributes,
+    TypeManagedAttributes,
+    ThumbedAttributes,
+    NumberableAttributes,
+    IteratedAttributes,
+    VersionedAttributes,
+    ContentHolderAttributes,
+    WorkableAttributes,
+    ContactableAttributes,
+} from '../knoers/KnoersAttributes'
+import {Tr} from '../Tr'
 
 export const ObjectTable = ({data}) => {
     if (!data?.entity.attributes) {
@@ -20,17 +33,38 @@ export const ObjectTable = ({data}) => {
                 </thead>
                 <tbody>
                     {data.entity.attributes.map(attr => (
-                        <tr
+                        <Tr
                             key={attr.id}
-                            style={{
-                                display: 'flex',
-                                justifyContent: 'space-between',
-                            }}
-                        >
-                            <td style={{textAlign: 'left'}}>{attr.name}</td>
-                            <td style={{textAlign: 'right'}}>{attr.type}</td>
-                        </tr>
+                            attributes={attr.name}
+                            type={attr.type}
+                        />
                     ))}
+                    {Array.isArray(data.entity.knoers) &&
+                        data.entity.knoers.map((knoer, index) => (
+                            <React.Fragment key={knoer.id || knoer + index}>
+                                {knoer === 'LifecycleManaged' && (
+                                    <LifeCycleManagedAttributes />
+                                )}
+                                {knoer === 'TypeManaged' && (
+                                    <TypeManagedAttributes />
+                                )}
+                                {knoer === 'Thumbed' && <ThumbedAttributes />}
+                                {knoer === 'Numberable' && (
+                                    <NumberableAttributes />
+                                )}
+                                {knoer === 'Iterated' && <IteratedAttributes />}
+                                {knoer === 'Versioned' && (
+                                    <VersionedAttributes />
+                                )}
+                                {knoer === 'ContentHolder' && (
+                                    <ContentHolderAttributes />
+                                )}
+                                {knoer === 'Workable' && <WorkableAttributes />}
+                                {knoer === 'Contactable' && (
+                                    <ContactableAttributes />
+                                )}
+                            </React.Fragment>
+                        ))}
                 </tbody>
             </table>
         </div>
