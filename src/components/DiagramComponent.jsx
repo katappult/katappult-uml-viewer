@@ -18,7 +18,7 @@ import {ReactFlowContainer} from './ReactFlowContainer'
 import {InterfaceTable} from './Interface/InterfaceTable'
 import {createInterfaceNodesTable} from '../utils'
 
-export const DiagramComponent = ({title, TableComponent}) => {
+export const DiagramComponent = ({title, TableComponent, flowKey}) => {
     const {data, fetchData} = useStore()
     const {checkedItems} = useCheckedStore()
 
@@ -97,6 +97,7 @@ export const DiagramComponent = ({title, TableComponent}) => {
                 <ListComponent title={title} />
             </div>
             <ReactFlowContainer
+                flowKey={flowKey}
                 nodes={nodes}
                 edges={edges}
                 onNodesChange={onNodesChange}
@@ -111,4 +112,5 @@ export const DiagramComponent = ({title, TableComponent}) => {
 DiagramComponent.propTypes = {
     title: PropTypes.string.isRequired,
     TableComponent: PropTypes.any.isRequired,
+    flowKey: PropTypes.any,
 }
