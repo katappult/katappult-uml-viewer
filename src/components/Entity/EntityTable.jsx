@@ -15,9 +15,15 @@ import {
     WorkableAttributes,
     ContactableAttributes,
 } from '../knoers/KnoersAttributes'
+import {useCheckedId} from '../../hooks/useCheckedId'
+import {useCheckedForeignKey} from '../../hooks/useCheckedForeignKey'
+import {useCheckedAttribute} from '../../hooks/useCheckedAttribute'
 
 export const EntityTable = ({data}) => {
     const {toggleHover} = useHover()
+    const {isCheckedId} = useCheckedId()
+    const {isCheckedForeignKey} = useCheckedForeignKey()
+    const {isCheckedAttribute} = useCheckedAttribute()
     if (!data?.entity.attributes) {
         return <div>No data available</div>
     }
@@ -39,28 +45,36 @@ export const EntityTable = ({data}) => {
                     </tr>
                 </thead>
                 <tbody>
-                    <Tr attributes="OID" type="LONG" id />
-                    {data.oneToMany && data.oneToMany.length > 0 && (
-                        <>
-                            {data.oneToMany.map(item => (
-                                <Tr
-                                    key={item.id}
-                                    attributes={
-                                        camelToSnakeCase(item.roleBClass) +
-                                        '_OID'
-                                    }
-                                    type="LONG"
-                                />
-                            ))}
-                        </>
-                    )}
-                    {data.entity.attributes.map(attr => (
-                        <Tr
-                            key={attr.id}
-                            attributes={camelToSnakeCase(attr.name)}
-                            type={typeMap[attr.type] || attr.type}
-                        />
-                    ))}
+                    {isCheckedId ? (
+                        <Tr attributes="OID" type="LONG" id />
+                    ) : null}
+                    {isCheckedForeignKey
+                        ? data.oneToMany &&
+                          data.oneToMany.length > 0 && (
+                              <>
+                                  {data.oneToMany.map(item => (
+                                      <Tr
+                                          key={item.id}
+                                          attributes={
+                                              camelToSnakeCase(
+                                                  item.roleBClass
+                                              ) + '_OID'
+                                          }
+                                          type="LONG"
+                                      />
+                                  ))}
+                              </>
+                          )
+                        : null}
+                    {isCheckedAttribute
+                        ? data.entity.attributes.map(attr => (
+                              <Tr
+                                  key={attr.id}
+                                  attributes={camelToSnakeCase(attr.name)}
+                                  type={typeMap[attr.type] || attr.type}
+                              />
+                          ))
+                        : null}
                     {Array.isArray(data.entity.knoers) &&
                         data.entity.knoers.map((knoer, index) => (
                             <React.Fragment key={knoer.id || knoer + index}>
@@ -101,4 +115,5 @@ export const EntityTable = ({data}) => {
 
 EntityTable.propTypes = {
     data: PropTypes.object.isRequired,
+    showId: PropTypes.bool,
 }

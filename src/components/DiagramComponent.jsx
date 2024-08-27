@@ -17,9 +17,23 @@ import {useNodesState, useEdgesState} from '@xyflow/react'
 import {ReactFlowContainer} from './ReactFlowContainer'
 import {InterfaceTable} from './Interface/InterfaceTable'
 import {createInterfaceNodesTable} from '../utils'
+import {useCheckedId} from '../hooks/useCheckedId'
+import {useCheckedForeignKey} from '../hooks/useCheckedForeignKey'
+import {useCheckedAttribute} from '../hooks/useCheckedAttribute'
+import {useCheckedRelation} from '../hooks/useCheckedRelation'
+import {useCheckedInterface} from '../hooks/useCheckedInterface'
+import {useCheckedLegacyEntity} from '../hooks/useCheckedLegacyEntity'
+import {CheckBox} from '../components/CheckBox'
 
 export const DiagramComponent = ({title, TableComponent, flowKey}) => {
     const {data, fetchData} = useStore()
+    const {isCheckedId, toggleCheckId} = useCheckedId()
+    const {isCheckedForeignKey, toggleCheckForeignKey} = useCheckedForeignKey()
+    const {isCheckedAttribute, toggleCheckAttribute} = useCheckedAttribute()
+    const {isCheckedRelation, toggleCheckRelation} = useCheckedRelation()
+    const {isCheckedInterface, toggleCheckInterface} = useCheckedInterface()
+    const {isCheckedLegacyEntity, toggleCheckLegacyEntity} =
+        useCheckedLegacyEntity()
     const {checkedItems} = useCheckedStore()
 
     const [nodes, setNodes, onNodesChange] = useNodesState([])
@@ -48,21 +62,22 @@ export const DiagramComponent = ({title, TableComponent, flowKey}) => {
                 checkedItems.includes(node.id)
             )
 
-            // let newNodes = displayedNodes
             let newNodes = [
-                createUserAccountNodeTable(title),
+                ...(isCheckedLegacyEntity
+                    ? [createUserAccountNodeTable(title)]
+                    : []),
                 ...displayedNodes,
             ]
 
             if (data && title.toLowerCase().includes('object')) {
                 const knoersNodes = displayedNodes.flatMap(node =>
                     node.data.entity.knoers &&
-                    node.data.entity.knoers.length > 0
+                    node.data.entity.knoers.length > 0 &&
+                    isCheckedInterface
                         ? createInterfaceNodesTable(node.data.entity.knoers)
                         : []
                 )
 
-                // Filter out knoers nodes that are already included
                 knoersNodes.forEach(knoerNode => {
                     if (!newNodes.some(node => node.id === knoerNode.id)) {
                         newNodes.push(knoerNode)
@@ -70,14 +85,15 @@ export const DiagramComponent = ({title, TableComponent, flowKey}) => {
                 })
             }
 
-            const newEdges = data
-                ? [
-                      ...createEdgeOneToMany(data, title),
-                      ...createEdgeManyToMany(data, title),
-                      ...createEdgeOneToOne(data, title),
-                      ...createInterfaceEdge(data),
-                  ]
-                : []
+            const newEdges =
+                isCheckedRelation && data
+                    ? [
+                          ...createEdgeOneToMany(data, title),
+                          ...createEdgeManyToMany(data, title),
+                          ...createEdgeOneToOne(data, title),
+                          ...createInterfaceEdge(data),
+                      ]
+                    : []
 
             setNodes(newNodes)
             setEdges(newEdges)
@@ -86,7 +102,17 @@ export const DiagramComponent = ({title, TableComponent, flowKey}) => {
             setError(error.message)
             setIsLoading(false)
         }
-    }, [data, fetchData, setEdges, setNodes, checkedItems, title])
+    }, [
+        data,
+        fetchData,
+        setEdges,
+        setNodes,
+        checkedItems,
+        title,
+        isCheckedRelation,
+        isCheckedInterface,
+        isCheckedLegacyEntity,
+    ])
 
     if (isLoading) return <div>Loading...</div>
     if (error) return <div>Error: {error}</div>
@@ -96,6 +122,37 @@ export const DiagramComponent = ({title, TableComponent, flowKey}) => {
             <div className="flex-container">
                 <ListComponent title={title} />
             </div>
+            <CheckBox
+                isChecked={isCheckedId}
+                toggle={toggleCheckId}
+                text={'Display OID'}
+            />
+            <CheckBox
+                isChecked={isCheckedForeignKey}
+                toggle={toggleCheckForeignKey}
+                text={' Display Foreign Key'}
+            />
+            <CheckBox
+                isChecked={isCheckedAttribute}
+                toggle={toggleCheckAttribute}
+                text={'  Display Attributes'}
+            />
+            <CheckBox
+                isChecked={isCheckedRelation}
+                toggle={toggleCheckRelation}
+                text={'     Display Relation'}
+            />
+            <CheckBox
+                isChecked={isCheckedInterface}
+                toggle={toggleCheckInterface}
+                text={'  Display Interface'}
+            />
+            <CheckBox
+                isChecked={isCheckedLegacyEntity}
+                toggle={toggleCheckLegacyEntity}
+                text={'  Display Legacy Entity'}
+            />
+
             <ReactFlowContainer
                 flowKey={flowKey}
                 nodes={nodes}

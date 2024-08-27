@@ -14,7 +14,7 @@ export const Tabs = () => {
                 <button onClick={() => setActiveTab('object')}>
                     Object Diagram
                 </button>
-            </div>
+            </div>       
             <div>
                 {activeTab === 'entity' && (
                     <ReactFlowProvider>
