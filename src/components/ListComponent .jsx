@@ -3,10 +3,7 @@ import {useStore} from '../hooks/useStore'
 import {camelToSnakeCase} from '../utils'
 import {useCheckedStore} from '../hooks/useCheckedStore'
 
-export const ListComponent = ({
-    title,
-    transformItemName = name => name.replace('.json', ''),
-}) => {
+export const ListComponent = ({title}) => {
     const {data} = useStore()
     const {checkedItems, setCheckedItems} = useCheckedStore()
 
@@ -15,7 +12,9 @@ export const ListComponent = ({
             const isChecked = prev.includes(itemName)
             const itemTableName = data.find(
                 item => item.attributes.entity.name === itemName
-            ).attributes.entity.table
+            )?.attributes.entity.table // Added optional chaining
+
+            if (!itemTableName) return prev // Added check for undefined itemTableName
 
             return isChecked
                 ? prev.filter(
@@ -44,15 +43,17 @@ export const ListComponent = ({
                                         Array.isArray(checkedItems) &&
                                         checkedItems.includes(itemName)
                                     }
-                                    onChange={() =>
-                                        handleCheckboxChange(itemName)
-                                    }
+                                    onChange={() => {
+                                        title.includes('Object')
+                                            ? handleCheckboxChange(itemName)
+                                            : handleCheckboxChange(
+                                                  camelToSnakeCase(itemName)
+                                              )
+                                    }}
                                 />
                                 {title.includes('Object')
-                                    ? transformItemName(itemName)
-                                    : camelToSnakeCase(
-                                          transformItemName(itemName)
-                                      )}
+                                    ? itemName
+                                    : camelToSnakeCase(itemName)}
                             </div>
                         )
                     })}
