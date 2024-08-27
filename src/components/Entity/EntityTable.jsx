@@ -2,6 +2,19 @@ import PropTypes from 'prop-types'
 import {Handle, Position} from '@xyflow/react'
 import {camelToSnakeCase, typeMap} from '../../utils'
 import {useHover} from '../../hooks/useHover'
+import {Tr} from '../Tr'
+import React from 'react'
+import {
+    LifeCycleManagedAttributes,
+    TypeManagedAttributes,
+    ThumbedAttributes,
+    NumberableAttributes,
+    IteratedAttributes,
+    VersionedAttributes,
+    ContentHolderAttributes,
+    WorkableAttributes,
+    ContactableAttributes,
+} from '../knoers/KnoersAttributes'
 
 export const EntityTable = ({data}) => {
     const {toggleHover} = useHover()
@@ -26,63 +39,60 @@ export const EntityTable = ({data}) => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr
-                        style={{
-                            display: 'flex',
-                            justifyContent: 'space-between',
-                        }}
-                    >
-                        <td
-                            style={{
-                                textAlign: 'left',
-                                fontWeight: 'bold',
-                                fontStyle: 'italic',
-                            }}
-                        >
-                            OID
-                        </td>
-                        <td style={{textAlign: 'right'}}>LONG</td>
-                    </tr>
+                    <Tr attributes="OID" type="LONG" id />
                     {data.oneToMany && data.oneToMany.length > 0 && (
                         <>
                             {data.oneToMany.map(item => (
-                                <tr
-                                    key={item.id} // Ensure each item has a unique key
-                                    style={{
-                                        display: 'flex',
-                                        justifyContent: 'space-between',
-                                    }}
-                                >
-                                    <td
-                                        style={{
-                                            textAlign: 'left',
-                                            fontWeight: 'bold',
-                                            fontStyle: 'italic',
-                                        }}
-                                    >
-                                        {camelToSnakeCase(item.roleBClass) + "_OID"}
-                                    </td>
-                                    <td style={{textAlign: 'right'}}>LONG</td>
-                                </tr>
+                                <Tr
+                                    key={item.id}
+                                    attributes={
+                                        camelToSnakeCase(item.roleBClass) +
+                                        '_OID'
+                                    }
+                                    type="LONG"
+                                />
                             ))}
                         </>
                     )}
                     {data.entity.attributes.map(attr => (
-                        <tr
+                        <Tr
                             key={attr.id}
-                            style={{
-                                display: 'flex',
-                                justifyContent: 'space-between',
-                            }}
-                        >
-                            <td style={{textAlign: 'left'}}>
-                                {camelToSnakeCase(attr.name)}
-                            </td>
-                            <td style={{textAlign: 'right'}}>
-                                {typeMap[attr.type] || attr.type}
-                            </td>
-                        </tr>
+                            attributes={camelToSnakeCase(attr.name)}
+                            type={typeMap[attr.type] || attr.type}
+                        />
                     ))}
+                    {Array.isArray(data.entity.knoers) &&
+                        data.entity.knoers.map((knoer, index) => (
+                            <React.Fragment key={knoer.id || knoer + index}>
+                                {knoer === 'LifecycleManaged' && (
+                                    <LifeCycleManagedAttributes model />
+                                )}
+                                {knoer === 'TypeManaged' && (
+                                    <TypeManagedAttributes model />
+                                )}
+                                {knoer === 'Thumbed' && (
+                                    <ThumbedAttributes model />
+                                )}
+                                {knoer === 'Numberable' && (
+                                    <NumberableAttributes model />
+                                )}
+                                {knoer === 'Iterated' && (
+                                    <IteratedAttributes model />
+                                )}
+                                {knoer === 'Versioned' && (
+                                    <VersionedAttributes model />
+                                )}
+                                {knoer === 'ContentHolder' && (
+                                    <ContentHolderAttributes model />
+                                )}
+                                {knoer === 'Workable' && (
+                                    <WorkableAttributes model />
+                                )}
+                                {knoer === 'Contactable' && (
+                                    <ContactableAttributes model />
+                                )}
+                            </React.Fragment>
+                        ))}
                 </tbody>
             </table>
         </div>
