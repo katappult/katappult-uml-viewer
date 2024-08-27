@@ -32,15 +32,17 @@ export const ReactFlowContainer = ({
         localStorage.setItem('viewport' + flowKey, JSON.stringify(viewport))
     }, [flowKey, viewport])
 
-    useEffect(() => {
-        if (rfInstance) {
-            rfInstance.setViewport(viewport)
-        }
-    }, [rfInstance, viewport])
-
     const handleNodeDragStop = (event, node) => {
         updateNodePosition(node.id, node.position)
     }
+
+    const handleInit = useCallback(
+        instance => {
+            setRfInstance(instance)
+            instance.setViewport(viewport) // Restore the viewport when React Flow initializes
+        },
+        [viewport]
+    )
 
     return (
         <div className="container">
@@ -53,7 +55,8 @@ export const ReactFlowContainer = ({
                 edgeTypes={edgeTypes}
                 connectionMode={ConnectionMode.Loose}
                 onMove={onMove}
-                onInit={setRfInstance}
+                onInit={handleInit} // Set the instance and restore the viewport
+                defaultViewport={viewport} // Use the restored viewport as the default
                 onNodeDragStop={handleNodeDragStop}
             >
                 <MiniMap />
