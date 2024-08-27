@@ -163,6 +163,7 @@ const createKnoersEdges = (entities, strokeColor, startLabel, endLabel) => {
                     markerEnd: {
                         type: MarkerType.ArrowClosed,
                     },
+                    animated: true,
                     type: 'floating',
                     style: {strokeWidth: 5, stroke: strokeColor},
                 })
