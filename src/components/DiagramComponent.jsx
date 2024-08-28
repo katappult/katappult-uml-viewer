@@ -118,7 +118,6 @@ export const DiagramComponent = ({title, TableComponent, flowKey}) => {
     if (error) return <div>Error: {error}</div>
     return (
         <>
-            <h1>{title}</h1>
             <div className="flex-container">
                 <ListComponent title={title} />
             </div>

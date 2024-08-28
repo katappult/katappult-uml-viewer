@@ -1,205 +1,208 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 
 :root {
-  --font-family: "Lato", sans-serif;
-  --font-size: 20px;
-  --border-color: #b3b3b3;
-  --hover-border-color: #91cedd;
-  --hover-bg-color: #cde5eb;
-  --table-bg-color: #fcfcfc;
-  --header-bg-color: #a0ceda;
-  --node-bg-color: #fff;
-  --node-border-color: #1a192b;
-  --dropbtn-bg-color: #4caf50;
-  --dropbtn-hover-bg-color: #3e8e41;
-  --dropdown-bg-color: #f9f9f9d7;
-  --link-hover-bg-color: #f1f1f1;
+    --font-family: 'Lato', sans-serif;
+    --font-size: 20px;
+    --border-color: #b3b3b3;
+    --hover-border-color: #91cedd;
+    --hover-bg-color: #cde5eb;
+    --table-bg-color: #fcfcfc;
+    --header-bg-color: #a0ceda;
+    --node-bg-color: #fff;
+    --node-border-color: #1a192b;
+    --dropbtn-bg-color: #4caf50;
+    --dropbtn-hover-bg-color: #3e8e41;
+    --dropdown-bg-color: #f9f9f9d7;
+    --link-hover-bg-color: #f1f1f1;
 }
 
 body {
-  font-family: var(--font-family);
-  font-size: var(--font-size);
+    font-family: var(--font-family);
+    font-size: var(--font-size);
 }
 
 table.minimalistBlack {
-  text-align: left;
-  border-collapse: collapse;
+    text-align: left;
+    border-collapse: collapse;
 }
 
 table.minimalistBlack:hover {
-  border: 2px var(--hover-border-color) solid;
-  box-shadow:
-    0 0 10px var(--header-bg-color),
-    0 0 20px var(--header-bg-color);
+    border: 2px var(--hover-border-color) solid;
+    box-shadow:
+        0 0 10px var(--header-bg-color),
+        0 0 20px var(--header-bg-color);
 }
 
 table.minimalistBlack th,
 table.minimalistBlack td {
-  padding: 1em 1em 5px;
+    padding: 1em 1em 5px;
 }
 
 table.minimalistBlack tbody tr:hover {
-  background-color: var(--hover-bg-color);
+    background-color: var(--hover-bg-color);
 }
 
 table.minimalistBlack tbody {
-  background-color: var(--table-bg-color);
+    background-color: var(--table-bg-color);
 }
 
 table.minimalistBlack thead {
-  background: var(--header-bg-color);
-  cursor: move;
+    background: var(--header-bg-color);
+    cursor: move;
 }
 
 table.minimalistBlack thead th {
-  font-weight: bold;
-  color: #000;
-  text-align: left;
+    font-weight: bold;
+    color: #000;
+    text-align: left;
 }
 
 .container {
-  overflow: hidden;
-  width: 96vw;
-  height: 97vh;
-  margin: auto 0 5rem;
-  border: 1px solid var(--border-color);
-  border-radius: 1rem;
+    overflow: hidden;
+    width: 96vw;
+    height: 97vh;
+    margin: auto 0 5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 1rem;
 }
 
 .simple-floatingedges {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    height: 100%;
 }
 
 .simple-floatingedges .react-flow__handle {
-  width: 8px;
-  height: 8px;
-  background-color: #bbb;
+    width: 8px;
+    height: 8px;
+    background-color: #bbb;
 }
 
 .simple-floatingedges .react-flow__handle-top {
-  top: -15px;
+    top: -15px;
 }
 
 .simple-floatingedges .react-flow__handle-bottom {
-  bottom: -15px;
+    bottom: -15px;
 }
 
 .simple-floatingedges .react-flow__handle-left {
-  left: -15px;
+    left: -15px;
 }
 
 .simple-floatingedges .react-flow__handle-right {
-  right: -15px;
+    right: -15px;
 }
 
 .simple-floatingedges .react-flow__node-custom {
-  background: var(--node-bg-color);
-  border: 1px solid var(--node-border-color);
-  border-radius: 3px;
-  color: #222;
-  font-size: 12px;
-  padding: 10px;
-  text-align: center;
-  width: 150px;
+    background: var(--node-bg-color);
+    border: 1px solid var(--node-border-color);
+    border-radius: 3px;
+    color: #222;
+    font-size: 12px;
+    padding: 10px;
+    text-align: center;
+    width: 150px;
 }
 
 .dropbtn {
-  background-color: var(--dropbtn-bg-color);
-  color: white;
-  padding: 16px;
-  margin: 10px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-  border-radius: 15px;
+    background-color: var(--dropbtn-bg-color);
+    color: white;
+    padding: 16px;
+    margin: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 15px;
 }
 
 .dropdown {
-  position: relative;
-  display: inline-block;
+    position: relative;
+    display: inline-block;
 }
 
 .dropdown-content {
-  max-height: 200px;
-  overflow-y: scroll;
-  border-radius: 20px;
-  padding: 10px;
-  display: none;
-  position: absolute;
-  background-color: var(--dropdown-bg-color);
-  width: 400px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  z-index: 1;
+    max-height: 200px;
+    overflow-y: scroll;
+    border-radius: 20px;
+    padding: 10px;
+    display: none;
+    position: absolute;
+    background-color: var(--dropdown-bg-color);
+    width: 400px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
 }
 
 .dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
 }
 
 .dropdown-content .drop-element:hover {
-  background-color: var(--link-hover-bg-color);
+    background-color: var(--link-hover-bg-color);
 }
 
 .dropdown:hover .dropdown-content {
-  display: block;
+    display: block;
 }
 
 .dropdown:hover .dropbtn {
-  background-color: var(--dropbtn-hover-bg-color);
+    background-color: var(--dropbtn-hover-bg-color);
 }
 
+.tab-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
 
+.tab-buttons button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
 
+.tab-buttons button:hover {
+    background-color: #ddd;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.tab-buttons button.active {
+    background-color: var(--dropbtn-bg-color);
+    color: white;
+    font-weight: bold;
+}
 
 .tabs {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
 .tab {
-  padding: 10px;
-  border: 1px solid #ccc;
-  margin-right: 5px;
-  cursor: pointer;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-right: 5px;
+    cursor: pointer;
 }
 
 .tab.active {
-  background-color: #007bff;
-  color: white;
+    background-color: var(--dropbtn-bg-color);
+    color: white;
 }
 
 .tab span {
-  margin-left: 10px;
-  color: red;
-  cursor: pointer;
+    margin-left: 10px;
+    cursor: pointer;
 }
 
 .content {
-  border: 1px solid #ccc;
-  padding: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
 }

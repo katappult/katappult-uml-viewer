@@ -7,31 +7,36 @@ export const TabParent = () => {
     ])
     const [activeTab, setActiveTab] = useState(tabs[0].id)
     const [editingTab, setEditingTab] = useState(null)
+    const [nextTabId, setNextTabId] = useState(2)
 
+    // Add a new tab with a limit of 5 tabs
     const addTab = () => {
         if (tabs.length >= 5) {
             alert('You can only have 5 tabs.')
             return
         }
 
-        const newTabId = tabs.length + 1
         const newTab = {
-            id: newTabId,
-            title: `Tab ${newTabId}`,
+            id: nextTabId,
+            title: `Tab ${nextTabId}`,
             component: <Tabs />,
         }
         setTabs([...tabs, newTab])
-        setActiveTab(newTabId)
+        setActiveTab(newTab.id) // Set the new tab as active
+        setNextTabId(nextTabId + 1) // Increment the ID for the next tab
     }
 
+    // Delete a tab
     const deleteTab = id => {
         const filteredTabs = tabs.filter(tab => tab.id !== id)
         setTabs(filteredTabs)
+        // If the active tab is deleted, set the active tab to the first one
         if (activeTab === id && filteredTabs.length > 0) {
             setActiveTab(filteredTabs[0].id)
         }
     }
 
+    // Handle title change
     const handleTitleChange = (e, id) => {
         const updatedTabs = tabs.map(tab =>
             tab.id === id ? {...tab, title: e.target.value} : tab
@@ -39,9 +44,11 @@ export const TabParent = () => {
         setTabs(updatedTabs)
     }
 
+    // Save the title
     const saveTitle = () => {
         setEditingTab(null)
     }
+
     return (
         <div>
             <div className="tabs">

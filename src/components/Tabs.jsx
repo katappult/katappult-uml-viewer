@@ -7,11 +7,17 @@ export const Tabs = () => {
 
     return (
         <div>
-            <div>
-                <button onClick={() => setActiveTab('entity')}>
+            <div className="tab-buttons">
+                <button
+                    className={activeTab === 'entity' ? 'active' : ''}
+                    onClick={() => setActiveTab('entity')}
+                >
                     Entity Diagram
                 </button>
-                <button onClick={() => setActiveTab('object')}>
+                <button
+                    className={activeTab === 'object' ? 'active' : ''}
+                    onClick={() => setActiveTab('object')}
+                >
                     Object Diagram
                 </button>
             </div>
