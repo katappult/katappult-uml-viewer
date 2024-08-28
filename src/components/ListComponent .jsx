@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import {useStore} from '../hooks/useStore'
 import {camelToSnakeCase} from '../utils'
 import {useCheckedStore} from '../hooks/useCheckedStore'
-
+import {CheckBox} from './CheckBox'
 export const ListComponent = ({title}) => {
     const {data} = useStore()
     const {checkedItems, setCheckedItems} = useCheckedStore()
@@ -37,13 +37,17 @@ export const ListComponent = ({title}) => {
                                 : item.attributes.entity.table
                         return (
                             <div className="drop-element" key={index}>
-                                <input
-                                    type="checkbox"
-                                    checked={
+                                <CheckBox
+                                    text={
+                                        title.includes('Object')
+                                            ? itemName
+                                            : camelToSnakeCase(itemName)
+                                    }
+                                    isChecked={
                                         Array.isArray(checkedItems) &&
                                         checkedItems.includes(itemName)
                                     }
-                                    onChange={() => {
+                                    toggle={() => {
                                         title.includes('Object')
                                             ? handleCheckboxChange(itemName)
                                             : handleCheckboxChange(
@@ -51,9 +55,6 @@ export const ListComponent = ({title}) => {
                                               )
                                     }}
                                 />
-                                {title.includes('Object')
-                                    ? itemName
-                                    : camelToSnakeCase(itemName)}
                             </div>
                         )
                     })}

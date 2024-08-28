@@ -130,27 +130,27 @@ export const DiagramComponent = ({title, TableComponent, flowKey}) => {
             <CheckBox
                 isChecked={isCheckedForeignKey}
                 toggle={toggleCheckForeignKey}
-                text={' Display Foreign Key'}
+                text={'Display Foreign Key'}
             />
             <CheckBox
                 isChecked={isCheckedAttribute}
                 toggle={toggleCheckAttribute}
-                text={'  Display Attributes'}
+                text={'Display Attributes'}
             />
             <CheckBox
                 isChecked={isCheckedRelation}
                 toggle={toggleCheckRelation}
-                text={'     Display Relation'}
+                text={'Display Relation'}
             />
             <CheckBox
                 isChecked={isCheckedInterface}
                 toggle={toggleCheckInterface}
-                text={'  Display Interface'}
+                text={'Display Interface'}
             />
             <CheckBox
                 isChecked={isCheckedLegacyEntity}
                 toggle={toggleCheckLegacyEntity}
-                text={'  Display Legacy Entity'}
+                text={'Display Legacy Entity'}
             />
 
             <ReactFlowContainer

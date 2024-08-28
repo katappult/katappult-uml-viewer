@@ -1,7 +1,5 @@
-import { Tabs } from './src/components/Tabs'
+import {TabParent} from './src/components/TabParent'
 
 export default function App() {
-  return (
-   <Tabs/>
-  )
+    return <TabParent />
 }
