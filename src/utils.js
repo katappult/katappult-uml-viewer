@@ -45,6 +45,45 @@ export const createNodesTable = (entities, title) => {
     })
 }
 
+export const createUserAccountNodeTable = title => {
+    const entity = {
+        entity: {
+            name: 'UserAccount',
+            table: 'GEN_USER_ACCOUNT',
+            attributes: [
+                {
+                    type: 'String',
+                    name: 'firstname',
+                    id: 'firstnameID',
+                },
+                {
+                    type: 'String',
+                    name: 'lastname',
+                    id: 'lastnameID',
+                },
+            ],
+        },
+    }
+    const entityName =
+        title && title.includes('Object')
+            ? entity.entity.name
+            : entity.entity.table
+    const storedPosition = JSON.parse(
+        localStorage.getItem(`nodePosition_${entityName}`)
+    )
+    const row = Math.floor(1 / 5)
+    const col = 1 % 5
+    const defaultPosition = {x: 50 + col * 450, y: 100 + row * 250}
+    return {
+        id: entityName,
+        label: entityName,
+        type: 'table',
+        position: storedPosition || defaultPosition,
+        data: entity,
+        dragHandle: '.custom-drag-handle',
+    }
+}
+
 // Function to store the position of a node in local storage when it's moved
 export const updateNodePosition = (nodeId, position) => {
     localStorage.setItem(`nodePosition_${nodeId}`, JSON.stringify(position))
@@ -124,6 +163,7 @@ const createKnoersEdges = (entities, strokeColor, startLabel, endLabel) => {
                     markerEnd: {
                         type: MarkerType.ArrowClosed,
                     },
+                    animated: true,
                     type: 'floating',
                     style: {strokeWidth: 5, stroke: strokeColor},
                 })
