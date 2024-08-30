@@ -33,7 +33,7 @@ export const ReactFlowContainer = ({
     }, [flowKey, viewport])
 
     const handleNodeDragStop = (event, node) => {
-        updateNodePosition(node.id, node.position)
+        updateNodePosition(node.id, node.position, flowKey)
     }
 
     const handleInit = useCallback(

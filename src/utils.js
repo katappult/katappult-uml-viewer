@@ -85,8 +85,8 @@ export const createUserAccountNodeTable = title => {
 }
 
 // Function to store the position of a node in local storage when it's moved
-export const updateNodePosition = (nodeId, position) => {
-    localStorage.setItem(`nodePosition_${nodeId}`, JSON.stringify(position))
+export const updateNodePosition = (nodeId, position,flowkey) => {
+    localStorage.setItem(`nodePosition_${flowkey}_${nodeId}`, JSON.stringify(position))
 }
 
 export const createInterfaceNodesTable = knoers => {

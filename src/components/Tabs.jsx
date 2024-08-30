@@ -2,7 +2,7 @@ import {useState} from 'react'
 import {EntityDiagram} from '../components/Entity/EntityDiagram'
 import {ObjectDiagram} from '../components/Object/ObjectDiagram'
 import {ReactFlowProvider} from '@xyflow/react'
-export const Tabs = () => {
+export const Tabs = ({id}) => {
     const [activeTab, setActiveTab] = useState('object')
 
     return (
@@ -24,12 +24,12 @@ export const Tabs = () => {
             <div>
                 {activeTab === 'entity' && (
                     <ReactFlowProvider>
-                        <EntityDiagram />
+                        <EntityDiagram id={id} />
                     </ReactFlowProvider>
                 )}
                 {activeTab === 'object' && (
                     <ReactFlowProvider>
-                        <ObjectDiagram />
+                        <ObjectDiagram id={id} />
                     </ReactFlowProvider>
                 )}
             </div>

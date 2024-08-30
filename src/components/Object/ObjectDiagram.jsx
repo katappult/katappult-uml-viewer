@@ -1,11 +1,11 @@
 import {DiagramComponent} from '../DiagramComponent'
 import {ObjectTable} from '../Object/ObjectTable'
-export const ObjectDiagram = () => {
+export const ObjectDiagram = ({id}) => {
     return (
         <DiagramComponent
             title="Object Diagram"
             TableComponent={ObjectTable}
-            flowKey="object"
+            flowKey={'object' + id}
         />
     )
 }

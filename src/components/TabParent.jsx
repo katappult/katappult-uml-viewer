@@ -3,11 +3,11 @@ import {Tabs} from './Tabs'
 
 export const TabParent = () => {
     const [tabs, setTabs] = useState([
-        {id: 1, title: 'Tab 1', component: <Tabs />},
+        {id: 1, title: 'Tab 1', component: <Tabs id={1}/>},
     ])
     const [activeTab, setActiveTab] = useState(tabs[0].id)
     const [editingTab, setEditingTab] = useState(null)
-    const [nextTabId, setNextTabId] = useState(2)
+    const [nextTabId, setNextTabId] = useState(2) // Tracks the next ID to be assigned
 
     // Add a new tab with a limit of 5 tabs
     const addTab = () => {
@@ -19,17 +19,23 @@ export const TabParent = () => {
         const newTab = {
             id: nextTabId,
             title: `Tab ${nextTabId}`,
-            component: <Tabs />,
+            component: <Tabs id={nextTabId}/>,
         }
         setTabs([...tabs, newTab])
         setActiveTab(newTab.id) // Set the new tab as active
         setNextTabId(nextTabId + 1) // Increment the ID for the next tab
     }
 
-    // Delete a tab
+    // Delete a tab with a restriction to keep at least one tab
     const deleteTab = id => {
+        if (tabs.length === 1) {
+            alert('You cannot delete the last remaining tab.')
+            return
+        }
+
         const filteredTabs = tabs.filter(tab => tab.id !== id)
         setTabs(filteredTabs)
+
         // If the active tab is deleted, set the active tab to the first one
         if (activeTab === id && filteredTabs.length > 0) {
             setActiveTab(filteredTabs[0].id)
@@ -68,7 +74,7 @@ export const TabParent = () => {
                             />
                         ) : (
                             <span
-                                onClick={e => {
+                                onDoubleClick={e => {
                                     e.stopPropagation()
                                     setEditingTab(tab.id)
                                 }}
