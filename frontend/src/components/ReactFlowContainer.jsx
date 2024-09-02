@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types'
-import {updateNodePosition} from '../utils'
 import {useState, useEffect, useCallback} from 'react'
 import {
     ReactFlow,
@@ -20,32 +19,29 @@ export const ReactFlowContainer = ({
 }) => {
     const [rfInstance, setRfInstance] = useState(null)
     const [viewport, setViewport] = useState(() => {
-        const savedViewport = localStorage.getItem('viewport' + flowKey)
-        return savedViewport ? JSON.parse(savedViewport) : {x: 0, y: 0, zoom: 1} // Default position and zoom level
+        const savedViewport = JSON.parse(
+            localStorage.getItem(flowKey)
+        )?.viewport
+        return {
+            x: savedViewport?.x ?? 0,
+            y: savedViewport?.y ?? 0,
+            zoom: savedViewport?.zoom ?? 1,
+        }
     })
 
-    const onMove = useCallback((event, viewport) => {
-        setViewport({x: viewport.x, y: viewport.y, zoom: viewport.zoom})
+    const saveFlow = useCallback(() => {
         if (rfInstance) {
-            const flow = rfInstance.toObject();
-            localStorage.setItem(flowKey, JSON.stringify(flow));
-          }
+            const flow = rfInstance.toObject()
+            localStorage.setItem(flowKey, JSON.stringify(flow))
+        }
     }, [flowKey, rfInstance])
 
     useEffect(() => {
-        localStorage.setItem('viewport' + flowKey, JSON.stringify(viewport))
-        if (rfInstance) {
-            const flow = rfInstance.toObject();
-            localStorage.setItem(flowKey, JSON.stringify(flow));
-          }
-    }, [flowKey, rfInstance, viewport])
+        saveFlow()
+    }, [saveFlow, viewport])
 
     const handleNodeDragStop = (event, node) => {
-        updateNodePosition(node.id, node.position, flowKey)
-        if (rfInstance) {
-            const flow = rfInstance.toObject();
-            localStorage.setItem(flowKey, JSON.stringify(flow));
-          }
+        saveFlow()
     }
 
     const handleInit = useCallback(
@@ -61,15 +57,15 @@ export const ReactFlowContainer = ({
             <ReactFlow
                 nodes={nodes}
                 edges={edges}
-                onNodesChange={onNodesChange}
                 onEdgesChange={onEdgesChange}
+                onNodesChange={onNodesChange}
                 nodeTypes={nodeTypes}
                 edgeTypes={edgeTypes}
                 connectionMode={ConnectionMode.Loose}
-                onMove={onMove}
+                onMove={saveFlow} // Use the saveFlow function for saving on move
                 onInit={handleInit} // Set the instance and restore the viewport
                 defaultViewport={viewport} // Use the restored viewport as the default
-                onNodeDragStop={handleNodeDragStop}
+                onNodeDragStop={handleNodeDragStop} // Save flow when node dragging stops
             >
                 <MiniMap />
                 <Controls />
@@ -78,7 +74,6 @@ export const ReactFlowContainer = ({
         </div>
     )
 }
-
 ReactFlowContainer.propTypes = {
     nodes: PropTypes.array.isRequired,
     edges: PropTypes.array.isRequired,

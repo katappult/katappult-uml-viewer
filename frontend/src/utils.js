@@ -13,7 +13,7 @@ export const typeMap = {
 }
 
 // Create nodes table from entities
-export const createNodesTable = (entities, title) => {
+export const createNodesTable = (entities, title, flowKey) => {
     if (!Array.isArray(entities) || entities.length === 0) {
         console.error('Entities array is invalid or empty')
         return []
@@ -26,9 +26,10 @@ export const createNodesTable = (entities, title) => {
             title && title.includes('Object')
                 ? entity.attributes.entity.name
                 : entity.attributes.entity.table
-        const storedPosition = JSON.parse(
-            localStorage.getItem(`nodePosition_${entityName}`)
-        )
+        const storedPositions = JSON.parse(localStorage.getItem(flowKey))?.nodes
+        const storedPosition = storedPositions?.find(
+            node => node.id === entityName
+        )?.position
 
         const row = Math.floor(index / 5)
         const col = index % 5
@@ -82,11 +83,6 @@ export const createUserAccountNodeTable = title => {
         data: entity,
         dragHandle: '.custom-drag-handle',
     }
-}
-
-// Function to store the position of a node in local storage when it's moved
-export const updateNodePosition = (nodeId, position,flowkey) => {
-    localStorage.setItem(`nodePosition_${flowkey}_${nodeId}`, JSON.stringify(position))
 }
 
 export const createInterfaceNodesTable = knoers => {

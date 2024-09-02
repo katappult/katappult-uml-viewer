@@ -58,9 +58,11 @@ export const DiagramComponent = ({title, TableComponent, flowKey}) => {
                 fetchData()
             }
 
-            const displayedNodes = createNodesTable(data, title).filter(node =>
-                checkedItems.includes(node.id)
-            )
+            const displayedNodes = createNodesTable(
+                data,
+                title,
+                flowKey
+            ).filter(node => checkedItems.includes(node.id))
 
             let newNodes = [
                 ...(isCheckedLegacyEntity
@@ -102,17 +104,7 @@ export const DiagramComponent = ({title, TableComponent, flowKey}) => {
             setError(error.message)
             setIsLoading(false)
         }
-    }, [
-        data,
-        fetchData,
-        setEdges,
-        setNodes,
-        checkedItems,
-        title,
-        isCheckedRelation,
-        isCheckedInterface,
-        isCheckedLegacyEntity,
-    ])
+    }, [data, fetchData, setEdges, setNodes, checkedItems, title, isCheckedRelation, isCheckedInterface, isCheckedLegacyEntity, flowKey])
 
     if (isLoading) return <div>Loading...</div>
     if (error) return <div>Error: {error}</div>
