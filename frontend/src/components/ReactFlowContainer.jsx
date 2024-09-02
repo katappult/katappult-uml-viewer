@@ -26,14 +26,26 @@ export const ReactFlowContainer = ({
 
     const onMove = useCallback((event, viewport) => {
         setViewport({x: viewport.x, y: viewport.y, zoom: viewport.zoom})
-    }, [])
+        if (rfInstance) {
+            const flow = rfInstance.toObject();
+            localStorage.setItem(flowKey, JSON.stringify(flow));
+          }
+    }, [flowKey, rfInstance])
 
     useEffect(() => {
         localStorage.setItem('viewport' + flowKey, JSON.stringify(viewport))
-    }, [flowKey, viewport])
+        if (rfInstance) {
+            const flow = rfInstance.toObject();
+            localStorage.setItem(flowKey, JSON.stringify(flow));
+          }
+    }, [flowKey, rfInstance, viewport])
 
     const handleNodeDragStop = (event, node) => {
         updateNodePosition(node.id, node.position, flowKey)
+        if (rfInstance) {
+            const flow = rfInstance.toObject();
+            localStorage.setItem(flowKey, JSON.stringify(flow));
+          }
     }
 
     const handleInit = useCallback(

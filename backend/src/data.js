@@ -1,3 +1,8 @@
-export let viewports = []
-export let entities = [];
-export let positions = [];
+export let tabs = []
+
+{
+    names
+    nodes
+    edges
+    viewport
+}
