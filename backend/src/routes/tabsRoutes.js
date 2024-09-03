@@ -1,13 +1,11 @@
-// routes/tabRoutes.js
-
 import express from 'express';
 import {
-    createTab,
-    getAllTabs,
-    getTabById,
-    getTabByName,
-    updateTabById,
-    deleteTabById,
+  createTab,
+  getAllTabs,
+  getTabById,
+  getTabByName,
+  updateTabById,
+  deleteTabById,
 } from '../controllers/tabsController.js';
 
 const router = express.Router();
