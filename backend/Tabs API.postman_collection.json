@@ -1,0 +1,150 @@
+{
+	"info": {
+		"_postman_id": "381c794b-9a76-496e-b44b-ea9398a3af7f",
+		"name": "Tabs API",
+		"description": "A Postman collection for testing the Tabs API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27023821"
+	},
+	"item": [
+		{
+			"name": "Create a Tab",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"My Unique Tab\",\n    \"nodes\": [\n        \"node1\",\n        \"node2\"\n    ],\n    \"edges\": [\n        \"edge1\",\n        \"edge2\"\n    ],\n    \"selectedItems\": [\n        \"item\",\n        \"item2\",\n        \"item3\"\n    ],\n    \"viewport\": {\n        \"x\": 0,\n        \"y\": 0,\n        \"zoom\": 1\n    }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/tabs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"tabs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Tabs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/tabs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"tabs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Tab by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/tabs/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"tabs",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Tab by ID",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Updated Unique Tab\",\n    \"nodes\": [],\n    \"edges\": [],\n    \"selectedItems\": [\n        \"item\"\n    ],\n    \"viewport\": {\n        \"x\": 10,\n        \"y\": 20,\n        \"zoom\": 1.5\n    }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/tabs/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"tabs",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Tab by ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/tabs/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"tabs",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

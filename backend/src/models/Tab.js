@@ -7,7 +7,3 @@ export const getTabs = () => tabs;
 export const setTabs = (newTabs) => {
   tabs = newTabs;
 };
-
-export const findTabByName = (name) => {
-  return tabs.find((tab) => tab.name === name);
-};

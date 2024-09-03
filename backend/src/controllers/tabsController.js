@@ -1,12 +1,6 @@
-import { getTabs, setTabs, generateId, findTabByName } from '../models/Tab.js';
+import { getTabs, setTabs, generateId } from '../models/Tab.js';
 
 export const createTab = (req, res) => {
-  const { name } = req.body;
-
-  if (findTabByName(name)) {
-    return res.status(400).json({ error: 'Tab name must be unique' });
-  }
-
   const newTab = {
     id: generateId(),
     ...req.body,
@@ -28,11 +22,6 @@ export const getTabById = (req, res) => {
   res.status(200).json(tab);
 };
 
-export const getTabByName = (req, res) => {
-  const tab = findTabByName(req.params.name);
-  if (!tab) return res.status(404).json({ error: 'Tab not found' });
-  res.status(200).json(tab);
-};
 
 export const updateTabById = (req, res) => {
   const tabs = getTabs();
