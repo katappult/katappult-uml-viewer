@@ -1,53 +1,64 @@
-import { tabs } from "../data.js";
+// controllers/tabController.js
 
-export const createTabs = (req, res) => {
-  const { name, x, y, zoom } = req.body;
-  if (!name || x === undefined || y === undefined || zoom === undefined) {
-    return res.status(400).json({ error: "name, x, y and zoom are required" });
+import { getTabs, setTabs, generateId,findTabByName  } from '../models/Tab.js';
+
+// Create a new tab
+export const createTab = (req, res) => {
+  const { name } = req.body;
+
+  // Check if name is unique
+  if (findTabByName(name)) {
+      return res.status(400).json({ error: "Tab name must be unique" });
   }
 
-  const newTabs = { name, x, y, zoom };
-  tabs.push(newTabs);
-  res.status(201).json(newTabs);
+  const newTab = {
+      id: generateId(),
+      ...req.body,
+  };
+  const tabs = getTabs();
+  tabs.push(newTab);
+  setTabs(tabs);
+  res.status(201).json(newTab);
 };
 
+// Lire tous les onglets
 export const getAllTabs = (req, res) => {
-  res.json(tabs);
+    res.status(200).json(getTabs());
 };
 
+// Lire un onglet par ID
+export const getTabById = (req, res) => {
+    const tabs = getTabs();
+    const tab = tabs.find(t => t.id === parseInt(req.params.id));
+    if (!tab) return res.status(404).json({ error: "Tab not found" });
+    res.status(200).json(tab);
+};
+
+// Get tab by name
 export const getTabByName = (req, res) => {
-  const { name } = req.params;
-  const tab = tabs.find((tab) => tab.name === name);
-  if (!tab) {
-    return res.status(404).json({ error: "tab not found" });
-  }
-  res.json(tab);
+  const tab = findTabByName(req.params.name);
+  if (!tab) return res.status(404).json({ error: "Tab not found" });
+  res.status(200).json(tab);
 };
 
-export const updateTabByName = (req, res) => {
-  const { name } = req.params;
-  const { x, y, zoom } = req.body;
-  const tab = tabs.find((tab) => tab.name === name);
-  if (!tab) {
-    return res.status(404).json({ error: "tab not found" });
-  }
-  if (x !== undefined) tab.x = x;
-  if (y !== undefined) tab.y = y;
-  if (zoom !== undefined) tab.zoom = zoom;
-  res.json(tab);
+// Mettre à jour un onglet par ID
+export const updateTabById = (req, res) => {
+    const tabs = getTabs();
+    const index = tabs.findIndex(t => t.id === parseInt(req.params.id));
+    if (index === -1) return res.status(404).json({ error: "Tab not found" });
+
+    tabs[index] = { ...tabs[index], ...req.body };
+    setTabs(tabs);
+    res.status(200).json(tabs[index]);
 };
 
-export const deleteTabByName = (req, res) => {
-  const { name } = req.params;
-  const index = tabs.findIndex((tab) => tab.name === name);
-  if (index === -1) {
-    return res.status(404).json({ error: "tab not found" });
-  }
-  tabs.splice(index, 1);
-  res.status(204).send();
-};
+// Supprimer un onglet par ID
+export const deleteTabById = (req, res) => {
+    const tabs = getTabs();
+    const index = tabs.findIndex(t => t.id === parseInt(req.params.id));
+    if (index === -1) return res.status(404).json({ error: "Tab not found" });
 
-export const deleteAllTab = (req, res) => {
-  tabs.length = 0;
-  res.status(204).send();
+    tabs.splice(index, 1);
+    setTabs(tabs);
+    res.status(200).json({ message: "Tab deleted successfully" });
 };

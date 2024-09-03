@@ -1,12 +1,10 @@
 import express from "express";
-import entityRoutes from "./routes/entityRoutes.js";
-import positionRoutes from "./routes/positionRoutes.js";
-import viewPortRoutes from "./routes/viewPortRoutes.js";
+import tabsRoutes from "./routes/tabsRoutes.js";
+
 const app = express();
 
 app.use(express.json());
-app.use("/api/entities", entityRoutes);
-app.use("/api/positions", positionRoutes);
-app.use("/api/viewport", viewPortRoutes);
+
+app.use("/api", tabsRoutes);
 
 export default app;
