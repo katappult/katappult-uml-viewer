@@ -1,13 +1,25 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
+import axios from 'axios'
 import {Tabs} from './Tabs'
 
 export const TabParent = () => {
-    const [tabs, setTabs] = useState([
-        {id: 1, title: 'Tab 1', component: <Tabs id={1}/>},
-    ])
-    const [activeTab, setActiveTab] = useState(tabs[0].id)
+    const [tabs, setTabs] = useState([])
+    const [activeTab, setActiveTab] = useState(null)
     const [editingTab, setEditingTab] = useState(null)
-    const [nextTabId, setNextTabId] = useState(2) // Tracks the next ID to be assigned
+
+    // Fetch tabs from the API when the component mounts
+    useEffect(() => {
+        axios
+            .get('http://localhost:3000/api/tabs')
+            .then(response => {
+                const fetchedTabs = response.data
+                setTabs(fetchedTabs)
+                if (fetchedTabs.length > 0) {
+                    setActiveTab(fetchedTabs[0].id)
+                }
+            })
+            .catch(error => console.error('Error fetching tabs:', error))
+    }, [])
 
     // Add a new tab with a limit of 5 tabs
     const addTab = () => {
@@ -17,13 +29,20 @@ export const TabParent = () => {
         }
 
         const newTab = {
-            id: nextTabId,
-            title: `Tab ${nextTabId}`,
-            component: <Tabs id={nextTabId}/>,
+            name: `Tab ${tabs.length + 1}`,
+            nodes: [],
+            edges: [],
+            viewport: {x: 0, y: 0, zoom: 1},
         }
-        setTabs([...tabs, newTab])
-        setActiveTab(newTab.id) // Set the new tab as active
-        setNextTabId(nextTabId + 1) // Increment the ID for the next tab
+
+        axios
+            .post('http://localhost:3000/api/tabs', newTab)
+            .then(response => {
+                const createdTab = response.data
+                setTabs([...tabs, createdTab])
+                setActiveTab(createdTab.id) // Set the new tab as active
+            })
+            .catch(error => console.error('Error creating tab:', error))
     }
 
     // Delete a tab with a restriction to keep at least one tab
@@ -33,26 +52,39 @@ export const TabParent = () => {
             return
         }
 
-        const filteredTabs = tabs.filter(tab => tab.id !== id)
-        setTabs(filteredTabs)
+        axios
+            .delete(`http://localhost:3000/api/tabs/${id}`)
+            .then(() => {
+                const filteredTabs = tabs.filter(tab => tab.id !== id)
+                setTabs(filteredTabs)
 
-        // If the active tab is deleted, set the active tab to the first one
-        if (activeTab === id && filteredTabs.length > 0) {
-            setActiveTab(filteredTabs[0].id)
-        }
+                // If the active tab is deleted, set the active tab to the first one
+                if (activeTab === id && filteredTabs.length > 0) {
+                    setActiveTab(filteredTabs[0].id)
+                }
+            })
+            .catch(error => console.error('Error deleting tab:', error))
     }
 
     // Handle title change
     const handleTitleChange = (e, id) => {
         const updatedTabs = tabs.map(tab =>
-            tab.id === id ? {...tab, title: e.target.value} : tab
+            tab.id === id ? {...tab, name: e.target.value} : tab
         )
         setTabs(updatedTabs)
     }
 
     // Save the title
-    const saveTitle = () => {
-        setEditingTab(null)
+    const saveTitle = id => {
+        const tabToUpdate = tabs.find(tab => tab.id === id)
+        if (tabToUpdate) {
+            axios
+                .put(`http://localhost:3000/api/tabs/${id}`, tabToUpdate)
+                .then(() => {
+                    setEditingTab(null)
+                })
+                .catch(error => console.error('Error updating tab:', error))
+        }
     }
 
     return (
@@ -67,9 +99,9 @@ export const TabParent = () => {
                         {editingTab === tab.id ? (
                             <input
                                 type="text"
-                                value={tab.title}
+                                value={tab.name}
                                 onChange={e => handleTitleChange(e, tab.id)}
-                                onBlur={saveTitle}
+                                onBlur={() => saveTitle(tab.id)}
                                 autoFocus
                             />
                         ) : (
@@ -79,7 +111,7 @@ export const TabParent = () => {
                                     setEditingTab(tab.id)
                                 }}
                             >
-                                {tab.title}
+                                {tab.name}
                             </span>
                         )}
                         <span
@@ -100,7 +132,7 @@ export const TabParent = () => {
                 {tabs.map(
                     tab =>
                         activeTab === tab.id && (
-                            <div key={tab.id}>{tab.component}</div>
+                            <div key={tab.id}>{<Tabs id={tab.id} />}</div>
                         )
                 )}
             </div>
