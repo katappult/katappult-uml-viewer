@@ -5,7 +5,7 @@ export const ObjectDiagram = ({id}) => {
         <DiagramComponent
             title="Object Diagram"
             TableComponent={ObjectTable}
-            flowKey={'object' + id}
+            flowKey={'Object' + id}
         />
     )
 }

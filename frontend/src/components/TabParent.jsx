@@ -10,7 +10,7 @@ export const TabParent = () => {
     // Fetch tabs from the API when the component mounts
     useEffect(() => {
         axios
-            .get('http://localhost:3000/api/tabs')
+            .get(import.meta.env.VITE_API + '/tabs')
             .then(response => {
                 const fetchedTabs = response.data
                 setTabs(fetchedTabs)
@@ -32,11 +32,12 @@ export const TabParent = () => {
             name: `Tab ${tabs.length + 1}`,
             nodes: [],
             edges: [],
+            selectedItems: [],
             viewport: {x: 0, y: 0, zoom: 1},
         }
 
         axios
-            .post('http://localhost:3000/api/tabs', newTab)
+            .post(import.meta.env.VITE_API + '/tabs', newTab)
             .then(response => {
                 const createdTab = response.data
                 setTabs([...tabs, createdTab])
@@ -53,12 +54,11 @@ export const TabParent = () => {
         }
 
         axios
-            .delete(`http://localhost:3000/api/tabs/${id}`)
+            .delete(`${import.meta.env.VITE_API}/tabs/${id}`)
             .then(() => {
                 const filteredTabs = tabs.filter(tab => tab.id !== id)
                 setTabs(filteredTabs)
 
-                // If the active tab is deleted, set the active tab to the first one
                 if (activeTab === id && filteredTabs.length > 0) {
                     setActiveTab(filteredTabs[0].id)
                 }
@@ -79,7 +79,7 @@ export const TabParent = () => {
         const tabToUpdate = tabs.find(tab => tab.id === id)
         if (tabToUpdate) {
             axios
-                .put(`http://localhost:3000/api/tabs/${id}`, tabToUpdate)
+                .put(`${import.meta.env.VITE_API}/tabs/${id}`, tabToUpdate)
                 .then(() => {
                     setEditingTab(null)
                 })
@@ -132,7 +132,17 @@ export const TabParent = () => {
                 {tabs.map(
                     tab =>
                         activeTab === tab.id && (
-                            <div key={tab.id}>{<Tabs id={tab.id} />}</div>
+                            <div key={tab.id}>
+                                {
+                                    <Tabs
+                                        id={tab.id}
+                                        nodes={tab.nodes}
+                                        edges={tab.edges}
+                                        viewport={tab.viewport}
+                                        selectedItems={tab.selectedItems}
+                                    />
+                                }
+                            </div>
                         )
                 )}
             </div>
