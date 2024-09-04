@@ -4,7 +4,7 @@ import {ObjectDiagram} from '../components/Object/ObjectDiagram'
 import {ReactFlowProvider} from '@xyflow/react'
 import PropTypes from 'prop-types'
 
-export const Tabs = ({id, nodes, edges, selectedItems, viewport}) => {
+export const Tabs = ({id}) => {
     const [activeTab, setActiveTab] = useState('object')
 
     return (
@@ -26,35 +26,18 @@ export const Tabs = ({id, nodes, edges, selectedItems, viewport}) => {
             <div>
                 {activeTab === 'entity' && (
                     <ReactFlowProvider>
-                        <EntityDiagram
-                            id={id}
-                            nodes={nodes}
-                            edges={edges}
-                            selectedItems={selectedItems}
-                            viewport={viewport}
-                        />
+                        <EntityDiagram id={id} />
                     </ReactFlowProvider>
                 )}
                 {activeTab === 'object' && (
                     <ReactFlowProvider>
-                        <ObjectDiagram
-                            id={id}
-                            nodes={nodes}
-                            edges={edges}
-                            selectedItems={selectedItems}
-                            viewport={viewport}
-                        />
+                        <ObjectDiagram id={id} />
                     </ReactFlowProvider>
                 )}
             </div>
         </div>
     )
 }
-
 Tabs.propTypes = {
     id: PropTypes.number.isRequired,
-    nodes: PropTypes.array.isRequired,
-    edges: PropTypes.array.isRequired,
-    selectedItems: PropTypes.array.isRequired,
-    viewport: PropTypes.object.isRequired,
 }

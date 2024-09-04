@@ -104,6 +104,14 @@ export const createInterfaceNodesTable = knoers => {
     })
 }
 
+// Function to store the position of a node in local storage when it's moved
+export const updateNodePosition = (nodeId, position, flowkey) => {
+    localStorage.setItem(
+        `nodePosition_${flowkey}_${nodeId}`,
+        JSON.stringify(position)
+    )
+}
+
 // Create edges based on relation type
 const createEdges = (
     entities,

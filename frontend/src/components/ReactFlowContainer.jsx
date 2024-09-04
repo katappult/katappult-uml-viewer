@@ -6,7 +6,9 @@ import {
     Controls,
     Background,
     ConnectionMode,
+    useReactFlow,
 } from '@xyflow/react'
+import axios from 'axios'
 
 export const ReactFlowContainer = ({
     nodes,
@@ -16,40 +18,56 @@ export const ReactFlowContainer = ({
     nodeTypes,
     edgeTypes,
     flowKey,
+    id,
 }) => {
     const [rfInstance, setRfInstance] = useState(null)
-    const [viewport, setViewport] = useState(() => {
-        const savedViewport = JSON.parse(
-            localStorage.getItem(flowKey)
-        )?.viewport
-        return {
-            x: savedViewport?.x ?? 0,
-            y: savedViewport?.y ?? 0,
-            zoom: savedViewport?.zoom ?? 1,
-        }
-    })
+    const {setViewport} = useReactFlow()
+
+    // Determine the key to use for viewport based on flowKey
+    const viewportKey = flowKey.includes('Object')
+        ? 'viewportObject'
+        : 'viewportEntity'
 
     const saveFlow = useCallback(() => {
         if (rfInstance) {
             const flow = rfInstance.toObject()
-            localStorage.setItem(flowKey, JSON.stringify(flow))
+            axios.put(`${import.meta.env.VITE_API}/tabs/${id}`, {
+                [viewportKey]: flow.viewport,
+            })
         }
-    }, [flowKey, rfInstance])
+    }, [id, rfInstance, viewportKey])
+
+    const fetchViewport = useCallback(async () => {
+        try {
+            const response = await fetch(
+                `${import.meta.env.VITE_API}/tabs/${id}`
+            )
+            const data = await response.json()
+            const viewportData = data[viewportKey]
+            if (viewportData) {
+                setViewport({
+                    x: viewportData.x,
+                    y: viewportData.y,
+                    zoom: viewportData.zoom,
+                })
+            }
+        } catch (error) {
+            console.error('Failed to fetch viewport:', error)
+        }
+    }, [id, setViewport, viewportKey])
 
     useEffect(() => {
-        saveFlow()
-    }, [saveFlow, viewport])
-
-    const handleNodeDragStop = (event, node) => {
-        saveFlow()
-    }
+        fetchViewport()
+    }, [fetchViewport])
 
     const handleInit = useCallback(
         instance => {
             setRfInstance(instance)
-            instance.setViewport(viewport) // Restore the viewport when React Flow initializes
+            if (viewportKey) {
+                instance.setViewport(viewportKey) // Restore the viewport when React Flow initializes
+            }
         },
-        [viewport]
+        [viewportKey]
     )
 
     return (
@@ -62,10 +80,9 @@ export const ReactFlowContainer = ({
                 nodeTypes={nodeTypes}
                 edgeTypes={edgeTypes}
                 connectionMode={ConnectionMode.Loose}
-                onMove={saveFlow} // Use the saveFlow function for saving on move
+                onMove={saveFlow} // Save flow on move
                 onInit={handleInit} // Set the instance and restore the viewport
-                defaultViewport={viewport} // Use the restored viewport as the default
-                onNodeDragStop={handleNodeDragStop} // Save flow when node dragging stops
+                onNodeDragStop={saveFlow} // Save flow when node dragging stops
             >
                 <MiniMap />
                 <Controls />
@@ -74,7 +91,9 @@ export const ReactFlowContainer = ({
         </div>
     )
 }
+
 ReactFlowContainer.propTypes = {
+    id: PropTypes.any,
     nodes: PropTypes.array.isRequired,
     edges: PropTypes.array.isRequired,
     onNodesChange: PropTypes.func.isRequired,

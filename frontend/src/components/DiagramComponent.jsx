@@ -25,7 +25,7 @@ import {useCheckedInterface} from '../hooks/useCheckedInterface'
 import {useCheckedLegacyEntity} from '../hooks/useCheckedLegacyEntity'
 import {CheckBox} from '../components/CheckBox'
 
-export const DiagramComponent = ({title, TableComponent, flowKey}) => {
+export const DiagramComponent = ({title, TableComponent, flowKey, id}) => {
     const {data, fetchData} = useStore()
     const {isCheckedId, toggleCheckId} = useCheckedId()
     const {isCheckedForeignKey, toggleCheckForeignKey} = useCheckedForeignKey()
@@ -58,11 +58,9 @@ export const DiagramComponent = ({title, TableComponent, flowKey}) => {
                 fetchData()
             }
 
-            const displayedNodes = createNodesTable(
-                data,
-                title,
-                flowKey
-            ).filter(node => checkedItems.includes(node.id))
+            const displayedNodes = createNodesTable(data, title).filter(node =>
+                checkedItems.includes(node.id)
+            )
 
             let newNodes = [
                 ...(isCheckedLegacyEntity
@@ -104,7 +102,17 @@ export const DiagramComponent = ({title, TableComponent, flowKey}) => {
             setError(error.message)
             setIsLoading(false)
         }
-    }, [data, fetchData, setEdges, setNodes, checkedItems, title, isCheckedRelation, isCheckedInterface, isCheckedLegacyEntity, flowKey])
+    }, [
+        data,
+        fetchData,
+        setEdges,
+        setNodes,
+        checkedItems,
+        title,
+        isCheckedRelation,
+        isCheckedInterface,
+        isCheckedLegacyEntity,
+    ])
 
     if (isLoading) return <div>Loading...</div>
     if (error) return <div>Error: {error}</div>
@@ -145,6 +153,7 @@ export const DiagramComponent = ({title, TableComponent, flowKey}) => {
             />
 
             <ReactFlowContainer
+                id={id}
                 flowKey={flowKey}
                 nodes={nodes}
                 edges={edges}
@@ -158,6 +167,7 @@ export const DiagramComponent = ({title, TableComponent, flowKey}) => {
 }
 
 DiagramComponent.propTypes = {
+    id: PropTypes.any,
     title: PropTypes.string.isRequired,
     TableComponent: PropTypes.any.isRequired,
     flowKey: PropTypes.any,

@@ -30,10 +30,9 @@ export const TabParent = () => {
 
         const newTab = {
             name: `Tab ${tabs.length + 1}`,
-            nodes: [],
-            edges: [],
             selectedItems: [],
-            viewport: {x: 0, y: 0, zoom: 1},
+            viewportObject: {x: 0, y: 0, zoom: 1},
+            viewportEntity: {x: 0, y: 0, zoom: 1},
         }
 
         axios
@@ -132,17 +131,7 @@ export const TabParent = () => {
                 {tabs.map(
                     tab =>
                         activeTab === tab.id && (
-                            <div key={tab.id}>
-                                {
-                                    <Tabs
-                                        id={tab.id}
-                                        nodes={tab.nodes}
-                                        edges={tab.edges}
-                                        viewport={tab.viewport}
-                                        selectedItems={tab.selectedItems}
-                                    />
-                                }
-                            </div>
+                            <div key={tab.id}>{<Tabs id={tab.id} />}</div>
                         )
                 )}
             </div>
