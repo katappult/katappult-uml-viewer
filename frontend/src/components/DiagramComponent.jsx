@@ -119,7 +119,7 @@ export const DiagramComponent = ({title, TableComponent, flowKey, id}) => {
     return (
         <>
             <div className="flex-container">
-                <ListComponent title={title} />
+                <ListComponent title={title} id={id} />
             </div>
             <CheckBox
                 isChecked={isCheckedId}

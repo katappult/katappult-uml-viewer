@@ -22,7 +22,6 @@ export const getTabById = (req, res) => {
   res.status(200).json(tab);
 };
 
-
 export const updateTabById = (req, res) => {
   const tabs = getTabs();
   const index = tabs.findIndex((t) => t.id === parseInt(req.params.id));

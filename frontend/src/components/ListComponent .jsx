@@ -3,9 +3,28 @@ import {useStore} from '../hooks/useStore'
 import {camelToSnakeCase} from '../utils'
 import {useCheckedStore} from '../hooks/useCheckedStore'
 import {CheckBox} from './CheckBox'
-export const ListComponent = ({title}) => {
+
+import axios from 'axios'
+import {useEffect} from 'react'
+
+export const ListComponent = ({title, id}) => {
     const {data} = useStore()
     const {checkedItems, setCheckedItems} = useCheckedStore()
+
+    useEffect(() => {
+        const fetchCheckedItems = async () => {
+            try {
+                const response = await axios.get(
+                    `${import.meta.env.VITE_API}/tabs/${id}`
+                )
+                setCheckedItems(response.data.selectedItems)
+            } catch (error) {
+                console.error('Error fetching checked items from API:', error)
+            }
+        }
+
+        fetchCheckedItems()
+    }, [id, setCheckedItems])
 
     const handleCheckboxChange = itemName => {
         setCheckedItems(prev => {
@@ -16,12 +35,25 @@ export const ListComponent = ({title}) => {
 
             if (!itemTableName) return prev // Added check for undefined itemTableName
 
-            return isChecked
+            const updatedCheckedItems = isChecked
                 ? prev.filter(
                       name => name !== itemTableName && name !== itemName
                   )
                 : [...prev, itemTableName, itemName]
+
+            sendCheckedItemsToAPI(updatedCheckedItems)
+            return updatedCheckedItems
         })
+    }
+
+    const sendCheckedItemsToAPI = async checkedItems => {
+        try {
+            await axios.put(`${import.meta.env.VITE_API}/tabs/${id}`, {
+                selectedItems: checkedItems,
+            })
+        } catch (error) {
+            console.error('Error sending checked items to API:', error)
+        }
     }
 
     return (
