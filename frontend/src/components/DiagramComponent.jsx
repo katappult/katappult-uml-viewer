@@ -53,55 +53,64 @@ export const DiagramComponent = ({title, TableComponent, flowKey, id}) => {
     const [error, setError] = useState(null)
 
     useEffect(() => {
-        try {
-            if (!data) {
-                fetchData()
-            }
+        const fetchNodesAndEdges = async () => {
+            try {
+                if (!data) {
+                    await fetchData()
+                }
 
-            const displayedNodes = createNodesTable(data, title).filter(node =>
-                checkedItems.includes(node.id)
-            )
+                const displayedNodes = (
+                    await createNodesTable(data, title, id)
+                ).filter(node => checkedItems.includes(node.id))
 
-            let newNodes = [
-                ...(isCheckedLegacyEntity
-                    ? [createUserAccountNodeTable(title)]
-                    : []),
-                ...displayedNodes,
-            ]
+                let newNodes = [
+                    ...(isCheckedLegacyEntity
+                        ? [await createUserAccountNodeTable(title, id)]
+                        : []),
+                    ...displayedNodes,
+                ]
 
-            if (data && title.toLowerCase().includes('object')) {
-                const knoersNodes = displayedNodes.flatMap(node =>
-                    node.data.entity.knoers &&
-                    node.data.entity.knoers.length > 0 &&
-                    isCheckedInterface
-                        ? createInterfaceNodesTable(node.data.entity.knoers)
+                if (data && title.toLowerCase().includes('object')) {
+                    const knoersNodes = await Promise.all(
+                        displayedNodes.flatMap(async node =>
+                            node.data.entity.knoers &&
+                            node.data.entity.knoers.length > 0 &&
+                            isCheckedInterface
+                                ? await createInterfaceNodesTable(
+                                      node.data.entity.knoers,
+                                      id
+                                  )
+                                : []
+                        )
+                    )
+
+                    knoersNodes.flat().forEach(knoerNode => {
+                        if (!newNodes.some(node => node.id === knoerNode.id)) {
+                            newNodes.push(knoerNode)
+                        }
+                    })
+                }
+
+                const newEdges =
+                    isCheckedRelation && data
+                        ? [
+                              ...createEdgeOneToMany(data, title),
+                              ...createEdgeManyToMany(data, title),
+                              ...createEdgeOneToOne(data, title),
+                              ...createInterfaceEdge(data),
+                          ]
                         : []
-                )
 
-                knoersNodes.forEach(knoerNode => {
-                    if (!newNodes.some(node => node.id === knoerNode.id)) {
-                        newNodes.push(knoerNode)
-                    }
-                })
+                setNodes(newNodes)
+                setEdges(newEdges)
+                setIsLoading(false)
+            } catch (error) {
+                setError(error.message)
+                setIsLoading(false)
             }
-
-            const newEdges =
-                isCheckedRelation && data
-                    ? [
-                          ...createEdgeOneToMany(data, title),
-                          ...createEdgeManyToMany(data, title),
-                          ...createEdgeOneToOne(data, title),
-                          ...createInterfaceEdge(data),
-                      ]
-                    : []
-
-            setNodes(newNodes)
-            setEdges(newEdges)
-            setIsLoading(false)
-        } catch (error) {
-            setError(error.message)
-            setIsLoading(false)
         }
+
+        fetchNodesAndEdges()
     }, [
         data,
         fetchData,
@@ -112,8 +121,9 @@ export const DiagramComponent = ({title, TableComponent, flowKey, id}) => {
         isCheckedRelation,
         isCheckedInterface,
         isCheckedLegacyEntity,
+        flowKey,
+        id,
     ])
-
     if (isLoading) return <div>Loading...</div>
     if (error) return <div>Error: {error}</div>
     return (

@@ -96,6 +96,7 @@ export const ListComponent = ({title, id}) => {
 }
 
 ListComponent.propTypes = {
+    id: PropTypes.any,
     title: PropTypes.string.isRequired,
     transformItemName: PropTypes.func,
 }
