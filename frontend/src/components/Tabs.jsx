@@ -1,7 +1,7 @@
 import {useState} from 'react'
 import {EntityDiagram} from '../components/Entity/EntityDiagram'
 import {ObjectDiagram} from '../components/Object/ObjectDiagram'
-import {ReactFlowProvider} from '@xyflow/react'
+
 import PropTypes from 'prop-types'
 
 export const Tabs = ({id}) => {
@@ -24,16 +24,8 @@ export const Tabs = ({id}) => {
                 </button>
             </div>
             <div>
-                {activeTab === 'entity' && (
-                    <ReactFlowProvider>
-                        <EntityDiagram id={id} />
-                    </ReactFlowProvider>
-                )}
-                {activeTab === 'object' && (
-                    <ReactFlowProvider>
-                        <ObjectDiagram id={id} />
-                    </ReactFlowProvider>
-                )}
+                {activeTab === 'entity' && <EntityDiagram id={id} />}
+                {activeTab === 'object' && <ObjectDiagram id={id} />}
             </div>
         </div>
     )
