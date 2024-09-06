@@ -1,4 +1,5 @@
 import {Position, MarkerType} from '@xyflow/react'
+import axios from 'axios'
 
 // Convert camelCase to snake_case
 export const camelToSnakeCase = str =>
@@ -12,12 +13,27 @@ export const typeMap = {
     Date: 'DATE',
 }
 
+// Fetch positions from API
+const fetchPositions = async (id, title) => {
+    try {
+        const response = await axios.get(`http://localhost:3000/api/tabs/${id}`)
+        return title && title.includes('Object')
+            ? response.data.NodesObject
+            : response.data.NodesEntity
+    } catch (error) {
+        console.error('Error fetching positions:', error)
+        return []
+    }
+}
+
 // Create nodes table from entities
-export const createNodesTable = (entities, title) => {
+export const createNodesTable = async (entities, title, id) => {
     if (!Array.isArray(entities) || entities.length === 0) {
         console.error('Entities array is invalid or empty')
         return []
     }
+
+    const positions = await fetchPositions(id, title)
 
     return entities.map((entity, index) => {
         if (!entity.attributes.entity) return null
@@ -26,13 +42,14 @@ export const createNodesTable = (entities, title) => {
             title && title.includes('Object')
                 ? entity.attributes.entity.name
                 : entity.attributes.entity.table
-        const storedPosition = JSON.parse(
-            localStorage.getItem(`nodePosition_${entityName}`)
-        )
+        const storedPosition = positions.find(
+            node => node.id === entityName
+        )?.position
 
         const row = Math.floor(index / 5)
         const col = index % 5
         const defaultPosition = {x: 50 + col * 450, y: 100 + row * 250}
+
         return {
             id: entityName,
             label: entityName,
@@ -45,16 +62,47 @@ export const createNodesTable = (entities, title) => {
     })
 }
 
-// Function to store the position of a node in local storage when it's moved
-export const updateNodePosition = (nodeId, position) => {
-    localStorage.setItem(`nodePosition_${nodeId}`, JSON.stringify(position))
+export const createUserAccountNodeTable = async (title, id) => {
+    const entity = {
+        entity: {
+            name: 'UserAccount',
+            table: 'GEN_USER_ACCOUNT',
+            attributes: [
+                {type: 'String', name: 'firstname', id: 'firstnameID'},
+                {type: 'String', name: 'lastname', id: 'lastnameID'},
+            ],
+        },
+    }
+
+    const entityName =
+        title && title.includes('Object')
+            ? entity.entity.name
+            : entity.entity.table
+
+    const positions = await fetchPositions(id, title)
+    const storedPosition = positions.find(
+        node => node.id === entityName
+    )?.position
+
+    const defaultPosition = {x: 50, y: 100}
+
+    return {
+        id: entityName,
+        label: entityName,
+        type: 'table',
+        position: storedPosition || defaultPosition,
+        data: entity,
+        dragHandle: '.custom-drag-handle',
+    }
 }
 
-export const createInterfaceNodesTable = knoers => {
+export const createInterfaceNodesTable = async (knoers, id) => {
+    const positions = await fetchPositions(id, 'Object')
+
     return knoers.map((knoer, index) => {
-        const storedPosition = JSON.parse(
-            localStorage.getItem(`nodePosition_${knoer}`)
-        )
+        const storedPosition = positions.find(
+            node => node.id === knoer
+        )?.position
         const defaultPosition = {x: -450, y: 100 + index * 150}
 
         return {
@@ -89,15 +137,11 @@ const createEdges = (
                             title && title.includes('Entity')
                                 ? `GEN_${camelToSnakeCase(relation.roleAClass).toUpperCase()}`
                                 : relation.roleAClass,
-
                         target:
                             title && title.includes('Entity')
                                 ? `GEN_${camelToSnakeCase(relation.roleBClass).toUpperCase()}`
                                 : relation.roleBClass,
-                        data: {
-                            startLabel: `${startLabel}`,
-                            endLabel: `${endLabel}`,
-                        },
+                        data: {startLabel, endLabel},
                         type: 'floating',
                         style: {strokeWidth: 5, stroke: strokeColor},
                     })
@@ -117,13 +161,9 @@ const createKnoersEdges = (entities, strokeColor, startLabel, endLabel) => {
                     id: `${entity.attributes.entity.name}_${knoer}_${index}`,
                     source: `${entity.attributes.entity.name}`,
                     target: `${knoer}`,
-                    data: {
-                        startLabel: `${startLabel}`,
-                        endLabel: `${endLabel}`,
-                    },
-                    markerEnd: {
-                        type: MarkerType.ArrowClosed,
-                    },
+                    data: {startLabel, endLabel},
+                    markerEnd: {type: MarkerType.ArrowClosed},
+                    animated: true,
                     type: 'floating',
                     style: {strokeWidth: 5, stroke: strokeColor},
                 })
@@ -141,6 +181,7 @@ export const createEdgeOneToOne = (entities, title) =>
     createEdges(entities, 'oneToOne', 'blue', '1', '1', title)
 export const createInterfaceEdge = entities =>
     createKnoersEdges(entities, 'orange')
+
 // Get parameters for edge positioning, considering only left and right positions
 export const getParams = (nodeA, nodeB) => {
     const centerA = getNodeCenter(nodeA)
